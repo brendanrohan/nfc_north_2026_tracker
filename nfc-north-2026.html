@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NFC North 2026 | Division Tracker</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a0e1a;
+    --navy-mid: #111827;
+    --navy-card: #161d2e;
+    --navy-border: #1e2d45;
+    --gold: #d4a017;
+    --gold-light: #f0c040;
+    --green: #2ea84f;
+    --red: #e03030;
+    --muted: #6b7a99;
+    --text: #dde3f0;
+    --text-dim: #8892aa;
+
+    --bear-blue: #0b1f59;
+    --bear-orange: #e64100;
+    --lion-blue: #0076b6;
+    --lion-silver: #b0b7bc;
+    --packer-green: #203731;
+    --packer-gold: #ffb612;
+    --viking-purple: #4f2683;
+    --viking-gold: #ffc62f;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--navy);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, #0a0e1a 0%, #0d1a36 60%, #111827 100%);
+    border-bottom: 2px solid var(--navy-border);
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent, transparent 40px,
+      rgba(212,160,23,.03) 40px, rgba(212,160,23,.03) 41px
+    );
+  }
+  .header-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+  }
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    letter-spacing: .04em;
+    line-height: 1;
+    color: #fff;
+  }
+  header h1 span { color: var(--gold); }
+  .header-sub {
+    color: var(--muted);
+    font-size: .85rem;
+    margin-top: .4rem;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--navy-mid);
+    border-bottom: 1px solid var(--navy-border);
+    display: flex;
+    gap: .25rem;
+    padding: .5rem 1rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky; top: 0; z-index: 100;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  nav a {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: .4rem .9rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    transition: all .2s;
+  }
+  nav a:hover, nav a.active {
+    background: var(--navy-border);
+    color: var(--gold);
+  }
+
+  /* ── LAYOUT ── */
+  main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+
+  section { margin-bottom: 3rem; scroll-margin-top: 60px; }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.7rem;
+    letter-spacing: .05em;
+    color: #fff;
+  }
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--navy-border), transparent);
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1rem; }
+  .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; }
+
+  /* ── STANDINGS TABLE ── */
+  .standings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+  }
+  .standings-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: .5rem .75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .standings-table th:not(:first-child) { text-align: center; }
+  .standings-table td {
+    padding: .65rem .75rem;
+    border-bottom: 1px solid rgba(30,45,69,.5);
+    vertical-align: middle;
+  }
+  .standings-table td:not(:first-child) { text-align: center; font-family: 'DM Mono', monospace; }
+  .standings-table tr:last-child td { border-bottom: none; }
+  .standings-table tr:hover td { background: rgba(255,255,255,.02); }
+
+  .team-name-cell {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-weight: 500;
+  }
+  .team-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .rank-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    color: var(--muted);
+    width: 1.2rem;
+    text-align: right;
+  }
+  .record-w { color: var(--green); }
+  .record-l { color: var(--red); }
+
+  /* ── OVER/UNDER ── */
+  .ou-card {
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid var(--navy-border);
+    position: relative;
+    overflow: hidden;
+  }
+  .ou-team { font-weight: 700; font-size: 1rem; margin-bottom: .25rem; }
+  .ou-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: #fff;
+  }
+  .ou-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
+  .ou-bar-bg {
+    margin-top: .75rem;
+    height: 4px;
+    background: rgba(255,255,255,.08);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .ou-bar { height: 100%; border-radius: 2px; transition: width .6s ease; }
+  .ou-wins-tracker {
+    margin-top: .6rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    color: var(--muted);
+  }
+  .ou-wins-tracker span { color: var(--text); font-weight: 500; }
+
+  /* ── OPPONENT CARDS ── */
+  .opp-section { margin-bottom: .75rem; }
+  .opp-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .4rem;
+  }
+  .opp-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .35rem;
+  }
+  .opp-chip {
+    background: rgba(255,255,255,.05);
+    border: 1px solid var(--navy-border);
+    border-radius: 4px;
+    padding: .2rem .6rem;
+    font-size: .8rem;
+  }
+  .team-opp-card { padding: 1rem 1.25rem; }
+  .team-opp-header {
+    font-weight: 700;
+    font-size: .9rem;
+    margin-bottom: .6rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+
+  /* ── WEEK MODULES ── */
+  .weeks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .week-card {
+    border-radius: 8px;
+    border: 1px solid var(--navy-border);
+    background: var(--navy-card);
+    overflow: hidden;
+  }
+  .week-header {
+    padding: .6rem 1rem;
+    background: rgba(212,160,23,.07);
+    border-bottom: 1px solid var(--navy-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .week-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .05em;
+    color: var(--gold);
+  }
+  .week-date {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    color: var(--muted);
+  }
+  .week-body { padding: .5rem 0; }
+
+  .game-row {
+    display: flex;
+    align-items: center;
+    padding: .45rem 1rem;
+    gap: .6rem;
+    border-bottom: 1px solid rgba(30,45,69,.4);
+    transition: background .15s;
+    cursor: default;
+  }
+  .game-row:last-child { border-bottom: none; }
+  .game-row:hover { background: rgba(255,255,255,.02); }
+  .game-row.divisional {
+    background: rgba(212,160,23,.04);
+  }
+  .game-row.divisional:hover { background: rgba(212,160,23,.08); }
+
+  .div-star {
+    color: var(--gold);
+    font-size: .75rem;
+    flex-shrink: 0;
+    width: 12px;
+  }
+  .game-matchup {
+    flex: 1;
+    font-size: .85rem;
+  }
+  .game-matchup strong { font-weight: 600; }
+  .away-team { color: var(--text-dim); }
+  .home-team { color: var(--text); }
+  .vs-sep { color: var(--muted); font-size: .75rem; margin: 0 .15rem; }
+  .game-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: .1rem;
+  }
+  .game-line {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    color: var(--gold-light);
+    background: rgba(212,160,23,.1);
+    padding: .1rem .4rem;
+    border-radius: 3px;
+  }
+  .game-slot {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
+  .bye-row {
+    padding: .45rem 1rem;
+    font-size: .8rem;
+    color: var(--muted);
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+  }
+  .bye-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
+
+  /* ── RESULT BADGE ── */
+  .result-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    padding: .1rem .45rem;
+    border-radius: 3px;
+    font-weight: 500;
+    flex-shrink: 0;
+  }
+  .result-w { background: rgba(46,168,79,.15); color: #4cd873; border: 1px solid rgba(46,168,79,.3); }
+  .result-l { background: rgba(224,48,48,.15); color: #f06060; border: 1px solid rgba(224,48,48,.3); }
+  .result-t { background: rgba(107,122,153,.15); color: var(--muted); border: 1px solid var(--navy-border); }
+
+  /* ── EDIT MODE ── */
+  .edit-toggle {
+    position: fixed;
+    bottom: 1.5rem; right: 1.5rem;
+    background: var(--gold);
+    color: #0a0e1a;
+    border: none;
+    border-radius: 999px;
+    padding: .6rem 1.25rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(212,160,23,.4);
+    z-index: 200;
+    transition: all .2s;
+    text-transform: uppercase;
+  }
+  .edit-toggle:hover { background: var(--gold-light); box-shadow: 0 6px 28px rgba(212,160,23,.5); }
+  .edit-toggle.active { background: #e03030; color: #fff; box-shadow: 0 4px 20px rgba(224,48,48,.4); }
+
+  .editable { cursor: text; border-radius: 3px; transition: background .15s; }
+  body.edit-mode .editable {
+    outline: 1px dashed rgba(212,160,23,.4);
+    background: rgba(212,160,23,.04);
+    cursor: text;
+  }
+  body.edit-mode .editable:focus {
+    outline: 2px solid var(--gold);
+    background: rgba(212,160,23,.08);
+  }
+  body.edit-mode .editable[contenteditable="true"] { white-space: pre-wrap; }
+
+  /* ── BLOG SECTION ── */
+  .blog-placeholder {
+    border: 2px dashed var(--navy-border);
+    border-radius: 8px;
+    padding: 2.5rem;
+    text-align: center;
+    color: var(--muted);
+  }
+  .blog-placeholder .bp-icon { font-size: 2.5rem; margin-bottom: .75rem; opacity: .4; }
+  .blog-placeholder h3 { color: var(--text-dim); font-weight: 500; margin-bottom: .4rem; }
+  .blog-placeholder p { font-size: .85rem; max-width: 380px; margin: 0 auto; }
+
+  .blog-post {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+  .blog-post-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--navy-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .blog-post-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: .03em;
+    color: #fff;
+  }
+  .blog-post-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    padding: .2rem .5rem;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+  .tag-preview { background: rgba(212,160,23,.12); color: var(--gold); border: 1px solid rgba(212,160,23,.25); }
+  .tag-review { background: rgba(46,168,79,.12); color: #4cd873; border: 1px solid rgba(46,168,79,.25); }
+  .blog-post-body { padding: 1.25rem 1.5rem; font-size: .9rem; line-height: 1.75; color: var(--text-dim); }
+  .blog-post-meta { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--muted); margin-top: .4rem; }
+
+  .add-post-btn {
+    background: transparent;
+    border: 1px dashed var(--navy-border);
+    border-radius: 6px;
+    padding: .7rem 1.25rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    transition: all .2s;
+    display: none;
+  }
+  body.edit-mode .add-post-btn { display: block; }
+  .add-post-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* ── RECORD INPUT (edit mode game results) ── */
+  .result-select {
+    display: none;
+    background: var(--navy);
+    border: 1px solid var(--navy-border);
+    color: var(--text);
+    border-radius: 4px;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    padding: .1rem .3rem;
+    cursor: pointer;
+  }
+  body.edit-mode .result-select { display: inline-block; }
+  body.edit-mode .result-badge { display: none; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .weeks-grid { grid-template-columns: 1fr; }
+    .grid-4 { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── UTILITY ── */
+  .tag-label {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    color: var(--muted);
+    background: rgba(255,255,255,.04);
+    border: 1px solid var(--navy-border);
+    padding: .15rem .5rem;
+    border-radius: 3px;
+    margin-left: .5rem;
+    vertical-align: middle;
+  }
+
+  .save-notice {
+    position: fixed;
+    bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+    background: var(--navy-mid);
+    border: 1px solid var(--green);
+    color: #4cd873;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .08em;
+    padding: .5rem 1rem;
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s;
+    z-index: 300;
+  }
+  .save-notice.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">2026 Season Tracker</div>
+  <h1>NFC <span>North</span></h1>
+  <div class="header-sub">Bears · Lions · Packers · Vikings — Live all season long</div>
+</header>
+
+<nav id="main-nav">
+  <a href="#standings" class="active">Standings</a>
+  <a href="#overunders">Over/Unders</a>
+  <a href="#opponents">Opponents</a>
+  <a href="#schedule">Schedule</a>
+  <a href="#blog">Blog</a>
+</nav>
+
+<main>
+
+<!-- ══════════════════════════════════════════
+     2025 FINAL STANDINGS
+════════════════════════════════════════════ -->
+<section id="standings">
+  <div class="section-header">
+    <span class="section-label">2025 Final Standings</span>
+    <div class="section-line"></div>
+    <span class="tag-label">Final</span>
+  </div>
+  <div class="card">
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>W</th><th>L</th><th>T</th><th>Pct</th>
+        </tr>
+      </thead>
+      <tbody id="standings-body">
+        <!-- rendered by JS -->
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     2026 OVER/UNDERS
+════════════════════════════════════════════ -->
+<section id="overunders">
+  <div class="section-header">
+    <span class="section-label">2026 Win Totals</span>
+    <div class="section-line"></div>
+    <span class="tag-label">Over/Under</span>
+  </div>
+  <div class="grid-4" id="ou-grid">
+    <!-- rendered by JS -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     OPPONENTS
+════════════════════════════════════════════ -->
+<section id="opponents">
+  <div class="section-header">
+    <span class="section-label">2026 Opponents</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="section-header" style="margin-top:0;margin-bottom:.75rem;">
+    <span style="font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;">Common Opponents</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="card" style="margin-bottom:1.25rem;" id="common-opponents-card">
+    <div class="opp-section">
+      <div class="opp-label">NFC South</div>
+      <div class="opp-chips" id="co-nfcs">
+        <span class="opp-chip editable" contenteditable="false">Buccaneers</span>
+        <span class="opp-chip editable" contenteditable="false">Falcons</span>
+        <span class="opp-chip editable" contenteditable="false">Panthers</span>
+        <span class="opp-chip editable" contenteditable="false">Saints</span>
+      </div>
+    </div>
+    <div class="opp-section" style="margin-top:.75rem;">
+      <div class="opp-label">AFC East</div>
+      <div class="opp-chips" id="co-afce">
+        <span class="opp-chip editable" contenteditable="false">Bills</span>
+        <span class="opp-chip editable" contenteditable="false">Dolphins</span>
+        <span class="opp-chip editable" contenteditable="false">Jets</span>
+        <span class="opp-chip editable" contenteditable="false">Patriots</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-header" style="margin-bottom:.75rem;">
+    <span style="font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;">By 2025 Finish</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="grid-4" id="finish-opps">
+    <!-- rendered by JS -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     SCHEDULE
+════════════════════════════════════════════ -->
+<section id="schedule">
+  <div class="section-header">
+    <span class="section-label">2026 Schedule</span>
+    <div class="section-line"></div>
+    <span style="font-size:.75rem;color:var(--gold);font-family:'DM Mono',monospace;">★ = Divisional</span>
+  </div>
+  <div class="weeks-grid" id="weeks-grid">
+    <!-- rendered by JS -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     BLOG
+════════════════════════════════════════════ -->
+<section id="blog">
+  <div class="section-header">
+    <span class="section-label">Blog</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div id="blog-posts">
+    <!-- placeholder shown when no posts -->
+    <div class="blog-placeholder" id="blog-empty">
+      <div class="bp-icon">📝</div>
+      <h3>Season preview coming soon</h3>
+      <p>Enable edit mode to add a season preview or weekly review post before the season kicks off in September.</p>
+    </div>
+  </div>
+  <button class="add-post-btn" onclick="addBlogPost()">+ Add Blog Post</button>
+</section>
+
+</main>
+
+<!-- Edit toggle -->
+<button class="edit-toggle" id="edit-btn" onclick="toggleEdit()">✏ Edit Mode</button>
+<div class="save-notice" id="save-notice">Changes auto-saved</div>
+
+<script>
+/* ══════════════════════
+   DATA
+══════════════════════ */
+const TEAMS = {
+  bears: { name:'Bears', city:'Chicago', color: '#e64100', bg:'#0b1f59', abbr:'CHI' },
+  lions: { name:'Lions', city:'Detroit', color:'#0076b6', bg:'#0d2a3f', abbr:'DET' },
+  packers: { name:'Packers', city:'Green Bay', color:'#ffb612', bg:'#203731', abbr:'GB' },
+  vikings: { name:'Vikings', city:'Minnesota', color:'#ffc62f', bg:'#2d1550', abbr:'MIN' },
+};
+
+const STANDINGS_2025 = [
+  { team:'bears', w:11, l:6, t:0 },
+  { team:'packers', w:9, l:7, t:1 },
+  { team:'vikings', w:9, l:8, t:0 },
+  { team:'lions', w:9, l:8, t:0 },
+];
+
+const OU_2026 = [
+  { team:'lions', ou:10.5 },
+  { team:'packers', ou:10.5 },
+  { team:'bears', ou:9.5 },
+  { team:'vikings', ou:8.5 },
+];
+
+const FINISH_OPPS = [
+  { team:'bears', label:'Bears (1st)', opps:['Eagles','Seahawks','Jaguars'] },
+  { team:'packers', label:'Packers (2nd)', opps:['Cowboys','Rams','Texans'] },
+  { team:'vikings', label:'Vikings (3rd)', opps:['Commanders','49ers','Colts'] },
+  { team:'lions', label:'Lions (4th)', opps:['NY Giants','Cardinals','Titans'] },
+];
+
+const DIV_TEAMS = ['Bears','Lions','Packers','Vikings'];
+
+function isDivisional(game) {
+  const t = [game.away, game.home];
+  return t.some(x => DIV_TEAMS.includes(x)) && t.filter(x => DIV_TEAMS.includes(x)).length >= 2;
+}
+
+const WEEKS = [
+  { week:1, date:'Sep 13', games:[
+    { away:'Packers', home:'Vikings', neutral:false, line:'Green Bay -1.5', slot:null },
+    { away:null, home:'Lions', opp:'Saints', neutral:false, line:'Lions -7', slot:null },
+    { away:'Bears', home:'Panthers', neutral:false, line:'Bears -2.5', slot:null },
+  ]},
+  { week:2, date:'Sep 20', games:[
+    { away:'Vikings', home:'Bears', neutral:false, line:null, slot:null },
+    { away:'Lions', home:'Bills', neutral:false, line:null, slot:'TNF' },
+    { away:'Packers', home:'Jets', neutral:false, line:null, slot:null },
+  ]},
+  { week:3, date:'Sep 27', games:[
+    { away:null, home:'Packers', opp:'Falcons', neutral:false, line:null, slot:'TNF' },
+    { away:'Vikings', home:'Buccaneers', neutral:false, line:null, slot:null },
+    { away:null, home:'Lions', opp:'Jets', neutral:false, line:null, slot:null },
+    { away:null, home:'Bears', opp:'Eagles', neutral:false, line:null, slot:'MNF' },
+  ]},
+  { week:4, date:'Oct 4', games:[
+    { away:null, home:'Bears', opp:'Jets', neutral:false, line:null, slot:null },
+    { away:null, home:'Vikings', opp:'Dolphins', neutral:false, line:null, slot:null },
+    { away:'Lions', home:'Panthers', neutral:false, line:null, slot:'SNF' },
+    { away:null, home:'Packers', opp:'Buccaneers', neutral:false, line:null, slot:null },
+  ]},
+  { week:5, date:'Oct 11', games:[
+    { away:'Bears', home:'Packers', neutral:false, line:null, slot:null },
+    { away:'Vikings', home:'Saints', neutral:false, line:null, slot:null },
+    { away:'Lions', home:'Cardinals', neutral:false, line:null, slot:null },
+  ]},
+  { week:6, date:'Oct 18', byes:['Lions','Vikings'], games:[
+    { away:'Bears', home:'Falcons', neutral:false, line:null, slot:null },
+    { away:null, home:'Packers', opp:'Cowboys', neutral:false, line:null, slot:'SNF' },
+  ]},
+  { week:7, date:'Oct 25', games:[
+    { away:'Packers', home:'Lions', neutral:false, line:null, slot:null },
+    { away:'Patriots', home:'Bears', neutral:false, line:null, slot:'TNF' },
+    { away:'Colts', home:'Vikings', neutral:false, line:null, slot:null },
+  ]},
+  { week:8, date:'Nov 1', games:[
+    { away:null, home:'Lions', opp:'Vikings', neutral:false, line:null, slot:null },
+    { away:null, home:'Packers', opp:'Panthers', neutral:false, line:null, slot:'TNF' },
+    { away:'Bears', home:'Seahawks', neutral:false, line:null, slot:'MNF' },
+  ]},
+  { week:9, date:'Nov 8', games:[
+    { away:'Lions', home:'Dolphins', neutral:false, line:null, slot:null },
+    { away:null, home:'Bears', opp:'Buccaneers', neutral:false, line:null, slot:null },
+    { away:'Packers', home:'Patriots', neutral:false, line:null, slot:null },
+    { away:null, home:'Vikings', opp:'Bills', neutral:false, line:null, slot:'MNF' },
+  ]},
+  { week:10, date:'Nov 15', byes:['Bears'], games:[
+    { away:'Vikings', home:'Packers', neutral:false, line:null, slot:null },
+    { away:null, home:'Lions', opp:'Patriots', neutral:false, line:null, slot:'Munich' },
+  ]},
+  { week:11, date:'Nov 22', byes:['Packers'], games:[
+    { away:null, home:'Lions', opp:'Buccaneers', neutral:false, line:null, slot:null },
+    { away:null, home:'Bears', opp:'Saints', neutral:false, line:null, slot:null },
+    { away:'Vikings', home:'49ers', neutral:false, line:null, slot:'SNF' },
+  ]},
+  { week:12, date:'Nov 29', games:[
+    { away:'Bears', home:'Lions', neutral:false, line:null, slot:'Thanksgiving', note:'🦃' },
+    { away:'Packers', home:'Rams', neutral:false, line:null, slot:'Thanksgiving Eve', note:'🦃' },
+    { away:'Falcons', home:'Vikings', neutral:false, line:null, slot:null },
+  ]},
+  { week:13, date:'Dec 6', games:[
+    { away:'Lions', home:'Falcons', neutral:false, line:null, slot:null },
+    { away:null, home:'Vikings', opp:'Panthers', neutral:false, line:null, slot:null },
+    { away:'Packers', home:'Saints', neutral:false, line:null, slot:null },
+    { away:'Jaguars', home:'Bears', neutral:false, line:null, slot:null },
+  ]},
+  { week:14, date:'Dec 13', games:[
+    { away:'Vikings', home:'Patriots', neutral:false, line:null, slot:'TNF' },
+    { away:null, home:'Lions', opp:'Titans', neutral:false, line:null, slot:null },
+    { away:'Bears', home:'Dolphins', neutral:false, line:null, slot:null },
+    { away:'Bills', home:'Packers', neutral:false, line:null, slot:'SNF' },
+  ]},
+  { week:15, date:'Dec 20', games:[
+    { away:'Lions', home:'Vikings', neutral:false, line:null, slot:'SNF' },
+    { away:'Bears', home:'Bills', neutral:false, line:null, slot:'Saturday' },
+    { away:'Dolphins', home:'Packers', neutral:false, line:null, slot:null },
+  ]},
+  { week:16, date:'Dec 27', games:[
+    { away:'Packers', home:'Bears', neutral:false, line:null, slot:'Christmas', note:'🎄' },
+    { away:'Commanders', home:'Vikings', neutral:false, line:null, slot:null },
+    { away:null, home:'Lions', opp:'Giants', neutral:false, line:null, slot:'MNF' },
+  ]},
+  { week:17, date:'Jan 3', games:[
+    { away:'Lions', home:'Bears', neutral:false, line:null, slot:null },
+    { away:'Vikings', home:'Jets', neutral:false, line:null, slot:null },
+    { away:null, home:'Packers', opp:'Texans', neutral:false, line:null, slot:'MNF' },
+  ]},
+  { week:18, date:'Jan 10', games:[
+    { away:'Lions', home:'Packers', neutral:false, line:null, slot:null },
+    { away:'Bears', home:'Vikings', neutral:false, line:null, slot:null },
+  ]},
+];
+
+/* ══════════════════════
+   STATE (localStorage)
+══════════════════════ */
+let state = {
+  gameResults: {}, // key: "w1-g0" -> "W" | "L" | "T" | ""
+  wins2026: { bears:0, lions:0, packers:0, vikings:0 },
+  blogPosts: [],
+};
+
+function loadState() {
+  try {
+    const s = localStorage.getItem('nfcnorth2026');
+    if (s) state = { ...state, ...JSON.parse(s) };
+  } catch(e) {}
+}
+function saveState() {
+  localStorage.setItem('nfcnorth2026', JSON.stringify(state));
+  flashSave();
+}
+function flashSave() {
+  const n = document.getElementById('save-notice');
+  n.classList.add('show');
+  setTimeout(() => n.classList.remove('show'), 1800);
+}
+
+/* ══════════════════════
+   RENDER STANDINGS
+══════════════════════ */
+function renderStandings() {
+  const tbody = document.getElementById('standings-body');
+  tbody.innerHTML = STANDINGS_2025.map((row, i) => {
+    const t = TEAMS[row.team];
+    const games = row.w + row.l + row.t;
+    const pct = games ? ((row.w + row.t * 0.5) / games).toFixed(3) : '.000';
+    return `<tr>
+      <td>
+        <div class="team-name-cell">
+          <span class="rank-badge">${i+1}</span>
+          <span class="team-dot" style="background:${t.color}"></span>
+          <span>${t.city} ${t.name}</span>
+        </div>
+      </td>
+      <td class="editable record-w" contenteditable="false" data-field="standings-${row.team}-w">${row.w}</td>
+      <td class="editable record-l" contenteditable="false" data-field="standings-${row.team}-l">${row.l}</td>
+      <td class="editable" contenteditable="false" data-field="standings-${row.team}-t">${row.t}</td>
+      <td style="color:var(--muted)">${pct}</td>
+    </tr>`;
+  }).join('');
+}
+
+/* ══════════════════════
+   RENDER OVER/UNDERS
+══════════════════════ */
+function renderOU() {
+  const grid = document.getElementById('ou-grid');
+  const maxOU = Math.max(...OU_2026.map(x=>x.ou));
+  grid.innerHTML = OU_2026.map(row => {
+    const t = TEAMS[row.team];
+    const wins = state.wins2026[row.team] || 0;
+    const pct = Math.min(100, (wins / row.ou) * 100);
+    const diff = wins - row.ou;
+    const diffStr = diff === 0 ? 'Even' : (diff > 0 ? `+${diff} over` : `${diff} under`);
+    return `<div class="ou-card" style="background:linear-gradient(135deg,${t.bg} 0%,var(--navy-card) 100%);">
+      <div class="ou-team" style="color:${t.color}">${t.city} ${t.name}</div>
+      <div class="ou-number editable" contenteditable="false" data-field="ou-${row.team}">${row.ou}</div>
+      <div class="ou-label">Win Total O/U</div>
+      <div class="ou-bar-bg">
+        <div class="ou-bar" style="width:${pct}%;background:${t.color}"></div>
+      </div>
+      <div class="ou-wins-tracker">
+        2026 wins: <span class="editable" contenteditable="false" data-field="wins-${row.team}">${wins}</span>
+        <span style="color:var(--muted);margin-left:.4rem">(${diffStr})</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════
+   RENDER FINISH OPPS
+══════════════════════ */
+function renderFinishOpps() {
+  const grid = document.getElementById('finish-opps');
+  grid.innerHTML = FINISH_OPPS.map(row => {
+    const t = TEAMS[row.team];
+    return `<div class="card team-opp-card">
+      <div class="team-opp-header" style="color:${t.color}">${row.label}</div>
+      <div class="opp-chips">
+        ${row.opps.map(o => `<span class="opp-chip editable" contenteditable="false">${o}</span>`).join('')}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════
+   RENDER SCHEDULE
+══════════════════════ */
+function gameKey(wi, gi) { return `w${wi}-g${gi}`; }
+
+function renderSchedule() {
+  const grid = document.getElementById('weeks-grid');
+  grid.innerHTML = WEEKS.map((wk, wi) => {
+    const byes = wk.byes || [];
+    const gamesHTML = wk.games.map((g, gi) => {
+      const away = g.away || g.opp || '';
+      const home = g.home || '';
+      const divGame = DIV_TEAMS.includes(away) && DIV_TEAMS.includes(home);
+      const key = gameKey(wi, gi);
+      const result = state.gameResults[key] || '';
+
+      let badgeHTML = '';
+      if (result === 'W') badgeHTML = `<span class="result-badge result-w">W</span>`;
+      else if (result === 'L') badgeHTML = `<span class="result-badge result-l">L</span>`;
+      else if (result === 'T') badgeHTML = `<span class="result-badge result-t">T</span>`;
+
+      return `<div class="game-row${divGame ? ' divisional' : ''}">
+        <span class="div-star">${divGame ? '★' : ''}</span>
+        <div class="game-matchup">
+          ${g.away ? `<span class="away-team">${g.away}</span> <span class="vs-sep">@</span> <span class="home-team">${g.home}</span>` 
+                   : `<span class="home-team">${g.home}</span> <span class="vs-sep">vs</span> <span>${g.opp}</span>`}
+        </div>
+        <div class="game-meta">
+          ${g.line ? `<span class="game-line editable" contenteditable="false" data-field="line-${wi}-${gi}">${g.line}</span>` : ''}
+          ${g.slot ? `<span class="game-slot">${g.slot}${g.note ? ' '+g.note : ''}</span>` : (g.note ? `<span class="game-slot">${g.note}</span>` : '')}
+        </div>
+        ${badgeHTML}
+        <select class="result-select" data-key="${key}" onchange="setResult(this)">
+          <option value="">—</option>
+          <option value="W" ${result==='W'?'selected':''}>W</option>
+          <option value="L" ${result==='L'?'selected':''}>L</option>
+          <option value="T" ${result==='T'?'selected':''}>T</option>
+        </select>
+      </div>`;
+    }).join('');
+
+    const byesHTML = byes.map(b => `<div class="bye-row"><span class="bye-dot"></span>${b}: Bye Week</div>`).join('');
+
+    return `<div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week ${wk.week}</span>
+        <span class="week-date">${wk.date}</span>
+      </div>
+      <div class="week-body">
+        ${byesHTML}
+        ${gamesHTML}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════
+   RENDER BLOG
+══════════════════════ */
+function renderBlog() {
+  const container = document.getElementById('blog-posts');
+  const empty = document.getElementById('blog-empty');
+
+  if (state.blogPosts.length === 0) {
+    if (!empty) {
+      container.innerHTML = `<div class="blog-placeholder" id="blog-empty">
+        <div class="bp-icon">📝</div>
+        <h3>Season preview coming soon</h3>
+        <p>Enable edit mode to add a season preview or weekly review post before the season kicks off in September.</p>
+      </div>`;
+    }
+    return;
+  }
+
+  const postsHTML = state.blogPosts.map((p, i) => `
+    <div class="blog-post" data-post-index="${i}">
+      <div class="blog-post-header">
+        <div>
+          <div class="blog-post-title editable" contenteditable="false" data-field="blog-title-${i}">${p.title}</div>
+          <div class="blog-post-meta editable" contenteditable="false" data-field="blog-date-${i}">${p.date}</div>
+        </div>
+        <span class="blog-post-tag ${p.type === 'preview' ? 'tag-preview' : 'tag-review'}">${p.type === 'preview' ? 'Preview' : 'Review'}</span>
+      </div>
+      <div class="blog-post-body editable" contenteditable="false" data-field="blog-body-${i}">${p.body}</div>
+    </div>
+  `).join('');
+
+  container.innerHTML = postsHTML;
+}
+
+function addBlogPost() {
+  const typeChoice = prompt('Post type: "preview" or "review"?', 'preview');
+  if (!typeChoice) return;
+  state.blogPosts.push({
+    title: 'New Post Title',
+    date: new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}),
+    type: typeChoice.trim().toLowerCase() === 'review' ? 'review' : 'preview',
+    body: 'Click to edit this post content...',
+  });
+  saveState();
+  renderBlog();
+  if (editMode) activateEditables();
+}
+
+/* ══════════════════════
+   EDIT MODE
+══════════════════════ */
+let editMode = false;
+
+function toggleEdit() {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  const btn = document.getElementById('edit-btn');
+  btn.textContent = editMode ? '✓ Save & Exit' : '✏ Edit Mode';
+  btn.classList.toggle('active', editMode);
+  activateEditables();
+  if (!editMode) saveAllEdits();
+}
+
+function activateEditables() {
+  document.querySelectorAll('.editable').forEach(el => {
+    el.contentEditable = editMode ? 'true' : 'false';
+  });
+}
+
+function saveAllEdits() {
+  // Collect all editable field changes
+  document.querySelectorAll('[data-field]').forEach(el => {
+    const field = el.dataset.field;
+    const val = el.textContent.trim();
+    // standings
+    if (field.startsWith('standings-')) {
+      const [,team,col] = field.split('-');
+      const row = STANDINGS_2025.find(r => r.team === team);
+      if (row) row[col] = parseInt(val) || 0;
+    }
+    // OU
+    if (field.startsWith('ou-')) {
+      const team = field.split('-')[1];
+      const r = OU_2026.find(x => x.team === team);
+      if (r) r.ou = parseFloat(val) || r.ou;
+    }
+    // wins tracker
+    if (field.startsWith('wins-')) {
+      const team = field.split('-')[1];
+      state.wins2026[team] = parseInt(val) || 0;
+    }
+    // blog
+    if (field.startsWith('blog-title-')) {
+      const idx = parseInt(field.split('-')[2]);
+      if (state.blogPosts[idx]) state.blogPosts[idx].title = el.textContent;
+    }
+    if (field.startsWith('blog-body-')) {
+      const idx = parseInt(field.split('-')[2]);
+      if (state.blogPosts[idx]) state.blogPosts[idx].body = el.innerHTML;
+    }
+    if (field.startsWith('blog-date-')) {
+      const idx = parseInt(field.split('-')[2]);
+      if (state.blogPosts[idx]) state.blogPosts[idx].date = el.textContent;
+    }
+    // lines
+    if (field.startsWith('line-')) {
+      const [,wi,gi] = field.split('-');
+      if (WEEKS[wi] && WEEKS[wi].games[gi]) WEEKS[wi].games[gi].line = val;
+    }
+  });
+  saveState();
+  renderAll();
+  activateEditables();
+}
+
+function setResult(sel) {
+  state.gameResults[sel.dataset.key] = sel.value;
+  saveState();
+}
+
+/* ══════════════════════
+   NAV ACTIVE STATE
+══════════════════════ */
+function setupNavSpy() {
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('nav a');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => a.classList.remove('active'));
+        const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.3 });
+  sections.forEach(s => observer.observe(s));
+}
+
+/* ══════════════════════
+   INIT
+══════════════════════ */
+function renderAll() {
+  renderStandings();
+  renderOU();
+  renderFinishOpps();
+  renderSchedule();
+  renderBlog();
+}
+
+loadState();
+renderAll();
+setupNavSpy();
+</script>
+</body>
+</html>
