@@ -84,6 +84,7 @@
     background: var(--navy-mid);
     border-bottom: 1px solid var(--navy-border);
     display: flex;
+    justify-content: center;
     gap: .25rem;
     padding: .5rem 1rem;
     overflow-x: auto;
@@ -546,8 +547,9 @@
     <table class="standings-table">
       <thead>
         <tr>
+          <th>Team</th>
           <th>W</th><th>L</th><th>T</th><th>Pct</th>
-<th style="text-align:center;">Div</th>
+          <th style="text-align:center;">Div</th>
         </tr>
       </thead>
       <tbody id="standings-body">
@@ -821,8 +823,8 @@ function renderStandings() {
   tbody.innerHTML = STANDINGS_2025.map((row, i) => {
     const t = TEAMS[row.team];
     const games = row.w + row.l + row.t;
-   const pct = games ? ((row.w + row.t * 0.5) / games).toFixed(3) : '.000';
-const divColor = row.dw > row.dl ? 'var(--green)' : row.dw < row.dl ? 'var(--red)' : 'var(--muted)';
+    const pct = games ? ((row.w + row.t * 0.5) / games).toFixed(3) : '.000';
+    const divColor = row.dw > row.dl ? 'var(--green)' : row.dw < row.dl ? 'var(--red)' : 'var(--muted)';
     return `<tr>
       <td>
         <div class="team-name-cell">
@@ -835,11 +837,10 @@ const divColor = row.dw > row.dl ? 'var(--green)' : row.dw < row.dl ? 'var(--red
       <td class="editable record-l" contenteditable="false" data-field="standings-${row.team}-l">${row.l}</td>
       <td class="editable" contenteditable="false" data-field="standings-${row.team}-t">${row.t}</td>
       <td style="color:var(--muted)">${pct}</td>
-<td style="text-align:center;">
-  <span class="editable" contenteditable="false" data-field="standings-${row.team}-div"
-    style="color:${divColor};font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">${row.dw}-${row.dl}</span>
-</td>
-</tr>`;
+      <td style="text-align:center;">
+        <span class="editable" contenteditable="false" data-field="standings-${row.team}-div"
+          style="color:${divColor};font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">${row.dw}-${row.dl}</span>
+      </td>
     </tr>`;
   }).join('');
 }
