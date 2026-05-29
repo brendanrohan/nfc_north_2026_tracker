@@ -395,71 +395,6 @@
   }
   body.edit-mode .editable[contenteditable="true"] { white-space: pre-wrap; }
 
-  /* ── BLOG SECTION ── */
-  .blog-placeholder {
-    border: 2px dashed var(--navy-border);
-    border-radius: 8px;
-    padding: 2.5rem;
-    text-align: center;
-    color: var(--muted);
-  }
-  .blog-placeholder .bp-icon { font-size: 2.5rem; margin-bottom: .75rem; opacity: .4; }
-  .blog-placeholder h3 { color: var(--text-dim); font-weight: 500; margin-bottom: .4rem; }
-  .blog-placeholder p { font-size: .85rem; max-width: 380px; margin: 0 auto; }
-
-  .blog-post {
-    background: var(--navy-card);
-    border: 1px solid var(--navy-border);
-    border-radius: 8px;
-    overflow: hidden;
-    margin-bottom: 1rem;
-  }
-  .blog-post-header {
-    padding: 1rem 1.5rem;
-    border-bottom: 1px solid var(--navy-border);
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-  .blog-post-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.3rem;
-    letter-spacing: .03em;
-    color: #fff;
-  }
-  .blog-post-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    padding: .2rem .5rem;
-    border-radius: 3px;
-    flex-shrink: 0;
-  }
-  .tag-preview { background: rgba(212,160,23,.12); color: var(--gold); border: 1px solid rgba(212,160,23,.25); }
-  .tag-review { background: rgba(46,168,79,.12); color: #4cd873; border: 1px solid rgba(46,168,79,.25); }
-  .blog-post-body { padding: 1.25rem 1.5rem; font-size: .9rem; line-height: 1.75; color: var(--text-dim); }
-  .blog-post-meta { font-family: 'DM Mono', monospace; font-size: .65rem; color: var(--muted); margin-top: .4rem; }
-
-  .add-post-btn {
-    background: transparent;
-    border: 1px dashed var(--navy-border);
-    border-radius: 6px;
-    padding: .7rem 1.25rem;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    cursor: pointer;
-    width: 100%;
-    transition: all .2s;
-    display: none;
-  }
-  body.edit-mode .add-post-btn { display: block; }
-  .add-post-btn:hover { border-color: var(--gold); color: var(--gold); }
-
   /* ── RECORD INPUT (edit mode game results) ── */
   .result-select {
     display: none;
@@ -529,7 +464,6 @@
   <a href="#overunders">Over/Unders</a>
   <a href="#opponents">Opponents</a>
   <a href="#schedule">Schedule</a>
-  <a href="#blog">Blog</a>
 </nav>
 
 <main>
@@ -628,26 +562,6 @@
   <div class="weeks-grid" id="weeks-grid">
     <!-- rendered by JS -->
   </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     BLOG
-════════════════════════════════════════════ -->
-<section id="blog">
-  <div class="section-header">
-    <span class="section-label">Blog</span>
-    <div class="section-line"></div>
-  </div>
-
-  <div id="blog-posts">
-    <!-- placeholder shown when no posts -->
-    <div class="blog-placeholder" id="blog-empty">
-      <div class="bp-icon">📝</div>
-      <h3>Season preview coming soon</h3>
-      <p>Enable edit mode to add a season preview or weekly review post before the season kicks off in September.</p>
-    </div>
-  </div>
-  <button class="add-post-btn" onclick="addBlogPost()">+ Add Blog Post</button>
 </section>
 
 </main>
@@ -942,54 +856,6 @@ function renderSchedule() {
       </div>
     </div>`;
   }).join('');
-}
-
-/* ══════════════════════
-   RENDER BLOG
-══════════════════════ */
-function renderBlog() {
-  const container = document.getElementById('blog-posts');
-  const empty = document.getElementById('blog-empty');
-
-  if (state.blogPosts.length === 0) {
-    if (!empty) {
-      container.innerHTML = `<div class="blog-placeholder" id="blog-empty">
-        <div class="bp-icon">📝</div>
-        <h3>Season preview coming soon</h3>
-        <p>Enable edit mode to add a season preview or weekly review post before the season kicks off in September.</p>
-      </div>`;
-    }
-    return;
-  }
-
-  const postsHTML = state.blogPosts.map((p, i) => `
-    <div class="blog-post" data-post-index="${i}">
-      <div class="blog-post-header">
-        <div>
-          <div class="blog-post-title editable" contenteditable="false" data-field="blog-title-${i}">${p.title}</div>
-          <div class="blog-post-meta editable" contenteditable="false" data-field="blog-date-${i}">${p.date}</div>
-        </div>
-        <span class="blog-post-tag ${p.type === 'preview' ? 'tag-preview' : 'tag-review'}">${p.type === 'preview' ? 'Preview' : 'Review'}</span>
-      </div>
-      <div class="blog-post-body editable" contenteditable="false" data-field="blog-body-${i}">${p.body}</div>
-    </div>
-  `).join('');
-
-  container.innerHTML = postsHTML;
-}
-
-function addBlogPost() {
-  const typeChoice = prompt('Post type: "preview" or "review"?', 'preview');
-  if (!typeChoice) return;
-  state.blogPosts.push({
-    title: 'New Post Title',
-    date: new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'}),
-    type: typeChoice.trim().toLowerCase() === 'review' ? 'review' : 'preview',
-    body: 'Click to edit this post content...',
-  });
-  saveState();
-  renderBlog();
-  if (editMode) activateEditables();
 }
 
 /* ══════════════════════
