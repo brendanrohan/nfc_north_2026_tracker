@@ -222,6 +222,58 @@
   }
   .ou-wins-tracker span { color: var(--text); font-weight: 500; }
 
+  /* ── DIVISION ODDS ── */
+  .div-odds-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 8px;
+    padding: 1.25rem 1.5rem;
+  }
+  .div-odds-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .04em;
+    color: #fff;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid var(--navy-border);
+    margin-bottom: .75rem;
+  }
+  .div-odds-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem 0;
+    border-bottom: 1px solid rgba(30,45,69,.4);
+  }
+  .div-odds-row:last-child { border-bottom: none; }
+  .div-odds-team {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    font-weight: 500;
+  }
+  .div-odds-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .7rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .div-odds-value {
+    font-family: 'DM Mono', monospace;
+    font-size: .9rem;
+    color: var(--lion-blue);
+    border: 2px solid var(--lion-blue);
+    border-radius: 6px;
+    padding: .4rem .75rem;
+    min-width: 70px;
+    text-align: center;
+  }
+
   /* ── OPPONENT CARDS ── */
   .opp-section { margin-bottom: .75rem; }
   .opp-label {
@@ -461,6 +513,7 @@
 <nav id="main-nav">
   <a href="#standings" class="active">Standings</a>
   <a href="#overunders">Over/Unders</a>
+  <a href="#divisionodds">Division Odds</a>
   <a href="#opponents">Opponents</a>
   <a href="#schedule">Schedule</a>
 </nav>
@@ -502,6 +555,20 @@
     <span class="tag-label">Over/Under</span>
   </div>
   <div class="grid-4" id="ou-grid">
+    <!-- rendered by JS -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     DIVISION ODDS
+════════════════════════════════════════════ -->
+<section id="divisionodds">
+  <div class="section-header">
+    <span class="section-label">NFC North Winner 2026-27</span>
+    <div class="section-line"></div>
+    <span class="tag-label">Division Odds</span>
+  </div>
+  <div class="div-odds-card" id="div-odds-card">
     <!-- rendered by JS -->
   </div>
 </section>
@@ -592,6 +659,13 @@ const OU_2026 = [
   { team:'packers', ou:10.5 },
   { team:'bears', ou:9.5 },
   { team:'vikings', ou:8.5 },
+];
+
+const DIV_ODDS_2026 = [
+  { team:'lions', odds:'+150' },
+  { team:'packers', odds:'+250' },
+  { team:'bears', odds:'+320' },
+  { team:'vikings', odds:'+500' },
 ];
 
 const FINISH_OPPS = [
@@ -786,6 +860,23 @@ function renderOU() {
 }
 
 /* ══════════════════════
+   RENDER DIVISION ODDS
+══════════════════════ */
+function renderDivOdds() {
+  const card = document.getElementById('div-odds-card');
+  card.innerHTML = DIV_ODDS_2026.map(row => {
+    const t = TEAMS[row.team];
+    return `<div class="div-odds-row">
+      <div class="div-odds-team">
+        <div class="div-odds-logo" style="background:${t.color};">${t.abbr}</div>
+        <span>${t.city} ${t.name}</span>
+      </div>
+      <div class="div-odds-value editable" contenteditable="false" data-field="divodds-${row.team}">${row.odds}</div>
+    </div>`;
+  }).join('');
+}
+
+/* ══════════════════════
    RENDER FINISH OPPS
 ══════════════════════ */
 function renderFinishOpps() {
@@ -895,6 +986,12 @@ function saveAllEdits() {
       const r = OU_2026.find(x => x.team === team);
       if (r) r.ou = parseFloat(val) || r.ou;
     }
+    // Division Odds
+    if (field.startsWith('divodds-')) {
+      const team = field.split('-')[1];
+      const r = DIV_ODDS_2026.find(x => x.team === team);
+      if (r) r.odds = val;
+    }
     // wins tracker
     if (field.startsWith('wins-')) {
       const team = field.split('-')[1];
@@ -953,6 +1050,7 @@ function setupNavSpy() {
 function renderAll() {
   renderStandings();
   renderOU();
+  renderDivOdds();
   renderFinishOpps();
   renderSchedule();
   renderBlog();
