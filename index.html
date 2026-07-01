@@ -73,11 +73,6 @@
     color: #fff;
   }
   header h1 span { color: var(--gold); }
-  .header-sub {
-    color: var(--muted);
-    font-size: .85rem;
-    margin-top: .4rem;
-  }
 
   /* ── NAV ── */
   nav {
@@ -295,21 +290,6 @@
     color: #fff;
   }
   .ou-label { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .1em; }
-  .ou-bar-bg {
-    margin-top: .75rem;
-    height: 4px;
-    background: rgba(255,255,255,.08);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-  .ou-bar { height: 100%; border-radius: 2px; transition: width .6s ease; }
-  .ou-wins-tracker {
-    margin-top: .6rem;
-    font-family: 'DM Mono', monospace;
-    font-size: .75rem;
-    color: var(--muted);
-  }
-  .ou-wins-tracker span { color: var(--text); font-weight: 500; }
 
   /* ── DIVISION ODDS ── */
   .div-odds-card {
@@ -317,15 +297,6 @@
     border: 1px solid var(--navy-border);
     border-radius: 8px;
     padding: 1.25rem 1.5rem;
-  }
-  .div-odds-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: .04em;
-    color: #fff;
-    padding-bottom: .75rem;
-    border-bottom: 1px solid var(--navy-border);
-    margin-bottom: .75rem;
   }
   .div-odds-row {
     display: flex;
@@ -391,18 +362,6 @@
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: .4rem;
-  }
-  .opp-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: .35rem;
-  }
-  .opp-chip {
-    background: rgba(255,255,255,.05);
-    border: 1px solid var(--navy-border);
-    border-radius: 4px;
-    padding: .2rem .6rem;
-    font-size: .8rem;
   }
   .opp-logos {
     display: flex;
@@ -499,7 +458,6 @@
     flex: 1;
     font-size: .85rem;
   }
-  .game-matchup strong { font-weight: 600; }
   .away-team { color: var(--text-dim); }
   .home-team { color: var(--text); }
   .vs-sep { color: var(--muted); font-size: .75rem; margin: 0 .15rem; }
@@ -535,107 +493,11 @@
   }
   .bye-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); flex-shrink: 0; }
 
-  /* ── RESULT BADGE ── */
-  .result-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    padding: .1rem .45rem;
-    border-radius: 3px;
-    font-weight: 500;
-    flex-shrink: 0;
-  }
-  .result-w { background: rgba(46,168,79,.15); color: #4cd873; border: 1px solid rgba(46,168,79,.3); }
-  .result-l { background: rgba(224,48,48,.15); color: #f06060; border: 1px solid rgba(224,48,48,.3); }
-  .result-t { background: rgba(107,122,153,.15); color: var(--muted); border: 1px solid var(--navy-border); }
-
-  /* ── EDIT MODE ── */
-  .edit-toggle {
-    position: fixed;
-    bottom: 1.5rem; right: 1.5rem;
-    background: var(--gold);
-    color: #0a0e1a;
-    border: none;
-    border-radius: 999px;
-    padding: .6rem 1.25rem;
-    font-family: 'DM Mono', monospace;
-    font-size: .75rem;
-    font-weight: 500;
-    letter-spacing: .08em;
-    cursor: pointer;
-    box-shadow: 0 4px 20px rgba(212,160,23,.4);
-    z-index: 200;
-    transition: all .2s;
-    text-transform: uppercase;
-  }
-  .edit-toggle:hover { background: var(--gold-light); box-shadow: 0 6px 28px rgba(212,160,23,.5); }
-  .edit-toggle.active { background: #e03030; color: #fff; box-shadow: 0 4px 20px rgba(224,48,48,.4); }
-
-  .editable { cursor: text; border-radius: 3px; transition: background .15s; }
-  body.edit-mode .editable {
-    outline: 1px dashed rgba(212,160,23,.4);
-    background: rgba(212,160,23,.04);
-    cursor: text;
-  }
-  body.edit-mode .editable:focus {
-    outline: 2px solid var(--gold);
-    background: rgba(212,160,23,.08);
-  }
-  body.edit-mode .editable[contenteditable="true"] { white-space: pre-wrap; }
-
-  /* ── RECORD INPUT (edit mode game results) ── */
-  .result-select {
-    display: none;
-    background: var(--navy);
-    border: 1px solid var(--navy-border);
-    color: var(--text);
-    border-radius: 4px;
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    padding: .1rem .3rem;
-    cursor: pointer;
-  }
-  body.edit-mode .result-select { display: inline-block; }
-  body.edit-mode .result-badge { display: none; }
-
   /* ── RESPONSIVE ── */
   @media (max-width: 600px) {
     .weeks-grid { grid-template-columns: 1fr; }
     .grid-4 { grid-template-columns: 1fr 1fr; }
   }
-
-  /* ── UTILITY ── */
-  .tag-label {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: .6rem;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    color: var(--muted);
-    background: rgba(255,255,255,.04);
-    border: 1px solid var(--navy-border);
-    padding: .15rem .5rem;
-    border-radius: 3px;
-    margin-left: .5rem;
-    vertical-align: middle;
-  }
-
-  .save-notice {
-    position: fixed;
-    bottom: 1.5rem; left: 50%; transform: translateX(-50%);
-    background: var(--navy-mid);
-    border: 1px solid var(--green);
-    color: #4cd873;
-    font-family: 'DM Mono', monospace;
-    font-size: .7rem;
-    letter-spacing: .08em;
-    padding: .5rem 1rem;
-    border-radius: 999px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .3s;
-    z-index: 300;
-  }
-  .save-notice.show { opacity: 1; }
 </style>
 </head>
 <body>
@@ -674,8 +536,63 @@
               <th style="text-align:center;">Div</th>
             </tr>
           </thead>
-          <tbody id="standings-body">
-            <!-- rendered by JS -->
+          <tbody>
+            <tr>
+              <td>
+                <div class="team-name-cell">
+                  <span class="rank-badge">1</span>
+                  <span class="team-dot" style="background:#e64100"></span>
+                  <span>Chicago Bears</span>
+                </div>
+              </td>
+              <td class="record-w">11</td>
+              <td class="record-l">6</td>
+              <td>0</td>
+              <td style="color:var(--muted)">.647</td>
+              <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="team-name-cell">
+                  <span class="rank-badge">2</span>
+                  <span class="team-dot" style="background:#ffb612"></span>
+                  <span>Green Bay Packers</span>
+                </div>
+              </td>
+              <td class="record-w">9</td>
+              <td class="record-l">7</td>
+              <td>1</td>
+              <td style="color:var(--muted)">.559</td>
+              <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="team-name-cell">
+                  <span class="rank-badge">3</span>
+                  <span class="team-dot" style="background:#ffc62f"></span>
+                  <span>Minnesota Vikings</span>
+                </div>
+              </td>
+              <td class="record-w">9</td>
+              <td class="record-l">8</td>
+              <td>0</td>
+              <td style="color:var(--muted)">.529</td>
+              <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
+            </tr>
+            <tr>
+              <td>
+                <div class="team-name-cell">
+                  <span class="rank-badge">4</span>
+                  <span class="team-dot" style="background:#0076b6"></span>
+                  <span>Detroit Lions</span>
+                </div>
+              </td>
+              <td class="record-w">9</td>
+              <td class="record-l">8</td>
+              <td>0</td>
+              <td style="color:var(--muted)">.529</td>
+              <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
+            </tr>
           </tbody>
         </table>
       </div>
@@ -712,17 +629,64 @@
     <!-- Win Totals -->
     <div id="overunders">
       <div class="subsection-header">2026 Win Totals</div>
-      <div class="grid-2-stacked" id="ou-grid">
-        <!-- rendered by JS -->
+      <div class="odds-source"><a href="https://www.rotowire.com/betting/nfl/nfc-north-odds.php" target="_blank" rel="noopener">Draft Kings</a> as of May 26</div>
+      <div class="grid-2-stacked">
+        <div class="ou-card" style="background:linear-gradient(135deg,#0d2a3f 0%,var(--navy-card) 100%);">
+          <div class="ou-team" style="color:#0076b6">Detroit Lions</div>
+          <div class="ou-number">10.5</div>
+          <div class="ou-label">Win Total O/U</div>
+        </div>
+        <div class="ou-card" style="background:linear-gradient(135deg,#203731 0%,var(--navy-card) 100%);">
+          <div class="ou-team" style="color:#ffb612">Green Bay Packers</div>
+          <div class="ou-number">10.5</div>
+          <div class="ou-label">Win Total O/U</div>
+        </div>
+        <div class="ou-card" style="background:linear-gradient(135deg,#0b1f59 0%,var(--navy-card) 100%);">
+          <div class="ou-team" style="color:#e64100">Chicago Bears</div>
+          <div class="ou-number">9.5</div>
+          <div class="ou-label">Win Total O/U</div>
+        </div>
+        <div class="ou-card" style="background:linear-gradient(135deg,#2d1550 0%,var(--navy-card) 100%);">
+          <div class="ou-team" style="color:#ffc62f">Minnesota Vikings</div>
+          <div class="ou-number">8.5</div>
+          <div class="ou-label">Win Total O/U</div>
+        </div>
       </div>
     </div>
 
     <!-- Division Winner -->
     <div id="divisionodds">
       <div class="subsection-header">2026 NFC North Winner</div>
-      <div class="odds-source"><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=futures&subcategory=divisions&nav_1=division-winner" target="_blank" rel="noopener">Draft Kings</a> as of July 1, 2026</div>
-      <div class="div-odds-card" id="div-odds-card">
-        <!-- rendered by JS -->
+      <div class="odds-source"><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=futures&subcategory=divisions&nav_1=division-winner" target="_blank" rel="noopener">Draft Kings</a> as of July 2026</div>
+      <div class="div-odds-card">
+        <div class="div-odds-row">
+          <div class="div-odds-team">
+            <div class="div-odds-logo"><img src="images/lions.png" alt="Lions"></div>
+            <span>Detroit Lions</span>
+          </div>
+          <div class="div-odds-value">+180</div>
+        </div>
+        <div class="div-odds-row">
+          <div class="div-odds-team">
+            <div class="div-odds-logo"><img src="images/packers.png" alt="Packers"></div>
+            <span>Green Bay Packers</span>
+          </div>
+          <div class="div-odds-value">+215</div>
+        </div>
+        <div class="div-odds-row">
+          <div class="div-odds-team">
+            <div class="div-odds-logo"><img src="images/bears.png" alt="Bears"></div>
+            <span>Chicago Bears</span>
+          </div>
+          <div class="div-odds-value">+305</div>
+        </div>
+        <div class="div-odds-row">
+          <div class="div-odds-team">
+            <div class="div-odds-logo"><img src="images/vikings.png" alt="Vikings"></div>
+            <span>Minnesota Vikings</span>
+          </div>
+          <div class="div-odds-value">+510</div>
+        </div>
       </div>
     </div>
   </div>
@@ -741,7 +705,7 @@
     <!-- Common Opponents -->
     <div>
       <div class="subsection-header">Common Opponents</div>
-      <div class="card" id="common-opponents-card">
+      <div class="card">
         <div class="opp-section">
           <div class="opp-label">NFC South</div>
           <div class="opp-logos">
@@ -766,8 +730,39 @@
     <!-- By 2025 Finish -->
     <div>
       <div class="subsection-header">By 2025 Finish</div>
-      <div class="grid-2-stacked" id="finish-opps">
-        <!-- rendered by JS -->
+      <div class="grid-2-stacked">
+        <div class="card team-opp-card">
+          <div class="team-opp-header" style="color:#e64100">Bears (1st)</div>
+          <div class="opp-logos">
+            <div class="opp-logo" title="Eagles"><img src="images/eagles.png" alt="Eagles"></div>
+            <div class="opp-logo" title="Seahawks"><img src="images/seahawks.png" alt="Seahawks"></div>
+            <div class="opp-logo" title="Jaguars"><img src="images/jaguars.png" alt="Jaguars"></div>
+          </div>
+        </div>
+        <div class="card team-opp-card">
+          <div class="team-opp-header" style="color:#ffb612">Packers (2nd)</div>
+          <div class="opp-logos">
+            <div class="opp-logo" title="Cowboys"><img src="images/cowboys.png" alt="Cowboys"></div>
+            <div class="opp-logo" title="Rams"><img src="images/rams.png" alt="Rams"></div>
+            <div class="opp-logo" title="Texans"><img src="images/texans.png" alt="Texans"></div>
+          </div>
+        </div>
+        <div class="card team-opp-card">
+          <div class="team-opp-header" style="color:#ffc62f">Vikings (3rd)</div>
+          <div class="opp-logos">
+            <div class="opp-logo" title="Commanders"><img src="images/commanders.png" alt="Commanders"></div>
+            <div class="opp-logo" title="49ers"><img src="images/49ers.png" alt="49ers"></div>
+            <div class="opp-logo" title="Colts"><img src="images/colts.png" alt="Colts"></div>
+          </div>
+        </div>
+        <div class="card team-opp-card">
+          <div class="team-opp-header" style="color:#0076b6">Lions (4th)</div>
+          <div class="opp-logos">
+            <div class="opp-logo" title="NY Giants"><img src="images/giants.png" alt="NY Giants"></div>
+            <div class="opp-logo" title="Cardinals"><img src="images/cardinals.png" alt="Cardinals"></div>
+            <div class="opp-logo" title="Titans"><img src="images/titans.png" alt="Titans"></div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -782,426 +777,447 @@
     <div class="section-line"></div>
     <span style="font-size:.75rem;color:var(--gold);font-family:'DM Mono',monospace;">★ = Divisional</span>
   </div>
-  <div class="weeks-grid" id="weeks-grid">
-    <!-- rendered by JS -->
+  <div class="weeks-grid">
+
+    <!-- Week 1 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 1</span>
+        <span class="week-date">Sep 13</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Vikings</span></div>
+          <div class="game-meta"><span class="game-line">Green Bay -1.5</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Saints</span></div>
+          <div class="game-meta"><span class="game-line">Lions -7</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Panthers</span></div>
+          <div class="game-meta"><span class="game-line">Bears -2.5</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 2</span>
+        <span class="week-date">Sep 20</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Bears</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Bills</span></div>
+          <div class="game-meta"><span class="game-slot">TNF</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Jets</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 3 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 3</span>
+        <span class="week-date">Sep 27</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Packers</span> <span class="vs-sep">vs</span> <span>Falcons</span></div>
+          <div class="game-meta"><span class="game-slot">TNF</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Buccaneers</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Jets</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Bears</span> <span class="vs-sep">vs</span> <span>Eagles</span></div>
+          <div class="game-meta"><span class="game-slot">MNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 4 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 4</span>
+        <span class="week-date">Oct 4</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Bears</span> <span class="vs-sep">vs</span> <span>Jets</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Vikings</span> <span class="vs-sep">vs</span> <span>Dolphins</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Panthers</span></div>
+          <div class="game-meta"><span class="game-slot">SNF</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Packers</span> <span class="vs-sep">vs</span> <span>Buccaneers</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 5 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 5</span>
+        <span class="week-date">Oct 11</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Packers</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Saints</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Cardinals</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 6 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 6</span>
+        <span class="week-date">Oct 18</span>
+      </div>
+      <div class="week-body">
+        <div class="bye-row"><span class="bye-dot"></span>Lions: Bye Week</div>
+        <div class="bye-row"><span class="bye-dot"></span>Vikings: Bye Week</div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Falcons</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Packers</span> <span class="vs-sep">vs</span> <span>Cowboys</span></div>
+          <div class="game-meta"><span class="game-slot">SNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 7 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 7</span>
+        <span class="week-date">Oct 25</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Lions</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Patriots</span> <span class="vs-sep">@</span> <span class="home-team">Bears</span></div>
+          <div class="game-meta"><span class="game-slot">TNF</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Colts</span> <span class="vs-sep">@</span> <span class="home-team">Vikings</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 8 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 8</span>
+        <span class="week-date">Nov 1</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Vikings</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Packers</span> <span class="vs-sep">vs</span> <span>Panthers</span></div>
+          <div class="game-meta"><span class="game-slot">TNF</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Seahawks</span></div>
+          <div class="game-meta"><span class="game-slot">MNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 9 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 9</span>
+        <span class="week-date">Nov 8</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Dolphins</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Bears</span> <span class="vs-sep">vs</span> <span>Buccaneers</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Patriots</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Vikings</span> <span class="vs-sep">vs</span> <span>Bills</span></div>
+          <div class="game-meta"><span class="game-slot">MNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 10 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 10</span>
+        <span class="week-date">Nov 15</span>
+      </div>
+      <div class="week-body">
+        <div class="bye-row"><span class="bye-dot"></span>Bears: Bye Week</div>
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Packers</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Patriots</span></div>
+          <div class="game-meta"><span class="game-slot">Munich</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 11 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 11</span>
+        <span class="week-date">Nov 22</span>
+      </div>
+      <div class="week-body">
+        <div class="bye-row"><span class="bye-dot"></span>Packers: Bye Week</div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Buccaneers</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Bears</span> <span class="vs-sep">vs</span> <span>Saints</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">49ers</span></div>
+          <div class="game-meta"><span class="game-slot">SNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 12 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 12</span>
+        <span class="week-date">Nov 29</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Lions</span></div>
+          <div class="game-meta"><span class="game-slot">Thanksgiving 🦃</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Rams</span></div>
+          <div class="game-meta"><span class="game-slot">Thanksgiving Eve 🦃</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Falcons</span> <span class="vs-sep">@</span> <span class="home-team">Vikings</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 13 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 13</span>
+        <span class="week-date">Dec 6</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Falcons</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Vikings</span> <span class="vs-sep">vs</span> <span>Panthers</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Saints</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Jaguars</span> <span class="vs-sep">@</span> <span class="home-team">Bears</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 14 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 14</span>
+        <span class="week-date">Dec 13</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Patriots</span></div>
+          <div class="game-meta"><span class="game-slot">TNF</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Titans</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Dolphins</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Bills</span> <span class="vs-sep">@</span> <span class="home-team">Packers</span></div>
+          <div class="game-meta"><span class="game-slot">SNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 15 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 15</span>
+        <span class="week-date">Dec 20</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Vikings</span></div>
+          <div class="game-meta"><span class="game-slot">SNF</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Bills</span></div>
+          <div class="game-meta"><span class="game-slot">Saturday</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Dolphins</span> <span class="vs-sep">@</span> <span class="home-team">Packers</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 16 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 16</span>
+        <span class="week-date">Dec 27</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Bears</span></div>
+          <div class="game-meta"><span class="game-slot">Christmas 🎄</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Commanders</span> <span class="vs-sep">@</span> <span class="home-team">Vikings</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Giants</span></div>
+          <div class="game-meta"><span class="game-slot">MNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 17 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 17</span>
+        <span class="week-date">Jan 3</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Bears</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Jets</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Packers</span> <span class="vs-sep">vs</span> <span>Texans</span></div>
+          <div class="game-meta"><span class="game-slot">MNF</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 18 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 18</span>
+        <span class="week-date">Jan 10</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Packers</span></div>
+        </div>
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Vikings</span></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
 </main>
 
-<!-- Edit toggle -->
-<button class="edit-toggle" id="edit-btn" onclick="toggleEdit()">✏ Edit Mode</button>
-<div class="save-notice" id="save-notice">Changes auto-saved</div>
-
 <script>
-/* ══════════════════════
-   DATA
-══════════════════════ */
-const TEAMS = {
-  bears: { name:'Bears', city:'Chicago', color: '#e64100', bg:'#0b1f59', abbr:'CHI', logo:'images/bears.png' },
-  lions: { name:'Lions', city:'Detroit', color:'#0076b6', bg:'#0d2a3f', abbr:'DET', logo:'images/lions.png' },
-  packers: { name:'Packers', city:'Green Bay', color:'#ffb612', bg:'#203731', abbr:'GB', logo:'images/packers.png' },
-  vikings: { name:'Vikings', city:'Minnesota', color:'#ffc62f', bg:'#2d1550', abbr:'MIN', logo:'images/vikings.png' },
-};
-
-const STANDINGS_2025 = [
-  { team:'bears', w:11, l:6, t:0, dw:2, dl:4 },
-  { team:'packers', w:9, l:7, t:1, dw:4, dl:2 },
-  { team:'vikings', w:9, l:8, t:0, dw:4, dl:2 },
-  { team:'lions', w:9, l:8, t:0, dw:2, dl:4 },
-];
-
-const OU_2026 = [
-  { team:'lions', ou:10.5 },
-  { team:'packers', ou:10.5 },
-  { team:'bears', ou:9.5 },
-  { team:'vikings', ou:8.5 },
-];
-
-const DIV_ODDS_2026 = [
-  { team:'lions', odds:'+150' },
-  { team:'packers', odds:'+250' },
-  { team:'bears', odds:'+320' },
-  { team:'vikings', odds:'+500' },
-];
-
-const OPP_LOGOS = {
-  'Eagles': 'eagles.png',
-  'Seahawks': 'seahawks.png',
-  'Jaguars': 'jaguars.png',
-  'Cowboys': 'cowboys.png',
-  'Rams': 'rams.png',
-  'Texans': 'texans.png',
-  'Commanders': 'commanders.png',
-  '49ers': '49ers.png',
-  'Colts': 'colts.png',
-  'NY Giants': 'giants.png',
-  'Cardinals': 'cardinals.png',
-  'Titans': 'titans.png',
-};
-
-const FINISH_OPPS = [
-  { team:'bears', label:'Bears (1st)', opps:['Eagles','Seahawks','Jaguars'] },
-  { team:'packers', label:'Packers (2nd)', opps:['Cowboys','Rams','Texans'] },
-  { team:'vikings', label:'Vikings (3rd)', opps:['Commanders','49ers','Colts'] },
-  { team:'lions', label:'Lions (4th)', opps:['NY Giants','Cardinals','Titans'] },
-];
-
-const DIV_TEAMS = ['Bears','Lions','Packers','Vikings'];
-
-function isDivisional(game) {
-  const t = [game.away, game.home];
-  return t.some(x => DIV_TEAMS.includes(x)) && t.filter(x => DIV_TEAMS.includes(x)).length >= 2;
-}
-
-const WEEKS = [
-  { week:1, date:'Sep 13', games:[
-    { away:'Packers', home:'Vikings', neutral:false, line:'Green Bay -1.5', slot:null },
-    { away:null, home:'Lions', opp:'Saints', neutral:false, line:'Lions -7', slot:null },
-    { away:'Bears', home:'Panthers', neutral:false, line:'Bears -2.5', slot:null },
-  ]},
-  { week:2, date:'Sep 20', games:[
-    { away:'Vikings', home:'Bears', neutral:false, line:null, slot:null },
-    { away:'Lions', home:'Bills', neutral:false, line:null, slot:'TNF' },
-    { away:'Packers', home:'Jets', neutral:false, line:null, slot:null },
-  ]},
-  { week:3, date:'Sep 27', games:[
-    { away:null, home:'Packers', opp:'Falcons', neutral:false, line:null, slot:'TNF' },
-    { away:'Vikings', home:'Buccaneers', neutral:false, line:null, slot:null },
-    { away:null, home:'Lions', opp:'Jets', neutral:false, line:null, slot:null },
-    { away:null, home:'Bears', opp:'Eagles', neutral:false, line:null, slot:'MNF' },
-  ]},
-  { week:4, date:'Oct 4', games:[
-    { away:null, home:'Bears', opp:'Jets', neutral:false, line:null, slot:null },
-    { away:null, home:'Vikings', opp:'Dolphins', neutral:false, line:null, slot:null },
-    { away:'Lions', home:'Panthers', neutral:false, line:null, slot:'SNF' },
-    { away:null, home:'Packers', opp:'Buccaneers', neutral:false, line:null, slot:null },
-  ]},
-  { week:5, date:'Oct 11', games:[
-    { away:'Bears', home:'Packers', neutral:false, line:null, slot:null },
-    { away:'Vikings', home:'Saints', neutral:false, line:null, slot:null },
-    { away:'Lions', home:'Cardinals', neutral:false, line:null, slot:null },
-  ]},
-  { week:6, date:'Oct 18', byes:['Lions','Vikings'], games:[
-    { away:'Bears', home:'Falcons', neutral:false, line:null, slot:null },
-    { away:null, home:'Packers', opp:'Cowboys', neutral:false, line:null, slot:'SNF' },
-  ]},
-  { week:7, date:'Oct 25', games:[
-    { away:'Packers', home:'Lions', neutral:false, line:null, slot:null },
-    { away:'Patriots', home:'Bears', neutral:false, line:null, slot:'TNF' },
-    { away:'Colts', home:'Vikings', neutral:false, line:null, slot:null },
-  ]},
-  { week:8, date:'Nov 1', games:[
-    { away:null, home:'Lions', opp:'Vikings', neutral:false, line:null, slot:null },
-    { away:null, home:'Packers', opp:'Panthers', neutral:false, line:null, slot:'TNF' },
-    { away:'Bears', home:'Seahawks', neutral:false, line:null, slot:'MNF' },
-  ]},
-  { week:9, date:'Nov 8', games:[
-    { away:'Lions', home:'Dolphins', neutral:false, line:null, slot:null },
-    { away:null, home:'Bears', opp:'Buccaneers', neutral:false, line:null, slot:null },
-    { away:'Packers', home:'Patriots', neutral:false, line:null, slot:null },
-    { away:null, home:'Vikings', opp:'Bills', neutral:false, line:null, slot:'MNF' },
-  ]},
-  { week:10, date:'Nov 15', byes:['Bears'], games:[
-    { away:'Vikings', home:'Packers', neutral:false, line:null, slot:null },
-    { away:null, home:'Lions', opp:'Patriots', neutral:false, line:null, slot:'Munich' },
-  ]},
-  { week:11, date:'Nov 22', byes:['Packers'], games:[
-    { away:null, home:'Lions', opp:'Buccaneers', neutral:false, line:null, slot:null },
-    { away:null, home:'Bears', opp:'Saints', neutral:false, line:null, slot:null },
-    { away:'Vikings', home:'49ers', neutral:false, line:null, slot:'SNF' },
-  ]},
-  { week:12, date:'Nov 29', games:[
-    { away:'Bears', home:'Lions', neutral:false, line:null, slot:'Thanksgiving', note:'🦃' },
-    { away:'Packers', home:'Rams', neutral:false, line:null, slot:'Thanksgiving Eve', note:'🦃' },
-    { away:'Falcons', home:'Vikings', neutral:false, line:null, slot:null },
-  ]},
-  { week:13, date:'Dec 6', games:[
-    { away:'Lions', home:'Falcons', neutral:false, line:null, slot:null },
-    { away:null, home:'Vikings', opp:'Panthers', neutral:false, line:null, slot:null },
-    { away:'Packers', home:'Saints', neutral:false, line:null, slot:null },
-    { away:'Jaguars', home:'Bears', neutral:false, line:null, slot:null },
-  ]},
-  { week:14, date:'Dec 13', games:[
-    { away:'Vikings', home:'Patriots', neutral:false, line:null, slot:'TNF' },
-    { away:null, home:'Lions', opp:'Titans', neutral:false, line:null, slot:null },
-    { away:'Bears', home:'Dolphins', neutral:false, line:null, slot:null },
-    { away:'Bills', home:'Packers', neutral:false, line:null, slot:'SNF' },
-  ]},
-  { week:15, date:'Dec 20', games:[
-    { away:'Lions', home:'Vikings', neutral:false, line:null, slot:'SNF' },
-    { away:'Bears', home:'Bills', neutral:false, line:null, slot:'Saturday' },
-    { away:'Dolphins', home:'Packers', neutral:false, line:null, slot:null },
-  ]},
-  { week:16, date:'Dec 27', games:[
-    { away:'Packers', home:'Bears', neutral:false, line:null, slot:'Christmas', note:'🎄' },
-    { away:'Commanders', home:'Vikings', neutral:false, line:null, slot:null },
-    { away:null, home:'Lions', opp:'Giants', neutral:false, line:null, slot:'MNF' },
-  ]},
-  { week:17, date:'Jan 3', games:[
-    { away:'Lions', home:'Bears', neutral:false, line:null, slot:null },
-    { away:'Vikings', home:'Jets', neutral:false, line:null, slot:null },
-    { away:null, home:'Packers', opp:'Texans', neutral:false, line:null, slot:'MNF' },
-  ]},
-  { week:18, date:'Jan 10', games:[
-    { away:'Lions', home:'Packers', neutral:false, line:null, slot:null },
-    { away:'Bears', home:'Vikings', neutral:false, line:null, slot:null },
-  ]},
-];
-
-/* ══════════════════════
-   STATE (localStorage)
-══════════════════════ */
-let state = {
-  gameResults: {}, // key: "w1-g0" -> "W" | "L" | "T" | ""
-  wins2026: { bears:0, lions:0, packers:0, vikings:0 },
-  blogPosts: [],
-};
-
-function loadState() {
-  try {
-    const s = localStorage.getItem('nfcnorth2026');
-    if (s) state = { ...state, ...JSON.parse(s) };
-  } catch(e) {}
-}
-function saveState() {
-  localStorage.setItem('nfcnorth2026', JSON.stringify(state));
-  flashSave();
-}
-function flashSave() {
-  const n = document.getElementById('save-notice');
-  n.classList.add('show');
-  setTimeout(() => n.classList.remove('show'), 1800);
-}
-
-/* ══════════════════════
-   RENDER STANDINGS
-══════════════════════ */
-function renderStandings() {
-  const tbody = document.getElementById('standings-body');
-  tbody.innerHTML = STANDINGS_2025.map((row, i) => {
-    const t = TEAMS[row.team];
-    const games = row.w + row.l + row.t;
-    const pct = games ? ((row.w + row.t * 0.5) / games).toFixed(3) : '.000';
-    const divColor = row.dw > row.dl ? 'var(--green)' : row.dw < row.dl ? 'var(--red)' : 'var(--muted)';
-    return `<tr>
-      <td>
-        <div class="team-name-cell">
-          <span class="rank-badge">${i+1}</span>
-          <span class="team-dot" style="background:${t.color}"></span>
-          <span>${t.city} ${t.name}</span>
-        </div>
-      </td>
-      <td class="editable record-w" contenteditable="false" data-field="standings-${row.team}-w">${row.w}</td>
-      <td class="editable record-l" contenteditable="false" data-field="standings-${row.team}-l">${row.l}</td>
-      <td class="editable" contenteditable="false" data-field="standings-${row.team}-t">${row.t}</td>
-      <td style="color:var(--muted)">${pct}</td>
-      <td style="text-align:center;">
-        <span class="editable" contenteditable="false" data-field="standings-${row.team}-div"
-          style="color:${divColor};font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">${row.dw}-${row.dl}</span>
-      </td>
-    </tr>`;
-  }).join('');
-}
-
-/* ══════════════════════
-   RENDER OVER/UNDERS
-══════════════════════ */
-function renderOU() {
-  const grid = document.getElementById('ou-grid');
-  const maxOU = Math.max(...OU_2026.map(x=>x.ou));
-  grid.innerHTML = OU_2026.map(row => {
-    const t = TEAMS[row.team];
-    const wins = state.wins2026[row.team] || 0;
-    const pct = Math.min(100, (wins / row.ou) * 100);
-    const diff = wins - row.ou;
-    const diffStr = diff === 0 ? 'Even' : (diff > 0 ? `+${diff} over` : `${diff} under`);
-    return `<div class="ou-card" style="background:linear-gradient(135deg,${t.bg} 0%,var(--navy-card) 100%);">
-      <div class="ou-team" style="color:${t.color}">${t.city} ${t.name}</div>
-      <div class="ou-number editable" contenteditable="false" data-field="ou-${row.team}">${row.ou}</div>
-      <div class="ou-label">Win Total O/U</div>
-      <div class="ou-bar-bg">
-        <div class="ou-bar" style="width:${pct}%;background:${t.color}"></div>
-      </div>
-      <div class="ou-wins-tracker">
-        2026 wins: <span class="editable" contenteditable="false" data-field="wins-${row.team}">${wins}</span>
-        <span style="color:var(--muted);margin-left:.4rem">(${diffStr})</span>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-/* ══════════════════════
-   RENDER DIVISION ODDS
-══════════════════════ */
-function renderDivOdds() {
-  const card = document.getElementById('div-odds-card');
-  card.innerHTML = DIV_ODDS_2026.map(row => {
-    const t = TEAMS[row.team];
-    return `<div class="div-odds-row">
-      <div class="div-odds-team">
-        <div class="div-odds-logo"><img src="${t.logo}" alt="${t.name}"></div>
-        <span>${t.city} ${t.name}</span>
-      </div>
-      <div class="div-odds-value editable" contenteditable="false" data-field="divodds-${row.team}">${row.odds}</div>
-    </div>`;
-  }).join('');
-}
-
-/* ══════════════════════
-   RENDER FINISH OPPS
-══════════════════════ */
-function renderFinishOpps() {
-  const grid = document.getElementById('finish-opps');
-  grid.innerHTML = FINISH_OPPS.map(row => {
-    const t = TEAMS[row.team];
-    return `<div class="card team-opp-card">
-      <div class="team-opp-header" style="color:${t.color}">${row.label}</div>
-      <div class="opp-logos">
-        ${row.opps.map(o => `<div class="opp-logo" title="${o}"><img src="images/${OPP_LOGOS[o]}" alt="${o}"></div>`).join('')}
-      </div>
-    </div>`;
-  }).join('');
-}
-
-/* ══════════════════════
-   RENDER SCHEDULE
-══════════════════════ */
-function gameKey(wi, gi) { return `w${wi}-g${gi}`; }
-
-function renderSchedule() {
-  const grid = document.getElementById('weeks-grid');
-  grid.innerHTML = WEEKS.map((wk, wi) => {
-    const byes = wk.byes || [];
-    const gamesHTML = wk.games.map((g, gi) => {
-      const away = g.away || g.opp || '';
-      const home = g.home || '';
-      const divGame = DIV_TEAMS.includes(away) && DIV_TEAMS.includes(home);
-      const key = gameKey(wi, gi);
-      const result = state.gameResults[key] || '';
-
-      let badgeHTML = '';
-      if (result === 'W') badgeHTML = `<span class="result-badge result-w">W</span>`;
-      else if (result === 'L') badgeHTML = `<span class="result-badge result-l">L</span>`;
-      else if (result === 'T') badgeHTML = `<span class="result-badge result-t">T</span>`;
-
-      return `<div class="game-row${divGame ? ' divisional' : ''}">
-        <span class="div-star">${divGame ? '★' : ''}</span>
-        <div class="game-matchup">
-          ${g.away ? `<span class="away-team">${g.away}</span> <span class="vs-sep">@</span> <span class="home-team">${g.home}</span>` 
-                   : `<span class="home-team">${g.home}</span> <span class="vs-sep">vs</span> <span>${g.opp}</span>`}
-        </div>
-        <div class="game-meta">
-          ${g.line ? `<span class="game-line editable" contenteditable="false" data-field="line-${wi}-${gi}">${g.line}</span>` : ''}
-          ${g.slot ? `<span class="game-slot">${g.slot}${g.note ? ' '+g.note : ''}</span>` : (g.note ? `<span class="game-slot">${g.note}</span>` : '')}
-        </div>
-        ${badgeHTML}
-        <select class="result-select" data-key="${key}" onchange="setResult(this)">
-          <option value="">—</option>
-          <option value="W" ${result==='W'?'selected':''}>W</option>
-          <option value="L" ${result==='L'?'selected':''}>L</option>
-          <option value="T" ${result==='T'?'selected':''}>T</option>
-        </select>
-      </div>`;
-    }).join('');
-
-    const byesHTML = byes.map(b => `<div class="bye-row"><span class="bye-dot"></span>${b}: Bye Week</div>`).join('');
-
-    return `<div class="week-card">
-      <div class="week-header">
-        <span class="week-num">Week ${wk.week}</span>
-        <span class="week-date">${wk.date}</span>
-      </div>
-      <div class="week-body">
-        ${byesHTML}
-        ${gamesHTML}
-      </div>
-    </div>`;
-  }).join('');
-}
-
-/* ══════════════════════
-   EDIT MODE
-══════════════════════ */
-let editMode = false;
-
-function toggleEdit() {
-  editMode = !editMode;
-  document.body.classList.toggle('edit-mode', editMode);
-  const btn = document.getElementById('edit-btn');
-  btn.textContent = editMode ? '✓ Save & Exit' : '✏ Edit Mode';
-  btn.classList.toggle('active', editMode);
-  activateEditables();
-  if (!editMode) saveAllEdits();
-}
-
-function activateEditables() {
-  document.querySelectorAll('.editable').forEach(el => {
-    el.contentEditable = editMode ? 'true' : 'false';
-  });
-}
-
-function saveAllEdits() {
-  // Collect all editable field changes
-  document.querySelectorAll('[data-field]').forEach(el => {
-    const field = el.dataset.field;
-    const val = el.textContent.trim();
-    // standings
-    if (field.startsWith('standings-')) {
-      const [,team,col] = field.split('-');
-      const row = STANDINGS_2025.find(r => r.team === team);
-      if (row) row[col] = parseInt(val) || 0;
-    }
-    // OU
-    if (field.startsWith('ou-')) {
-      const team = field.split('-')[1];
-      const r = OU_2026.find(x => x.team === team);
-      if (r) r.ou = parseFloat(val) || r.ou;
-    }
-    // Division Odds
-    if (field.startsWith('divodds-')) {
-      const team = field.split('-')[1];
-      const r = DIV_ODDS_2026.find(x => x.team === team);
-      if (r) r.odds = val;
-    }
-    // wins tracker
-    if (field.startsWith('wins-')) {
-      const team = field.split('-')[1];
-      state.wins2026[team] = parseInt(val) || 0;
-    }
-    // blog
-    if (field.startsWith('blog-title-')) {
-      const idx = parseInt(field.split('-')[2]);
-      if (state.blogPosts[idx]) state.blogPosts[idx].title = el.textContent;
-    }
-    if (field.startsWith('blog-body-')) {
-      const idx = parseInt(field.split('-')[2]);
-      if (state.blogPosts[idx]) state.blogPosts[idx].body = el.innerHTML;
-    }
-    if (field.startsWith('blog-date-')) {
-      const idx = parseInt(field.split('-')[2]);
-      if (state.blogPosts[idx]) state.blogPosts[idx].date = el.textContent;
-    }
-    // lines
-    if (field.startsWith('line-')) {
-      const [,wi,gi] = field.split('-');
-      if (WEEKS[wi] && WEEKS[wi].games[gi]) WEEKS[wi].games[gi].line = val;
-    }
-  });
-  saveState();
-  renderAll();
-  activateEditables();
-}
-
-function setResult(sel) {
-  state.gameResults[sel.dataset.key] = sel.value;
-  saveState();
-}
-
-/* ══════════════════════
-   NAV ACTIVE STATE
-══════════════════════ */
-function setupNavSpy() {
+/* Nav scroll spy */
+(function() {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('nav a');
   const observer = new IntersectionObserver(entries => {
@@ -1214,23 +1230,7 @@ function setupNavSpy() {
     });
   }, { threshold: 0.3 });
   sections.forEach(s => observer.observe(s));
-}
-
-/* ══════════════════════
-   INIT
-══════════════════════ */
-function renderAll() {
-  renderStandings();
-  renderOU();
-  renderDivOdds();
-  renderFinishOpps();
-  renderSchedule();
-  renderBlog();
-}
-
-loadState();
-renderAll();
-setupNavSpy();
+})();
 </script>
 </body>
 </html>
