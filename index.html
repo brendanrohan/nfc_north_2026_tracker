@@ -205,7 +205,7 @@
   }
   .news-text {
     font-size: .95rem;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.65;
     color: var(--text);
     margin-bottom: 1.25rem;
@@ -366,6 +366,20 @@
     padding: .4rem .75rem;
     min-width: 70px;
     text-align: center;
+  }
+  .odds-source {
+    font-size: .75rem;
+    color: var(--muted);
+    margin-bottom: .75rem;
+  }
+  .odds-source a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .odds-source a:hover {
+    border-bottom-color: var(--gold);
   }
 
   /* ── OPPONENT CARDS ── */
@@ -706,6 +720,7 @@
     <!-- Division Winner -->
     <div id="divisionodds">
       <div class="subsection-header">2026 NFC North Winner</div>
+      <div class="odds-source"><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=futures&subcategory=divisions&nav_1=division-winner" target="_blank" rel="noopener">Draft Kings</a> as of July 1, 2026</div>
       <div class="div-odds-card" id="div-odds-card">
         <!-- rendered by JS -->
       </div>
