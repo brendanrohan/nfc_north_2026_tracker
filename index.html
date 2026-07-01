@@ -143,6 +143,95 @@
   .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 1rem; }
   .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 1rem; }
 
+  /* ── PREDICTIONS LAYOUT ── */
+  .predictions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .predictions-grid { grid-template-columns: 1fr; }
+  }
+  .subsection-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .04em;
+    color: var(--gold);
+    margin-bottom: .75rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .grid-2-stacked {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: .75rem;
+  }
+  @media (max-width: 600px) {
+    .grid-2-stacked { grid-template-columns: 1fr; }
+  }
+  .opponents-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 800px) {
+    .opponents-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── TOP GRID (Standings + News) ── */
+  .top-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .top-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── NEWS CARD ── */
+  .news-card {
+    padding: 1.25rem 1.5rem;
+  }
+  .news-date {
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: .5rem;
+  }
+  .news-text {
+    font-size: .95rem;
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--text);
+    margin-bottom: 1.25rem;
+  }
+  .news-text a,
+  .news-link-text a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color .2s;
+  }
+  .news-text a:hover,
+  .news-link-text a:hover {
+    border-bottom-color: var(--gold);
+  }
+  .news-links {
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+  }
+  .news-link-text {
+    font-size: .85rem;
+    color: var(--text-dim);
+    margin: 0;
+  }
+
   /* ── STANDINGS TABLE ── */
   .standings-table {
     width: 100%;
@@ -253,15 +342,20 @@
     font-weight: 500;
   }
   .div-odds-logo {
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: .7rem;
-    font-weight: 700;
-    color: #fff;
+    overflow: hidden;
+    background: var(--navy-mid);
+    padding: 4px;
+  }
+  .div-odds-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   .div-odds-value {
     font-family: 'DM Mono', monospace;
@@ -295,6 +389,33 @@
     border-radius: 4px;
     padding: .2rem .6rem;
     font-size: .8rem;
+  }
+  .opp-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+  }
+  .opp-logo {
+    width: 40px;
+    height: 40px;
+    background: var(--navy-mid);
+    border: 1px solid var(--navy-border);
+    border-radius: 50%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .2s, border-color .2s;
+    cursor: default;
+  }
+  .opp-logo:hover {
+    transform: scale(1.1);
+    border-color: var(--gold);
+  }
+  .opp-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   .team-opp-card { padding: 1rem 1.25rem; }
   .team-opp-header {
@@ -512,8 +633,7 @@
 
 <nav id="main-nav">
   <a href="#standings" class="active">Standings</a>
-  <a href="#overunders">Over/Unders</a>
-  <a href="#divisionodds">Division Odds</a>
+  <a href="#predictions">Predictions</a>
   <a href="#opponents">Opponents</a>
   <a href="#schedule">Schedule</a>
 </nav>
@@ -521,55 +641,75 @@
 <main>
 
 <!-- ══════════════════════════════════════════
-     2025 FINAL STANDINGS
+     STANDINGS + RECENT NEWS
 ════════════════════════════════════════════ -->
 <section id="standings">
-  <div class="section-header">
-    <span class="section-label">2025 Final Standings</span>
-    <div class="section-line"></div>
-    <span class="tag-label">Final</span>
+  <div class="top-grid">
+    <!-- 2025 Final Standings -->
+    <div>
+      <div class="section-header">
+        <span class="section-label">2025 Final Standings</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="card">
+        <table class="standings-table">
+          <thead>
+            <tr>
+              <th>Team</th>
+              <th>W</th><th>L</th><th>T</th><th>Pct</th>
+              <th style="text-align:center;">Div</th>
+            </tr>
+          </thead>
+          <tbody id="standings-body">
+            <!-- rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Recent News -->
+    <div id="news">
+      <div class="section-header">
+        <span class="section-label">Recent News</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="card news-card">
+        <div class="news-date">July 1, 2026</div>
+        <p class="news-text">The offseason grades are in and none of the NFC North teams did particularly well according to <a href="https://youtu.be/V0cNMfyWdNU?si=XZLZqVbngZ7-O3ov" target="_blank" rel="noopener">CBS Sports</a> and <a href="https://youtu.be/g4IKesYQhhE?si=-56SA_yDElCBTwTs" target="_blank" rel="noopener">PFT</a>. C's across the board with the Packers getting a C- from CBS.</p>
+        <div class="news-links">
+          <p class="news-link-text">Offseason grades for EVERY NFC North team – <a href="https://youtu.be/V0cNMfyWdNU?si=XZLZqVbngZ7-O3ov" target="_blank" rel="noopener">CBS Sports</a></p>
+          <p class="news-link-text">Offseason Grades For Every NFC North Team – <a href="https://youtu.be/g4IKesYQhhE?si=-56SA_yDElCBTwTs" target="_blank" rel="noopener">PFT</a></p>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="card">
-    <table class="standings-table">
-      <thead>
-        <tr>
-          <th>Team</th>
-          <th>W</th><th>L</th><th>T</th><th>Pct</th>
-          <th style="text-align:center;">Div</th>
-        </tr>
-      </thead>
-      <tbody id="standings-body">
+</section>
+
+<!-- ══════════════════════════════════════════
+     2026 PREDICTIONS
+════════════════════════════════════════════ -->
+<section id="predictions">
+  <div class="section-header">
+    <span class="section-label">2026 Predictions</span>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="predictions-grid">
+    <!-- Win Totals -->
+    <div id="overunders">
+      <div class="subsection-header">2026 Win Totals</div>
+      <div class="grid-2-stacked" id="ou-grid">
         <!-- rendered by JS -->
-      </tbody>
-    </table>
-  </div>
-</section>
+      </div>
+    </div>
 
-<!-- ══════════════════════════════════════════
-     2026 OVER/UNDERS
-════════════════════════════════════════════ -->
-<section id="overunders">
-  <div class="section-header">
-    <span class="section-label">2026 Win Totals</span>
-    <div class="section-line"></div>
-    <span class="tag-label">Over/Under</span>
-  </div>
-  <div class="grid-4" id="ou-grid">
-    <!-- rendered by JS -->
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════════
-     DIVISION ODDS
-════════════════════════════════════════════ -->
-<section id="divisionodds">
-  <div class="section-header">
-    <span class="section-label">NFC North Winner 2026-27</span>
-    <div class="section-line"></div>
-    <span class="tag-label">Division Odds</span>
-  </div>
-  <div class="div-odds-card" id="div-odds-card">
-    <!-- rendered by JS -->
+    <!-- Division Winner -->
+    <div id="divisionodds">
+      <div class="subsection-header">2026 NFC North Winner</div>
+      <div class="div-odds-card" id="div-odds-card">
+        <!-- rendered by JS -->
+      </div>
+    </div>
   </div>
 </section>
 
@@ -582,37 +722,39 @@
     <div class="section-line"></div>
   </div>
 
-  <div class="section-header" style="margin-top:0;margin-bottom:.75rem;">
-    <span style="font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;">Common Opponents</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="card" style="margin-bottom:1.25rem;" id="common-opponents-card">
-    <div class="opp-section">
-      <div class="opp-label">NFC South</div>
-      <div class="opp-chips" id="co-nfcs">
-        <span class="opp-chip editable" contenteditable="false">Buccaneers</span>
-        <span class="opp-chip editable" contenteditable="false">Falcons</span>
-        <span class="opp-chip editable" contenteditable="false">Panthers</span>
-        <span class="opp-chip editable" contenteditable="false">Saints</span>
+  <div class="opponents-grid">
+    <!-- Common Opponents -->
+    <div>
+      <div class="subsection-header">Common Opponents</div>
+      <div class="card" id="common-opponents-card">
+        <div class="opp-section">
+          <div class="opp-label">NFC South</div>
+          <div class="opp-logos">
+            <div class="opp-logo" title="Buccaneers"><img src="images/buccaneers.png" alt="Buccaneers"></div>
+            <div class="opp-logo" title="Falcons"><img src="images/falcons.png" alt="Falcons"></div>
+            <div class="opp-logo" title="Panthers"><img src="images/panthers.png" alt="Panthers"></div>
+            <div class="opp-logo" title="Saints"><img src="images/saints.png" alt="Saints"></div>
+          </div>
+        </div>
+        <div class="opp-section" style="margin-top:.75rem;">
+          <div class="opp-label">AFC East</div>
+          <div class="opp-logos">
+            <div class="opp-logo" title="Bills"><img src="images/bills.png" alt="Bills"></div>
+            <div class="opp-logo" title="Dolphins"><img src="images/dolphins.png" alt="Dolphins"></div>
+            <div class="opp-logo" title="Jets"><img src="images/jets.png" alt="Jets"></div>
+            <div class="opp-logo" title="Patriots"><img src="images/patriots.png" alt="Patriots"></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="opp-section" style="margin-top:.75rem;">
-      <div class="opp-label">AFC East</div>
-      <div class="opp-chips" id="co-afce">
-        <span class="opp-chip editable" contenteditable="false">Bills</span>
-        <span class="opp-chip editable" contenteditable="false">Dolphins</span>
-        <span class="opp-chip editable" contenteditable="false">Jets</span>
-        <span class="opp-chip editable" contenteditable="false">Patriots</span>
-      </div>
-    </div>
-  </div>
 
-  <div class="section-header" style="margin-bottom:.75rem;">
-    <span style="font-size:.75rem;color:var(--muted);font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.1em;">By 2025 Finish</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="grid-4" id="finish-opps">
-    <!-- rendered by JS -->
+    <!-- By 2025 Finish -->
+    <div>
+      <div class="subsection-header">By 2025 Finish</div>
+      <div class="grid-2-stacked" id="finish-opps">
+        <!-- rendered by JS -->
+      </div>
+    </div>
   </div>
 </section>
 
@@ -641,10 +783,10 @@
    DATA
 ══════════════════════ */
 const TEAMS = {
-  bears: { name:'Bears', city:'Chicago', color: '#e64100', bg:'#0b1f59', abbr:'CHI' },
-  lions: { name:'Lions', city:'Detroit', color:'#0076b6', bg:'#0d2a3f', abbr:'DET' },
-  packers: { name:'Packers', city:'Green Bay', color:'#ffb612', bg:'#203731', abbr:'GB' },
-  vikings: { name:'Vikings', city:'Minnesota', color:'#ffc62f', bg:'#2d1550', abbr:'MIN' },
+  bears: { name:'Bears', city:'Chicago', color: '#e64100', bg:'#0b1f59', abbr:'CHI', logo:'images/bears.png' },
+  lions: { name:'Lions', city:'Detroit', color:'#0076b6', bg:'#0d2a3f', abbr:'DET', logo:'images/lions.png' },
+  packers: { name:'Packers', city:'Green Bay', color:'#ffb612', bg:'#203731', abbr:'GB', logo:'images/packers.png' },
+  vikings: { name:'Vikings', city:'Minnesota', color:'#ffc62f', bg:'#2d1550', abbr:'MIN', logo:'images/vikings.png' },
 };
 
 const STANDINGS_2025 = [
@@ -667,6 +809,21 @@ const DIV_ODDS_2026 = [
   { team:'bears', odds:'+320' },
   { team:'vikings', odds:'+500' },
 ];
+
+const OPP_LOGOS = {
+  'Eagles': 'eagles.png',
+  'Seahawks': 'seahawks.png',
+  'Jaguars': 'jaguars.png',
+  'Cowboys': 'cowboys.png',
+  'Rams': 'rams.png',
+  'Texans': 'texans.png',
+  'Commanders': 'commanders.png',
+  '49ers': '49ers.png',
+  'Colts': 'colts.png',
+  'NY Giants': 'giants.png',
+  'Cardinals': 'cardinals.png',
+  'Titans': 'titans.png',
+};
 
 const FINISH_OPPS = [
   { team:'bears', label:'Bears (1st)', opps:['Eagles','Seahawks','Jaguars'] },
@@ -868,7 +1025,7 @@ function renderDivOdds() {
     const t = TEAMS[row.team];
     return `<div class="div-odds-row">
       <div class="div-odds-team">
-        <div class="div-odds-logo" style="background:${t.color};">${t.abbr}</div>
+        <div class="div-odds-logo"><img src="${t.logo}" alt="${t.name}"></div>
         <span>${t.city} ${t.name}</span>
       </div>
       <div class="div-odds-value editable" contenteditable="false" data-field="divodds-${row.team}">${row.odds}</div>
@@ -885,8 +1042,8 @@ function renderFinishOpps() {
     const t = TEAMS[row.team];
     return `<div class="card team-opp-card">
       <div class="team-opp-header" style="color:${t.color}">${row.label}</div>
-      <div class="opp-chips">
-        ${row.opps.map(o => `<span class="opp-chip editable" contenteditable="false">${o}</span>`).join('')}
+      <div class="opp-logos">
+        ${row.opps.map(o => `<div class="opp-logo" title="${o}"><img src="images/${OPP_LOGOS[o]}" alt="${o}"></div>`).join('')}
       </div>
     </div>`;
   }).join('');
