@@ -198,6 +198,13 @@
     color: var(--muted);
     margin-bottom: .5rem;
   }
+  .news-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: .03em;
+    color: #fff;
+    margin-bottom: .75rem;
+  }
   .news-text {
     font-size: .95rem;
     font-weight: 300;
@@ -503,8 +510,10 @@
 <body>
 
 <header>
-  <div class="header-eyebrow">2026 Season Tracker</div>
-  <h1>NFC <span>North</span></h1>
+  <a href="index.html" style="text-decoration: none; position: relative; z-index: 1; display: block;">
+    <div class="header-eyebrow">2026 Season Tracker</div>
+    <h1>NFC <span>North</span></h1>
+  </a>
 </header>
 
 <nav id="main-nav">
@@ -512,6 +521,7 @@
   <a href="#predictions">Predictions</a>
   <a href="#opponents">Opponents</a>
   <a href="#schedule">Schedule</a>
+  <a href="news.html">News</a>
 </nav>
 
 <main>
@@ -521,6 +531,20 @@
 ════════════════════════════════════════════ -->
 <section id="standings">
   <div class="top-grid">
+    <!-- Recent News -->
+    <div id="news">
+      <div class="section-header">
+        <span class="section-label">Recent News</span>
+        <div class="section-line"></div>
+      </div>
+      <div class="card news-card">
+        <div class="news-date">July 28, 2026</div>
+        <h2 class="news-headline">Training Camps Open</h2>
+        <p class="news-text">We made it! By the end of the week, camps will be up and operational and all NFC North teams will be playing (or practicing anyway).</p>
+        <p class="news-link-text"><a href="news.html">See locations and preseason schedules &rarr;</a></p>
+      </div>
+    </div>
+
     <!-- 2025 Final Standings -->
     <div>
       <div class="section-header">
@@ -597,22 +621,6 @@
         </table>
       </div>
     </div>
-
-    <!-- Recent News -->
-    <div id="news">
-      <div class="section-header">
-        <span class="section-label">Recent News</span>
-        <div class="section-line"></div>
-      </div>
-      <div class="card news-card">
-        <div class="news-date">July 1, 2026</div>
-        <p class="news-text">The offseason grades are in and none of the NFC North teams did particularly well according to <a href="https://youtu.be/V0cNMfyWdNU?si=XZLZqVbngZ7-O3ov" target="_blank" rel="noopener">CBS Sports</a> and <a href="https://youtu.be/g4IKesYQhhE?si=-56SA_yDElCBTwTs" target="_blank" rel="noopener">PFT</a>. C's across the board with the Packers getting a C- from CBS.</p>
-        <div class="news-links">
-          <p class="news-link-text">Offseason grades for EVERY NFC North team – <a href="https://youtu.be/V0cNMfyWdNU?si=XZLZqVbngZ7-O3ov" target="_blank" rel="noopener">CBS Sports</a></p>
-          <p class="news-link-text">Offseason Grades For Every NFC North Team – <a href="https://youtu.be/g4IKesYQhhE?si=-56SA_yDElCBTwTs" target="_blank" rel="noopener">PFT</a></p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -628,7 +636,7 @@
   <div class="predictions-grid">
     <!-- Win Totals -->
     <div id="overunders">
-      <div class="subsection-header">2026 Win Totals</div>
+      <div class="subsection-header">Win Totals</div>
       <div class="odds-source"><a href="https://www.rotowire.com/betting/nfl/nfc-north-odds.php" target="_blank" rel="noopener">Draft Kings</a> as of May 26</div>
       <div class="grid-2-stacked">
         <div class="ou-card" style="background:linear-gradient(135deg,#0d2a3f 0%,var(--navy-card) 100%);">
@@ -656,7 +664,7 @@
 
     <!-- Division Winner -->
     <div id="divisionodds">
-      <div class="subsection-header">2026 NFC North Winner</div>
+      <div class="subsection-header">Division Winner</div>
       <div class="odds-source"><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=futures&subcategory=divisions&nav_1=division-winner" target="_blank" rel="noopener">Draft Kings</a> as of July 2026</div>
       <div class="div-odds-card">
         <div class="div-odds-row">
@@ -1219,16 +1227,29 @@
 /* Nav scroll spy */
 (function() {
   const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('nav a');
+  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+  function setActiveNav(id) {
+    navLinks.forEach(a => a.classList.remove('active'));
+    const active = document.querySelector(`nav a[href="#${id}"]`);
+    if (active) active.classList.add('active');
+  }
+
+  // Set initial state - default to standings if at top
+  if (window.scrollY < 100) {
+    setActiveNav('standings');
+  }
+
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        navLinks.forEach(a => a.classList.remove('active'));
-        const active = document.querySelector(`nav a[href="#${e.target.id}"]`);
-        if (active) active.classList.add('active');
-      }
-    });
-  }, { threshold: 0.3 });
+    // Find the topmost visible section
+    const visible = entries.filter(e => e.isIntersecting);
+    if (visible.length > 0) {
+      // Sort by position and take the topmost
+      visible.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
+      setActiveNav(visible[0].target.id);
+    }
+  }, { threshold: 0.3, rootMargin: '-60px 0px 0px 0px' });
+
   sections.forEach(s => observer.observe(s));
 })();
 </script>
