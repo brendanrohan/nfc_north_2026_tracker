@@ -537,12 +537,7 @@
         <span class="section-label">Recent News</span>
         <div class="section-line"></div>
       </div>
-      <div class="card news-card">
-        <div class="news-date">July 28, 2026</div>
-        <h2 class="news-headline">Training Camps Open</h2>
-        <p class="news-text">We made it! By the end of the week, camps will be up and operational and all NFC North teams will be playing (or practicing anyway).</p>
-        <p class="news-link-text"><a href="news.html">See locations and preseason schedules &rarr;</a></p>
-      </div>
+      <div id="latest-news"></div>
     </div>
 
     <!-- 2025 Final Standings -->
@@ -1251,6 +1246,26 @@
   }, { threshold: 0.3, rootMargin: '-60px 0px 0px 0px' });
 
   sections.forEach(s => observer.observe(s));
+})();
+
+/* Load latest news from JSON */
+(function() {
+  fetch('news.json')
+    .then(response => response.json())
+    .then(news => {
+      const latest = news[0];
+      const container = document.getElementById('latest-news');
+
+      container.innerHTML = `
+        <div class="card news-card">
+          <div class="news-date">${latest.date}</div>
+          <h2 class="news-headline">${latest.headline}</h2>
+          <p class="news-text">${latest.text}</p>
+          <p class="news-link-text"><a href="news.html">See all news &rarr;</a></p>
+        </div>
+      `;
+    })
+    .catch(err => console.error('Error loading news:', err));
 })();
 </script>
 </body>

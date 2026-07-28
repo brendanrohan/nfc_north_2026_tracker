@@ -1,0 +1,64 @@
+[
+  {
+    "id": "training-camps-2026",
+    "date": "July 28, 2026",
+    "headline": "Training Camps Open",
+    "text": "We made it! By the end of the week, camps will be up and operational and all NFC North teams will be playing (or practicing anyway).",
+    "camps": [
+      {
+        "team": "Chicago Bears",
+        "color": "#e64100",
+        "location": "Halas Hall in Lake Forest, Illinois",
+        "rookies": "July 25",
+        "veterans": "July 28",
+        "firstPractice": "July 29",
+        "text": "Defending NFC North Champs, the Bears have the division's toughest schedule. Can they repeat their success?"
+      },
+      {
+        "team": "Detroit Lions",
+        "color": "#0076b6",
+        "location": "Allen Park, Michigan",
+        "rookies": "July 25",
+        "veterans": "July 28",
+        "firstPractice": "July 29",
+        "text": "The Lions placed three players on the active physically unable to perform (PUP) list ahead of training camp: Brian Branch, Kerby Joseph, and Tyler Conklin."
+      },
+      {
+        "team": "Green Bay Packers",
+        "color": "#ffb612",
+        "location": "Ray Nitschke Field in Green Bay, Wisconsin",
+        "rookies": "July 25",
+        "veterans": "July 27",
+        "firstPractice": "July 27",
+        "text": "This is Green Bay's 81st training camp, a tradition that began in 1946 under Curly Lambeau. The Packers were the first team to have a completely self-contained professional football training camp facility where the team could live and practice together."
+      },
+      {
+        "team": "Minnesota Vikings",
+        "color": "#ffc62f",
+        "location": "TCO Performance Center in Eagan, Minnesota",
+        "rookies": "July 26",
+        "veterans": "July 28",
+        "firstPractice": "July 28",
+        "text": "All eyes will be on the quarterback competition between Kyler Murray and J.J. McCarthy."
+      }
+    ]
+  },
+  {
+    "id": "offseason-grades-2026",
+    "date": "July 1, 2026",
+    "headline": "Offseason Grades Are In",
+    "text": "The offseason grades are in and none of the NFC North teams did particularly well according to <a href=\"https://youtu.be/V0cNMfyWdNU?si=XZLZqVbngZ7-O3ov\" target=\"_blank\" rel=\"noopener\">CBS Sports</a> and <a href=\"https://youtu.be/g4IKesYQhhE?si=-56SA_yDElCBTwTs\" target=\"_blank\" rel=\"noopener\">PFT</a>. C's across the board with the Packers getting a C- from CBS.",
+    "links": [
+      {
+        "label": "Offseason grades for EVERY NFC North team",
+        "source": "CBS Sports",
+        "url": "https://youtu.be/V0cNMfyWdNU?si=XZLZqVbngZ7-O3ov"
+      },
+      {
+        "label": "Offseason Grades For Every NFC North Team",
+        "source": "PFT",
+        "url": "https://youtu.be/g4IKesYQhhE?si=-56SA_yDElCBTwTs"
+      }
+    ]
+  }
+]

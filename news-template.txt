@@ -1,0 +1,72 @@
+NEWS ITEM TEMPLATES
+===================
+Copy the template you need, paste it at the TOP of the array in news.json
+(right after the opening [ bracket), and fill in your content.
+
+Remember:
+- Keep all text on ONE line (no Enter/Return key inside quotes)
+- Use \" for quotes inside text
+- Don't forget the comma at the end of each item (before the next item)
+
+
+SIMPLE NEWS ITEM
+----------------
+  {
+    "id": "unique-id-here",
+    "date": "Month Day, 2026",
+    "headline": "Your Headline Here",
+    "text": "Your news text goes here all on one line. You can make it as long as you want."
+  },
+
+
+NEWS WITH SOURCE LINKS
+----------------------
+  {
+    "id": "unique-id-here",
+    "date": "Month Day, 2026",
+    "headline": "Your Headline Here",
+    "text": "Your news text goes here.",
+    "links": [
+      {
+        "label": "Article title or description",
+        "source": "ESPN",
+        "url": "https://example.com/article"
+      },
+      {
+        "label": "Another article",
+        "source": "NFL.com",
+        "url": "https://example.com/another"
+      }
+    ]
+  },
+
+
+NEWS WITH INLINE LINK (in the text itself)
+------------------------------------------
+  {
+    "id": "unique-id-here",
+    "date": "Month Day, 2026",
+    "headline": "Your Headline Here",
+    "text": "Check out this <a href=\"https://example.com\" target=\"_blank\" rel=\"noopener\">great article</a> about the Bears."
+  },
+
+
+ADDING TEXT TO A CAMP ENTRY (inside the camps array)
+----------------------------------------------------
+      {
+        "team": "Team Name",
+        "color": "#hexcolor",
+        "location": "Location",
+        "rookies": "July 25",
+        "veterans": "July 28",
+        "firstPractice": "July 29",
+        "text": "Additional notes about this team's camp go here."
+      },
+
+
+TEAM COLORS FOR REFERENCE
+-------------------------
+Bears:   #e64100
+Lions:   #0076b6
+Packers: #ffb612
+Vikings: #ffc62f
