@@ -103,6 +103,17 @@
     background: var(--navy-border);
     color: var(--gold);
   }
+  nav a.nav-btn {
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    color: var(--navy);
+    font-weight: 500;
+  }
+  nav a.nav-btn:hover {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    color: var(--navy);
+  }
 
   /* ── LAYOUT ── */
   main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
@@ -184,6 +195,92 @@
   }
   @media (max-width: 900px) {
     .top-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── STANDINGS GRID (Advanced Stats + Table) ── */
+  .standings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    align-items: start;
+  }
+  @media (max-width: 700px) {
+    .standings-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── ADVANCED STATS ── */
+  .stats-card {
+    padding: 1rem 1.25rem;
+  }
+  .stats-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .04em;
+    color: #fff;
+    margin-bottom: .75rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .stats-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 500px) {
+    .stats-columns { grid-template-columns: 1fr; }
+  }
+  .stats-section {
+    margin-bottom: 0;
+  }
+  .stats-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .5rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .stats-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .35rem 0;
+    font-size: .8rem;
+    border-bottom: 1px solid rgba(30,45,69,.3);
+  }
+  .stats-row:last-child { border-bottom: none; }
+  .stats-team {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 500;
+    min-width: 70px;
+  }
+  .stats-values {
+    display: flex;
+    gap: .75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .7rem;
+  }
+  .stat-item {
+    text-align: center;
+    min-width: 65px;
+  }
+  .stat-val { color: var(--text); }
+  .stat-val.positive { color: var(--green); }
+  .stat-val.negative { color: var(--red); }
+  .stat-rank { color: var(--muted); font-size: .6rem; }
+
+  /* ── NEWS GRID ── */
+  .news-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  @media (max-width: 700px) {
+    .news-grid { grid-template-columns: 1fr; }
   }
 
   /* ── NEWS CARD ── */
@@ -521,99 +618,156 @@
   <a href="#predictions">Predictions</a>
   <a href="#opponents">Opponents</a>
   <a href="#schedule">Schedule</a>
-  <a href="news.html">News</a>
+  <a href="news.html" class="nav-btn">Previews</a>
 </nav>
 
 <main>
 
 <!-- ══════════════════════════════════════════
-     STANDINGS + RECENT NEWS
+     2025 FINAL STANDINGS
 ════════════════════════════════════════════ -->
 <section id="standings">
-  <div class="top-grid">
-    <!-- Recent News -->
-    <div id="news">
-      <div class="section-header">
-        <span class="section-label">Recent News</span>
-        <div class="section-line"></div>
-      </div>
-      <div id="latest-news"></div>
+  <div class="section-header">
+    <span class="section-label">2025 Final Standings</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="standings-grid">
+    <!-- Standings Table -->
+    <div class="card">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>W</th><th>L</th><th>T</th><th>Pct</th>
+            <th style="text-align:center;">Div</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">1</span>
+                <span class="team-dot" style="background:#e64100"></span>
+                <span>Chicago Bears</span>
+              </div>
+            </td>
+            <td class="record-w">11</td>
+            <td class="record-l">6</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.647</td>
+            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">2</span>
+                <span class="team-dot" style="background:#ffb612"></span>
+                <span>Green Bay Packers</span>
+              </div>
+            </td>
+            <td class="record-w">9</td>
+            <td class="record-l">7</td>
+            <td>1</td>
+            <td style="color:var(--muted)">.559</td>
+            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">3</span>
+                <span class="team-dot" style="background:#ffc62f"></span>
+                <span>Minnesota Vikings</span>
+              </div>
+            </td>
+            <td class="record-w">9</td>
+            <td class="record-l">8</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.529</td>
+            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">4</span>
+                <span class="team-dot" style="background:#0076b6"></span>
+                <span>Detroit Lions</span>
+              </div>
+            </td>
+            <td class="record-w">9</td>
+            <td class="record-l">8</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.529</td>
+            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-
-    <!-- 2025 Final Standings -->
-    <div>
-      <div class="section-header">
-        <span class="section-label">2025 Final Standings</span>
-        <div class="section-line"></div>
-      </div>
-      <div class="card">
-        <table class="standings-table">
-          <thead>
-            <tr>
-              <th>Team</th>
-              <th>W</th><th>L</th><th>T</th><th>Pct</th>
-              <th style="text-align:center;">Div</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="team-name-cell">
-                  <span class="rank-badge">1</span>
-                  <span class="team-dot" style="background:#e64100"></span>
-                  <span>Chicago Bears</span>
-                </div>
-              </td>
-              <td class="record-w">11</td>
-              <td class="record-l">6</td>
-              <td>0</td>
-              <td style="color:var(--muted)">.647</td>
-              <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
-            </tr>
-            <tr>
-              <td>
-                <div class="team-name-cell">
-                  <span class="rank-badge">2</span>
-                  <span class="team-dot" style="background:#ffb612"></span>
-                  <span>Green Bay Packers</span>
-                </div>
-              </td>
-              <td class="record-w">9</td>
-              <td class="record-l">7</td>
-              <td>1</td>
-              <td style="color:var(--muted)">.559</td>
-              <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
-            </tr>
-            <tr>
-              <td>
-                <div class="team-name-cell">
-                  <span class="rank-badge">3</span>
-                  <span class="team-dot" style="background:#ffc62f"></span>
-                  <span>Minnesota Vikings</span>
-                </div>
-              </td>
-              <td class="record-w">9</td>
-              <td class="record-l">8</td>
-              <td>0</td>
-              <td style="color:var(--muted)">.529</td>
-              <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
-            </tr>
-            <tr>
-              <td>
-                <div class="team-name-cell">
-                  <span class="rank-badge">4</span>
-                  <span class="team-dot" style="background:#0076b6"></span>
-                  <span>Detroit Lions</span>
-                </div>
-              </td>
-              <td class="record-w">9</td>
-              <td class="record-l">8</td>
-              <td>0</td>
-              <td style="color:var(--muted)">.529</td>
-              <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
-            </tr>
-          </tbody>
-        </table>
+    <!-- Advanced Stats -->
+    <div class="card stats-card">
+      <div class="stats-header">Advanced Stats</div>
+      <div class="stats-columns">
+        <div class="stats-section">
+          <div class="stats-label">EPA (Expected Points Added)</div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+44.20</span><br><span class="stat-rank">Off 14th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+29.07</span><br><span class="stat-rank">Def 18th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+58.10</span><br><span class="stat-rank">Off 8th</span></div>
+              <div class="stat-item"><span class="stat-val positive">+12.40</span><br><span class="stat-rank">Def 12th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+101.44</span><br><span class="stat-rank">Off 4th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+46.20</span><br><span class="stat-rank">Def 26th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val negative">-14.80</span><br><span class="stat-rank">Off 22nd</span></div>
+              <div class="stat-item"><span class="stat-val positive">-111.09</span><br><span class="stat-rank">Def 4th</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stats-label">DVOA (Def-adj Value Over Avg)</div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+12.5%</span><br><span class="stat-rank">Off 7th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+6.1%</span><br><span class="stat-rank">Def 25th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+16.3%</span><br><span class="stat-rank">Off 3rd</span></div>
+              <div class="stat-item"><span class="stat-val positive">-1.5%</span><br><span class="stat-rank">Def 11th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+10.1%</span><br><span class="stat-rank">Off 9th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+3.4%</span><br><span class="stat-rank">Def 21st</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val negative">-17.2%</span><br><span class="stat-rank">Off 28th</span></div>
+              <div class="stat-item"><span class="stat-val positive">-17.0%</span><br><span class="stat-rank">Def 3rd</span></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -1248,25 +1402,6 @@
   sections.forEach(s => observer.observe(s));
 })();
 
-/* Load latest news from JSON */
-(function() {
-  fetch('news.json')
-    .then(response => response.json())
-    .then(news => {
-      const latest = news[0];
-      const container = document.getElementById('latest-news');
-
-      container.innerHTML = `
-        <div class="card news-card">
-          <div class="news-date">${latest.date}</div>
-          <h2 class="news-headline">${latest.headline}</h2>
-          <p class="news-text">${latest.text}</p>
-          <p class="news-link-text"><a href="news.html">See all news &rarr;</a></p>
-        </div>
-      `;
-    })
-    .catch(err => console.error('Error loading news:', err));
-})();
 </script>
 </body>
 </html>

@@ -103,6 +103,18 @@
     background: var(--navy-border);
     color: var(--gold);
   }
+  nav a.nav-btn {
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    color: var(--navy);
+    font-weight: 500;
+  }
+  nav a.nav-btn:hover,
+  nav a.nav-btn.active {
+    background: var(--gold-light);
+    border-color: var(--gold-light);
+    color: var(--navy);
+  }
 
   /* ── LAYOUT ── */
   main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
@@ -148,6 +160,7 @@
   .news-card {
     padding: 1.25rem 1.5rem;
     margin-bottom: 1rem;
+    scroll-margin-top: 60px;
   }
   .news-card:last-child { margin-bottom: 0; }
   .news-date {
@@ -317,7 +330,7 @@
   <a href="index.html#predictions">Predictions</a>
   <a href="index.html#opponents">Opponents</a>
   <a href="index.html#schedule">Schedule</a>
-  <a href="news.html" class="active">News</a>
+  <a href="news.html" class="nav-btn active">Previews</a>
 </nav>
 
 <main>
@@ -419,14 +432,14 @@
 <script>
 /* Load all news from JSON */
 (function() {
-  fetch('news.json')
+  fetch('news.json?v=' + Date.now())
     .then(response => response.json())
     .then(newsItems => {
       const container = document.getElementById('news-list');
 
       const html = newsItems.map(item => {
         let content = `
-          <div class="card news-card">
+          <div class="card news-card" id="${item.id}">
             <div class="news-date">${item.date}</div>
             <h2 class="news-headline">${item.headline}</h2>
             <p class="news-text">${item.text}</p>
