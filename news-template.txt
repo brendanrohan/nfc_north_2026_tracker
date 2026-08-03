@@ -1,67 +1,68 @@
-NEWS ITEM TEMPLATES
+NEWS POST TEMPLATES
 ===================
-Copy the template you need, paste it at the TOP of the array in news.json
-(right after the opening [ bracket), and fill in your content.
 
-Remember:
-- Keep all text on ONE line (no Enter/Return key inside quotes)
-- Use \" for quotes inside text
-- Don't forget the comma at the end of each item (before the next item)
+Create markdown files in the news/ directory with this naming format:
+  YYYY-MM-DD-slug.md
+
+The date in the filename determines the post date and sort order.
+Run `node build-news.js` after adding or editing posts.
 
 
-SIMPLE NEWS ITEM
+SIMPLE NEWS POST
 ----------------
-  {
-    "id": "unique-id-here",
-    "date": "Month Day, 2026",
-    "headline": "Your Headline Here",
-    "text": "Your news text goes here all on one line. You can make it as long as you want."
-  },
+Create a file like: news/2026-08-03-my-headline.md
+
+---
+headline: My Headline Here
+---
+
+Your news text goes here. You can write multiple paragraphs
+and use [markdown links](https://example.com) which will be
+converted to HTML automatically.
 
 
 NEWS WITH SOURCE LINKS
 ----------------------
-  {
-    "id": "unique-id-here",
-    "date": "Month Day, 2026",
-    "headline": "Your Headline Here",
-    "text": "Your news text goes here.",
-    "links": [
-      {
-        "label": "Article title or description",
-        "source": "ESPN",
-        "url": "https://example.com/article"
-      },
-      {
-        "label": "Another article",
-        "source": "NFL.com",
-        "url": "https://example.com/another"
-      }
-    ]
-  },
+Create a file like: news/2026-08-03-draft-analysis.md
+
+---
+headline: Draft Analysis
+links:
+  - label: Article title or description
+    source: ESPN
+    url: https://example.com/article
+  - label: Another article
+    source: NFL.com
+    url: https://example.com/another
+---
+
+Your news text here. Links in the frontmatter appear as a
+separate "Sources" section on the page.
 
 
-NEWS WITH INLINE LINK (in the text itself)
-------------------------------------------
-  {
-    "id": "unique-id-here",
-    "date": "Month Day, 2026",
-    "headline": "Your Headline Here",
-    "text": "Check out this <a href=\"https://example.com\" target=\"_blank\" rel=\"noopener\">great article</a> about the Bears."
-  },
+NEWS WITH CAMP DETAILS
+----------------------
+Create a file like: news/2026-07-28-training-camps.md
 
+---
+headline: Training Camps
+camps:
+  - team: Chicago Bears
+    color: "#e64100"
+    location: Halas Hall in Lake Forest, Illinois
+    rookies: July 25
+    veterans: July 28
+    firstPractice: July 29
+    text: Optional notes about this team's camp.
+  - team: Detroit Lions
+    color: "#0076b6"
+    location: Allen Park, Michigan
+    rookies: July 25
+    veterans: July 28
+    firstPractice: July 29
+---
 
-ADDING TEXT TO A CAMP ENTRY (inside the camps array)
-----------------------------------------------------
-      {
-        "team": "Team Name",
-        "color": "#hexcolor",
-        "location": "Location",
-        "rookies": "July 25",
-        "veterans": "July 28",
-        "firstPractice": "July 29",
-        "text": "Additional notes about this team's camp go here."
-      },
+Your intro text for the camps article.
 
 
 TEAM COLORS FOR REFERENCE
@@ -70,3 +71,12 @@ Bears:   #e64100
 Lions:   #0076b6
 Packers: #ffb612
 Vikings: #ffc62f
+
+
+WORKFLOW
+--------
+1. Create a new .md file in news/
+2. Add frontmatter (headline required, links/camps optional)
+3. Write your content below the ---
+4. Run: node build-news.js
+5. Commit both the .md file and the updated news.json
