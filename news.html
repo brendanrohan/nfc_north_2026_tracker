@@ -186,6 +186,28 @@
     margin-bottom: 1rem;
   }
   .news-text:last-child { margin-bottom: 0; }
+  .team-result {
+    font-weight: 500;
+    color: #fff;
+  }
+  .storyline-box {
+    background: var(--navy-mid);
+    border-left: 3px solid var(--gold);
+    padding: .6rem .9rem;
+    margin: .5rem 0 1rem;
+    border-radius: 0 6px 6px 0;
+    font-size: .9rem;
+    line-height: 1.55;
+  }
+  .storyline-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: .25rem;
+  }
   .news-text a,
   .news-link-text a {
     color: var(--gold);
@@ -314,6 +336,20 @@
     text-transform: uppercase;
     letter-spacing: .05em;
   }
+  .game-matchup .winner {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .game-matchup .loser {
+    color: var(--text-dim);
+  }
+  .game-final {
+    font-family: 'DM Mono', monospace;
+    font-size: .55rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .05em;
+  }
 </style>
 </head>
 <body>
@@ -355,20 +391,20 @@
         </div>
         <div class="week-body">
           <div class="game-row">
-            <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Bengals</span></div>
-            <div class="game-meta"><span class="game-slot">Thu 7pm</span></div>
+            <div class="game-matchup"><span class="winner">Bengals 16</span> <span class="loser">Lions 14</span></div>
+            <div class="game-meta"><span class="game-final">Final</span></div>
           </div>
           <div class="game-row">
-            <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Steelers</span></div>
-            <div class="game-meta"><span class="game-slot">Thu 7pm</span></div>
+            <div class="game-matchup"><span class="winner">Steelers 28</span> <span class="loser">Packers 9</span></div>
+            <div class="game-meta"><span class="game-final">Final</span></div>
           </div>
           <div class="game-row">
-            <div class="game-matchup"><span class="home-team">Bears</span> <span class="vs-sep">vs</span> <span>Browns</span></div>
-            <div class="game-meta"><span class="game-slot">Sat 1pm</span></div>
+            <div class="game-matchup"><span class="winner">Bears 34</span> <span class="loser">Browns 10</span></div>
+            <div class="game-meta"><span class="game-final">Final</span></div>
           </div>
           <div class="game-row">
-            <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Giants</span></div>
-            <div class="game-meta"><span class="game-slot">Sat 1pm</span></div>
+            <div class="game-matchup"><span class="winner">Vikings 13</span> <span class="loser">Giants 10</span></div>
+            <div class="game-meta"><span class="game-final">Final</span></div>
           </div>
         </div>
       </div>

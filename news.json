@@ -1,5 +1,11 @@
 [
   {
+    "id": "preseason-week-1",
+    "date": "August 15, 2026",
+    "headline": "Preseason Week 1",
+    "text": "<strong style='color:#e64100'>Chicago Bears</strong><br><span class='team-result'>Bears 34, Browns 10</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>After sitting most starters, head coach Ben Johnson's squad rallied from an early 10-0 deficit with 34 unanswered points, showing off impressive roster depth and committing just two penalties all game.</div><strong style='color:#ffc62f'>Minnesota Vikings</strong><br><span class='team-result'>Vikings 13, Giants 10</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>With Kyler Murray taking over as the primary starter, all eyes were on how head coach Kevin O'Connell managed reps between Murray and young signal-caller J.J. McCarthy in their low-scoring road win at MetLife Stadium.</div><strong style='color:#0076b6'>Detroit Lions</strong><br><span class='team-result'>Bengals 16, Lions 14</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>Detroit focused on evaluating backup offensive line combinations and secondary depth, holding back primary starters while backup quarterbacks Rookie Luke Altmyer and recently signed veteran Josh Dobbs handled the snaps.</div><strong style='color:#ffb612'>Green Bay Packers</strong><br><span class='team-result'>Steelers 28, Packers 9</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>Jordan Love sat out, leaving backup quarterbacks to struggle behind reserve offensive line units as Green Bay evaluated position battles in the defensive backfield and pass rush.</div>"
+  },
+  {
     "id": "training-camps-2026",
     "date": "July 28, 2026",
     "headline": "Training Camps",
