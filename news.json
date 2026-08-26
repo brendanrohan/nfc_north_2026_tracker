@@ -1,5 +1,11 @@
 [
   {
+    "id": "preseason-week-2",
+    "date": "August 22, 2026",
+    "headline": "Preseason Week 2",
+    "text": "<strong style='color:#ffb612'>Green Bay Packers</strong><br><span class='team-result'>Packers 33, Broncos 13</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>The Packers looked sharp in a 20-point road win in Denver, their most convincing preseason showing so far.</div><strong style='color:#0076b6'>Detroit Lions</strong><br><span class='team-result'>Lions 17, Commanders 13</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>Detroit held off Washington 17-13 but the O-line remains a concern — starting without Penei Sewell, the first-team unit gave up a strip-sack on just the second play.</div><strong style='color:#ffc62f'>Minnesota Vikings</strong><br><span class='team-result'>Ravens 13, Vikings 3</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>The Vikings were blanked offensively in a 13-3 loss to the Ravens. Kyler Murray's preseason debut is the key storyline to watch in Week 3.</div><strong style='color:#e64100'>Chicago Bears</strong><br><span class='team-result'>Bengals 27, Bears 9</span><div class='storyline-box'><span class='storyline-label'>Top Storyline</span>The first-team offense showed some life before a Braxton Jones holding penalty and three Caleb Williams incompletions — one a genuine miss, one batted down, one with a debatable no-call — forced them to settle for three.</div>"
+  },
+  {
     "id": "preseason-week-1",
     "date": "August 15, 2026",
     "headline": "Preseason Week 1",
