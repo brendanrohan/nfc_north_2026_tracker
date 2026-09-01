@@ -65,6 +65,7 @@ Keep the tone conversational and fan-friendly. Focus on what matters most to fan
         model="claude-sonnet-5",
         max_tokens=300,
         messages=[{"role": "user", "content": prompt}],
+        tools=[{"type": "web_search_20250305", "name": "web_search"}],
     )
 
     # Extract text from response
