@@ -73,12 +73,9 @@ Rules:
         tools=[{"type": "web_search_20250305", "name": "web_search"}],
     )
 
-    # Extract text from response
-    for block in response.content:
-        if block.type == "text":
-            return block.text.strip()
-
-    return "No update available."
+    # Extract all text blocks from response (web search may produce multiple)
+    texts = [block.text for block in response.content if block.type == "text"]
+    return " ".join(texts).strip() if texts else "No update available."
 
 
 def main():
