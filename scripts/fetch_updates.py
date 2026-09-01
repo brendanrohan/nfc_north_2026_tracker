@@ -52,29 +52,35 @@ def generate_summary(client: anthropic.Anthropic, team_name: str, headlines: lis
 
     headlines_text = "\n".join(f"- {h}" for h in headlines) if headlines else "(no headlines available)"
 
-    prompt = f"""Write exactly 2 short sentences about today's {team_name} news.
+    prompt = f"""Write a 2-sentence summary of today's {team_name} news.
 
 Headlines: {headlines_text}
 
-Search for the single biggest story from the last 24 hours.
-
-STRICT RULES:
-- Maximum 2 sentences total
-- Maximum 40 words total
-- No newlines
-- No markdown
-- Just the key facts"""
+Search for the biggest story from the last 24 hours. Write exactly 2 complete sentences, be concise, no markdown formatting."""
 
     response = client.messages.create(
         model="claude-sonnet-5",
-        max_tokens=100,
+        max_tokens=150,
         messages=[{"role": "user", "content": prompt}],
         tools=[{"type": "web_search_20250305", "name": "web_search"}],
     )
 
     # Extract all text blocks from response (web search may produce multiple)
     texts = [block.text for block in response.content if block.type == "text"]
-    return " ".join(texts).strip() if texts else "No update available."
+    summary = " ".join(texts).strip() if texts else "No update available."
+
+    # Clean up: remove markdown, limit to 2 sentences
+    import re
+    summary = re.sub(r'\*\*?', '', summary)  # Remove markdown bold/italic
+    summary = re.sub(r'\n+', ' ', summary)   # Remove newlines
+    summary = re.sub(r'\s+', ' ', summary)   # Normalize whitespace
+
+    # Limit to first 2 sentences
+    sentences = re.split(r'(?<=[.!?])\s+', summary)
+    if len(sentences) > 2:
+        summary = ' '.join(sentences[:2])
+
+    return summary.strip()
 
 
 def main():
