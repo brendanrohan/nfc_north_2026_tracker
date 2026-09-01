@@ -1,0 +1,116 @@
+<!--
+  DAILY UPDATES SECTION
+
+  Add this CSS to your existing <style> block, and the HTML wherever
+  you want the daily updates section to appear in index.html.
+  The script goes before </body>.
+-->
+
+<!-- ═══════════════════════════════════════════════════════════════
+     CSS — add to your <style> block
+     ═══════════════════════════════════════════════════════════════ -->
+<!--
+  /* ── DAILY UPDATES ── */
+  .updates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .update-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    border-top: 3px solid var(--navy-border);
+  }
+  .update-card.bears { border-top-color: var(--bear-orange); }
+  .update-card.lions { border-top-color: var(--lion-blue); }
+  .update-card.packers { border-top-color: var(--packer-gold); }
+  .update-card.vikings { border-top-color: var(--viking-gold); }
+  .update-team {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: .03em;
+    color: #fff;
+    margin-bottom: .5rem;
+  }
+  .update-summary {
+    font-size: .9rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text);
+  }
+  .updates-meta {
+    margin-top: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    color: var(--muted);
+    text-align: right;
+  }
+-->
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     HTML — add where you want the section to appear
+     ═══════════════════════════════════════════════════════════════ -->
+
+<section id="daily-updates">
+  <div class="section-header">
+    <span class="section-label">Daily Updates</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="updates-grid" id="updates-container">
+    <!-- Populated by JavaScript -->
+  </div>
+  <div class="updates-meta" id="updates-meta"></div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════
+     JAVASCRIPT — add before </body>
+     ═══════════════════════════════════════════════════════════════ -->
+
+<script>
+(function() {
+  fetch('data/updates.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const container = document.getElementById('updates-container');
+      const meta = document.getElementById('updates-meta');
+
+      if (!data.teams || Object.keys(data.teams).length === 0) {
+        container.innerHTML = '<p style="color:var(--muted)">No updates yet.</p>';
+        return;
+      }
+
+      // Order: Bears, Lions, Packers, Vikings
+      const order = ['bears', 'lions', 'packers', 'vikings'];
+
+      const html = order.map(key => {
+        const team = data.teams[key];
+        if (!team) return '';
+        return `
+          <div class="update-card ${key}">
+            <div class="update-team">${team.name}</div>
+            <div class="update-summary">${team.summary}</div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = html;
+
+      // Format last updated time
+      if (data.last_updated) {
+        const d = new Date(data.last_updated);
+        meta.textContent = 'Updated ' + d.toLocaleDateString('en-US', {
+          month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+        });
+      }
+    })
+    .catch(err => {
+      console.error('Error loading updates:', err);
+      document.getElementById('updates-container').innerHTML =
+        '<p style="color:var(--muted)">Updates unavailable.</p>';
+    });
+})();
+</script>
