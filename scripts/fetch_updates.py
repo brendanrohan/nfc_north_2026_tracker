@@ -52,22 +52,22 @@ def generate_summary(client: anthropic.Anthropic, team_name: str, headlines: lis
 
     headlines_text = "\n".join(f"- {h}" for h in headlines) if headlines else "(no headlines available)"
 
-    prompt = f"""You are a sports writer. Write a 2 sentence daily update for {team_name} fans.
+    prompt = f"""Write exactly 2 short sentences about today's {team_name} news.
 
-ESPN headlines:
-{headlines_text}
+Headlines: {headlines_text}
 
-Search for breaking news from the last 24 hours (injuries, roster moves, trades).
+Search for the single biggest story from the last 24 hours.
 
-Rules:
-- Exactly 2 sentences, no more
-- Be concise and punchy
-- No markdown formatting
-- If no news, say it's a quiet day"""
+STRICT RULES:
+- Maximum 2 sentences total
+- Maximum 40 words total
+- No newlines
+- No markdown
+- Just the key facts"""
 
     response = client.messages.create(
         model="claude-sonnet-5",
-        max_tokens=200,
+        max_tokens=100,
         messages=[{"role": "user", "content": prompt}],
         tools=[{"type": "web_search_20250305", "name": "web_search"}],
     )
