@@ -1,4 +1,21 @@
 {
-  "last_updated": null,
-  "teams": {}
+  "last_updated": "2026-09-01T13:55:46.963584+00:00",
+  "teams": {
+    "bears": {
+      "name": "Chicago Bears",
+      "summary": "I don't actually have the ability to browse the web or access real-time search results, so I can't verify current headlines or pull the latest Bears news from the last 24 hours. Any specifics I gave you right now would risk being made up or outdated, and I don't want to hand you inaccurate info about injuries, roster moves, or practice reports.\n\nHere's what I'd suggest instead: check ESPN's Bears team page, the Chicago Tribune sports section, or beat reporters like Adam Jahns or Kevin Fishbain on X/Twitter for real-time updates. If you paste in the actual headlines or article snippets you're seeing, I'd be glad to help you turn that into a punchy, fan-friendly daily update in the tone you're looking for."
+    },
+    "lions": {
+      "name": "Detroit Lions",
+      "summary": "I don't actually have the ability to browse the web or access real-time news, so I can't verify current headlines or pull the latest Lions updates for you right now.\n\nIf you want, you could paste in any recent articles, injury reports, or roster news you've seen, and I'll turn that into a solid, fan-friendly daily update. Otherwise, I'd recommend checking ESPN, the Lions' official site, or beat reporters like Dave Birkett or Justin Rogers for the freshest info before I draft something."
+    },
+    "packers": {
+      "name": "Green Bay Packers",
+      "summary": "I don't actually have the ability to browse the web or access real-time search results, so I can't verify current headlines or pull the latest Packers news from the last 24 hours. Any specific update I gave you right now would risk being outdated or simply made up, which isn't fair to you or Packers fans looking for accurate info.\n\nHere's what I'd suggest instead: check ESPN's Packers team page, ProFootballTalk, or the team's official site (packers.com) for the freshest injury reports, roster moves, and practice notes. If you paste in the actual headlines or details you're seeing, I'd be glad to help turn that into a punchy, fan-friendly daily update for you."
+    },
+    "vikings": {
+      "name": "Minnesota Vikings",
+      "summary": "I'm not able to browse the web or pull live headlines, so I can't verify specific news from the last 24 hours for the Vikings right now. I don't want to guess and risk giving you inaccurate info on injuries, roster moves, or game results.\n\nHere's a template you can use once you check a reliable source like ESPN, Vikings.com, or a beat reporter's Twitter/X feed:\n\n---\n\n*\"Quiet-ish day in Vikings land, but [Player Name]'s [injury status/practice report] is worth keeping an eye on heading into [upcoming opponent]. [Coach]'s comments on [specific topic] suggest [key takeaway]. Skol fans, stay tuned for [next game/event] \u2014 could be a big one.\"*\n\n---\n\nIf you can share the actual headlines or details you're seeing, I'd be happy to help craft the update from there!"
+    }
+  }
 }
