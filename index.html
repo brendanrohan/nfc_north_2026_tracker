@@ -602,6 +602,53 @@
     .weeks-grid { grid-template-columns: 1fr; }
     .grid-4 { grid-template-columns: 1fr 1fr; }
   }
+
+  /* ── DAILY UPDATES ── */
+  .updates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .update-card {
+    background: var(--navy-card);
+    border: 1px solid var(--navy-border);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    border-top: 3px solid var(--navy-border);
+  }
+  .update-card.bears { border-top-color: var(--bear-orange); }
+  .update-card.lions { border-top-color: var(--lion-blue); }
+  .update-card.packers { border-top-color: var(--packer-gold); }
+  .update-card.vikings { border-top-color: var(--viking-gold); }
+  .update-team {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: .03em;
+    color: #fff;
+    margin-bottom: .5rem;
+  }
+  .update-summary {
+    font-size: .9rem;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text);
+    margin-bottom: .5rem;
+  }
+  .update-more {
+    font-size: .8rem;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .update-more:hover {
+    text-decoration: underline;
+  }
+  .updates-meta {
+    margin-top: 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    color: var(--muted);
+    text-align: right;
+  }
 </style>
 </head>
 <body>
@@ -614,7 +661,8 @@
 </header>
 
 <nav id="main-nav">
-  <a href="#standings" class="active">Standings</a>
+  <a href="#daily-updates" class="active">Updates</a>
+  <a href="#standings">Standings</a>
   <a href="#predictions">Predictions</a>
   <a href="#opponents">Opponents</a>
   <a href="#schedule">Schedule</a>
@@ -622,6 +670,20 @@
 </nav>
 
 <main>
+
+<!-- ══════════════════════════════════════════
+     DAILY UPDATES
+════════════════════════════════════════════ -->
+<section id="daily-updates">
+  <div class="section-header">
+    <span class="section-label">Daily Updates</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="updates-grid" id="updates-container">
+    <!-- Populated by JavaScript -->
+  </div>
+  <div class="updates-meta" id="updates-meta"></div>
+</section>
 
 <!-- ══════════════════════════════════════════
      2025 FINAL STANDINGS
@@ -1400,6 +1462,49 @@
   }, { threshold: 0.3, rootMargin: '-60px 0px 0px 0px' });
 
   sections.forEach(s => observer.observe(s));
+})();
+
+/* Load daily updates */
+(function() {
+  fetch('data/updates.json?v=' + Date.now())
+    .then(r => r.json())
+    .then(data => {
+      const container = document.getElementById('updates-container');
+      const meta = document.getElementById('updates-meta');
+
+      if (!data.teams || Object.keys(data.teams).length === 0) {
+        container.innerHTML = '<p style="color:var(--muted)">No updates yet.</p>';
+        return;
+      }
+
+      const order = ['bears', 'lions', 'packers', 'vikings'];
+
+      const html = order.map(key => {
+        const team = data.teams[key];
+        if (!team) return '';
+        return `
+          <div class="update-card ${key}">
+            <div class="update-team">${team.name}</div>
+            <div class="update-summary">${team.summary}</div>
+            <a href="news.html" class="update-more">Read more →</a>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = html;
+
+      if (data.last_updated) {
+        const d = new Date(data.last_updated);
+        meta.textContent = 'Updated ' + d.toLocaleDateString('en-US', {
+          month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+        });
+      }
+    })
+    .catch(err => {
+      console.error('Error loading updates:', err);
+      document.getElementById('updates-container').innerHTML =
+        '<p style="color:var(--muted)">Updates unavailable.</p>';
+    });
 })();
 
 </script>
