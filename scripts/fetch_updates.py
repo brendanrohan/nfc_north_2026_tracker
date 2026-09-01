@@ -52,18 +52,23 @@ def generate_summary(client: anthropic.Anthropic, team_name: str, headlines: lis
 
     headlines_text = "\n".join(f"- {h}" for h in headlines) if headlines else "(no headlines available)"
 
-    prompt = f"""You are a sports writer covering the NFL. Write a brief 2-3 sentence daily update for {team_name} fans.
+    prompt = f"""You are a sports writer. Write a 2-3 sentence daily update for {team_name} fans.
 
-Recent ESPN headlines for context:
+ESPN headlines:
 {headlines_text}
 
-Use web search to verify these stories and find any other important news from the last 24 hours (injuries, roster moves, practice reports, etc.).
+Search for any breaking news from the last 24 hours (injuries, roster moves, trades, practice reports).
 
-Keep the tone conversational and fan-friendly. Focus on what matters most to fans today. If there's genuinely no news, just say it's a quiet day."""
+Rules:
+- Keep it conversational and fan-friendly
+- Focus on what matters most today
+- No markdown formatting (no ** or other symbols)
+- If genuinely no news, say it's a quiet day
+- Complete your sentences, don't cut off mid-thought"""
 
     response = client.messages.create(
         model="claude-sonnet-5",
-        max_tokens=300,
+        max_tokens=500,
         messages=[{"role": "user", "content": prompt}],
         tools=[{"type": "web_search_20250305", "name": "web_search"}],
     )
