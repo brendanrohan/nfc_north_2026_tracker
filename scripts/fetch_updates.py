@@ -60,7 +60,7 @@ Search for the biggest story from the last 24 hours. Write exactly 2 complete se
 
     response = client.messages.create(
         model="claude-sonnet-5",
-        max_tokens=150,
+        max_tokens=300,
         messages=[{"role": "user", "content": prompt}],
         tools=[{"type": "web_search_20250305", "name": "web_search"}],
     )
