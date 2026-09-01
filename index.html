@@ -606,8 +606,11 @@
   /* ── DAILY UPDATES ── */
   .updates-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+  }
+  @media (max-width: 700px) {
+    .updates-grid { grid-template-columns: 1fr; }
   }
   .update-card {
     background: var(--navy-card);
@@ -666,7 +669,7 @@
   <a href="#predictions">Predictions</a>
   <a href="#opponents">Opponents</a>
   <a href="#schedule">Schedule</a>
-  <a href="news.html" class="nav-btn">Previews</a>
+  <a href="news.html" class="nav-btn">News</a>
 </nav>
 
 <main>
@@ -677,6 +680,7 @@
 <section id="daily-updates">
   <div class="section-header">
     <span class="section-label">Daily Updates</span>
+    <span id="updates-date" style="font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);margin-left:.5rem;"></span>
     <div class="section-line"></div>
   </div>
   <div class="updates-grid" id="updates-container">
@@ -686,11 +690,11 @@
 </section>
 
 <!-- ══════════════════════════════════════════
-     2025 FINAL STANDINGS
+     2026 STANDINGS
 ════════════════════════════════════════════ -->
 <section id="standings">
   <div class="section-header">
-    <span class="section-label">2025 Final Standings</span>
+    <span class="section-label">2026 Standings</span>
     <div class="section-line"></div>
   </div>
   <div class="standings-grid">
@@ -708,128 +712,67 @@
           <tr>
             <td>
               <div class="team-name-cell">
-                <span class="rank-badge">1</span>
+                <span class="rank-badge">–</span>
                 <span class="team-dot" style="background:#e64100"></span>
                 <span>Chicago Bears</span>
               </div>
             </td>
-            <td class="record-w">11</td>
-            <td class="record-l">6</td>
             <td>0</td>
-            <td style="color:var(--muted)">.647</td>
-            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <span class="rank-badge">2</span>
-                <span class="team-dot" style="background:#ffb612"></span>
-                <span>Green Bay Packers</span>
-              </div>
-            </td>
-            <td class="record-w">9</td>
-            <td class="record-l">7</td>
-            <td>1</td>
-            <td style="color:var(--muted)">.559</td>
-            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <span class="rank-badge">3</span>
-                <span class="team-dot" style="background:#ffc62f"></span>
-                <span>Minnesota Vikings</span>
-              </div>
-            </td>
-            <td class="record-w">9</td>
-            <td class="record-l">8</td>
             <td>0</td>
-            <td style="color:var(--muted)">.529</td>
-            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.000</td>
+            <td style="text-align:center;color:var(--muted);font-family:'DM Mono',monospace;font-size:.82rem;">0-0</td>
           </tr>
           <tr>
             <td>
               <div class="team-name-cell">
-                <span class="rank-badge">4</span>
+                <span class="rank-badge">–</span>
                 <span class="team-dot" style="background:#0076b6"></span>
                 <span>Detroit Lions</span>
               </div>
             </td>
-            <td class="record-w">9</td>
-            <td class="record-l">8</td>
             <td>0</td>
-            <td style="color:var(--muted)">.529</td>
-            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
+            <td>0</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.000</td>
+            <td style="text-align:center;color:var(--muted);font-family:'DM Mono',monospace;font-size:.82rem;">0-0</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">–</span>
+                <span class="team-dot" style="background:#ffb612"></span>
+                <span>Green Bay Packers</span>
+              </div>
+            </td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.000</td>
+            <td style="text-align:center;color:var(--muted);font-family:'DM Mono',monospace;font-size:.82rem;">0-0</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">–</span>
+                <span class="team-dot" style="background:#ffc62f"></span>
+                <span>Minnesota Vikings</span>
+              </div>
+            </td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.000</td>
+            <td style="text-align:center;color:var(--muted);font-family:'DM Mono',monospace;font-size:.82rem;">0-0</td>
           </tr>
         </tbody>
       </table>
     </div>
-    <!-- Advanced Stats -->
+    <!-- Advanced Stats Placeholder -->
     <div class="card stats-card">
       <div class="stats-header">Advanced Stats</div>
-      <div class="stats-columns">
-        <div class="stats-section">
-          <div class="stats-label">EPA (Expected Points Added)</div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+44.20</span><br><span class="stat-rank">Off 14th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+29.07</span><br><span class="stat-rank">Def 18th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+58.10</span><br><span class="stat-rank">Off 8th</span></div>
-              <div class="stat-item"><span class="stat-val positive">+12.40</span><br><span class="stat-rank">Def 12th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+101.44</span><br><span class="stat-rank">Off 4th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+46.20</span><br><span class="stat-rank">Def 26th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val negative">-14.80</span><br><span class="stat-rank">Off 22nd</span></div>
-              <div class="stat-item"><span class="stat-val positive">-111.09</span><br><span class="stat-rank">Def 4th</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="stats-section">
-          <div class="stats-label">DVOA (Def-adj Value Over Avg)</div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+12.5%</span><br><span class="stat-rank">Off 7th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+6.1%</span><br><span class="stat-rank">Def 25th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+16.3%</span><br><span class="stat-rank">Off 3rd</span></div>
-              <div class="stat-item"><span class="stat-val positive">-1.5%</span><br><span class="stat-rank">Def 11th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+10.1%</span><br><span class="stat-rank">Off 9th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+3.4%</span><br><span class="stat-rank">Def 21st</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val negative">-17.2%</span><br><span class="stat-rank">Off 28th</span></div>
-              <div class="stat-item"><span class="stat-val positive">-17.0%</span><br><span class="stat-rank">Def 3rd</span></div>
-            </div>
-          </div>
-        </div>
+      <div style="color:var(--muted);font-size:.9rem;padding:1rem 0;text-align:center;">
+        Stats available after Week 1
       </div>
     </div>
   </div>
@@ -1432,6 +1375,156 @@
   </div>
 </section>
 
+<!-- ══════════════════════════════════════════
+     2025 FINAL STANDINGS
+════════════════════════════════════════════ -->
+<section id="standings-2025">
+  <div class="section-header">
+    <span class="section-label">2025 Final Standings</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="standings-grid">
+    <!-- Standings Table -->
+    <div class="card">
+      <table class="standings-table">
+        <thead>
+          <tr>
+            <th>Team</th>
+            <th>W</th><th>L</th><th>T</th><th>Pct</th>
+            <th style="text-align:center;">Div</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">1</span>
+                <span class="team-dot" style="background:#e64100"></span>
+                <span>Chicago Bears</span>
+              </div>
+            </td>
+            <td class="record-w">11</td>
+            <td class="record-l">6</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.647</td>
+            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">2</span>
+                <span class="team-dot" style="background:#ffb612"></span>
+                <span>Green Bay Packers</span>
+              </div>
+            </td>
+            <td class="record-w">9</td>
+            <td class="record-l">7</td>
+            <td>1</td>
+            <td style="color:var(--muted)">.559</td>
+            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">3</span>
+                <span class="team-dot" style="background:#ffc62f"></span>
+                <span>Minnesota Vikings</span>
+              </div>
+            </td>
+            <td class="record-w">9</td>
+            <td class="record-l">8</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.529</td>
+            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="team-name-cell">
+                <span class="rank-badge">4</span>
+                <span class="team-dot" style="background:#0076b6"></span>
+                <span>Detroit Lions</span>
+              </div>
+            </td>
+            <td class="record-w">9</td>
+            <td class="record-l">8</td>
+            <td>0</td>
+            <td style="color:var(--muted)">.529</td>
+            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Advanced Stats -->
+    <div class="card stats-card">
+      <div class="stats-header">Advanced Stats</div>
+      <div class="stats-columns">
+        <div class="stats-section">
+          <div class="stats-label">EPA (Expected Points Added)</div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+44.20</span><br><span class="stat-rank">Off 14th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+29.07</span><br><span class="stat-rank">Def 18th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+58.10</span><br><span class="stat-rank">Off 8th</span></div>
+              <div class="stat-item"><span class="stat-val positive">+12.40</span><br><span class="stat-rank">Def 12th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+101.44</span><br><span class="stat-rank">Off 4th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+46.20</span><br><span class="stat-rank">Def 26th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val negative">-14.80</span><br><span class="stat-rank">Off 22nd</span></div>
+              <div class="stat-item"><span class="stat-val positive">-111.09</span><br><span class="stat-rank">Def 4th</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="stats-section">
+          <div class="stats-label">DVOA (Def-adj Value Over Avg)</div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+12.5%</span><br><span class="stat-rank">Off 7th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+6.1%</span><br><span class="stat-rank">Def 25th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+16.3%</span><br><span class="stat-rank">Off 3rd</span></div>
+              <div class="stat-item"><span class="stat-val positive">-1.5%</span><br><span class="stat-rank">Def 11th</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val positive">+10.1%</span><br><span class="stat-rank">Off 9th</span></div>
+              <div class="stat-item"><span class="stat-val negative">+3.4%</span><br><span class="stat-rank">Def 21st</span></div>
+            </div>
+          </div>
+          <div class="stats-row">
+            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="stats-values">
+              <div class="stat-item"><span class="stat-val negative">-17.2%</span><br><span class="stat-rank">Off 28th</span></div>
+              <div class="stat-item"><span class="stat-val positive">-17.0%</span><br><span class="stat-rank">Def 3rd</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <script>
@@ -1446,9 +1539,9 @@
     if (active) active.classList.add('active');
   }
 
-  // Set initial state - default to standings if at top
+  // Set initial state - default to daily-updates if at top
   if (window.scrollY < 100) {
-    setActiveNav('standings');
+    setActiveNav('daily-updates');
   }
 
   const observer = new IntersectionObserver(entries => {
@@ -1471,10 +1564,19 @@
     .then(data => {
       const container = document.getElementById('updates-container');
       const meta = document.getElementById('updates-meta');
+      const dateEl = document.getElementById('updates-date');
 
       if (!data.teams || Object.keys(data.teams).length === 0) {
         container.innerHTML = '<p style="color:var(--muted)">No updates yet.</p>';
         return;
+      }
+
+      // Set the date in the header
+      if (data.last_updated && dateEl) {
+        const d = new Date(data.last_updated);
+        dateEl.textContent = '— ' + d.toLocaleDateString('en-US', {
+          weekday: 'long', month: 'long', day: 'numeric', year: 'numeric'
+        });
       }
 
       const order = ['bears', 'lions', 'packers', 'vikings'];
@@ -1496,7 +1598,7 @@
       if (data.last_updated) {
         const d = new Date(data.last_updated);
         meta.textContent = 'Updated ' + d.toLocaleDateString('en-US', {
-          month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit'
+          hour: 'numeric', minute: '2-digit'
         });
       }
     })
