@@ -62,7 +62,7 @@ Use web search to verify these stories and find any other important news from th
 Keep the tone conversational and fan-friendly. Focus on what matters most to fans today. If there's genuinely no news, just say it's a quiet day."""
 
     response = client.messages.create(
-        model="claude-sonnet-4-20250918",
+        model="claude-3-5-sonnet-latest",
         max_tokens=300,
         messages=[{"role": "user", "content": prompt}],
         tools=[{"type": "web_search_20250305", "name": "web_search"}],
