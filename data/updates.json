@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-09-03T11:45:43.242329+00:00",
+  "last_updated": "2026-09-03T15:30:51.707590+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The Chicago Bears finalized their 53-man roster and practice squad this week, notably re-signing linebacker Jack Sanborn and defensive lineman James Lynch to the active roster after placing Coby Bryant and Hayden Large on Reserve/Injured. The Chicago Bears have placed defensive back Coby Bryant and tight end Hayden Large on Reserve/Injured, signed defensive lineman James Lynch and linebacker Jack Sanborn to the active roster and signed 14 players to the practice squad."
+      "summary": "The Chicago Bears finalized their 53-man roster and practice squad ahead of Week 1, with notable moves including the trade of Gervon Dexter Sr. to the Atlanta Falcons for Clark Phillips III and a draft pick , while also placing defensive back Coby Bryant and tight end Hayden Large on Reserve/Injured, and signing defensive lineman James Lynch and linebacker Jack Sanborn to the active roster ."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions have been finalizing their roster ahead of the 2026 season, with GM Brad Holmes addressing the team's decision to release Terrion Arnold, calling the situation unfortunate while defending the cornerback room . Holmes also provided injury updates, saying he is hopeful standout safeties Kerby Joseph and Brian Branch along with backup running back Isiah Pacheco will be healthy enough to play this season, though he declined to share a specific timetable for each player's return ."
+      "summary": "The Detroit Lions have been finalizing their roster ahead of the 2026 season, announcing 14 additions to the practice squad, including names like Luke Altmyer and Tom Kennedy, while also signing offensive lineman Elijah Klein after final roster cuts. GM Brad Holmes also addressed the team's health outlook, expressing hope that key defenders safeties Kerby Joseph and Brian Branch along with backup running back Isiah Pacheco will be healthy enough to play this season , though he declined to share a specific timetable for each player's potential return ."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The biggest recent Packers story remains the fallout from running back Josh Jacobs's situation, as General Manager Brian Gutekunst told reporters this week that Gutekunst is hopeful the three-time Pro Bowl running back plays this season, but he told reporters Tuesday that Green Bay will \"be prepared either way\" while Jacobs remains sidelined on the Commissioner's Exempt List. To bolster depth at the position, the Packers tried to address their running back shortage Sunday by acquiring 2025 third-round pick Kaleb Johnson from the Pittsburgh Steelers in exchange for a 2028 sixth-round selection ."
+      "summary": "The biggest ongoing story continues to dominate Packers coverage this week: running back Josh Jacobs remains sidelined after being placed on the NFL commissioner's exempt list while two misdemeanor charges against him are pending, a move that prevents him from practicing or attending games , leaving Green Bay thin at the position ahead of its season opener. To address the shortage, the Packers tried to address their running back shortage Sunday by acquiring 2025 third-round pick Kaleb Johnson from the Pittsburgh Steelers in exchange for a 2028 sixth-round selection , and the team has since been ramping up practices at Clarke Hinkle Field as it prepares for its Week 1 matchup against the Minnesota Vikings."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The Minnesota Vikings finalized their 53-man roster for the 2026 season and added veteran outside linebacker Kyle Van Noy, while quarterback Max Brosmer and wide receiver Dillon Bell were released to make room for waiver additions offensive guard Trevor Keegan and center Nick Samac. Quarterback Max Brosmer and wide receiver Dillon Bell were both released to make room for waiver additions offensive guard Trevor Keegan and center Nick Samac, while the Minnesota Vikings are adding veteran outside linebacker Kyle Van Noy, according to multiple reports Tuesday night."
+      "summary": "The Minnesota Vikings continued shuffling their roster after finalizing their 53-man squad, releasing QB Max Brosmer and WR Dillon Bell to make room for waiver claims OG Trevor Keegan and C Nick Samac. Quarterback Max Brosmer and wide receiver Dillon Bell were both released to make room for waiver additions offensive guard Trevor Keegan and center Nick Samac."
     }
   }
 }
