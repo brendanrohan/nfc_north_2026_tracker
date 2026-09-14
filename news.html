@@ -477,9 +477,45 @@
   <div class="news-layout">
     <!-- News Column (2/3) -->
     <div class="news-column">
-      <!-- Pinned: Week 1 Preview -->
-      <div class="card news-card pinned-post" id="week1-preview">
+      <!-- Pinned: Week 1 Review -->
+      <div class="card news-card pinned-post" id="week1-review">
         <div class="pinned-badge">📌 Pinned</div>
+        <div class="news-date">September 14, 2026</div>
+        <h2 class="news-headline">Week 1 Review</h2>
+
+        <div class="game-preview">
+          <div class="game-preview-header">
+            <span class="matchup"><span class="team-name vikings" style="color:var(--viking-gold)">Vikings 39</span> — <span class="team-name packers">Packers 22</span></span>
+          </div>
+          <p class="news-text">The Kylar Murray experience in Minnesota got off to poor start as he was knocked out of the game early — but not before he threw an interception. Packers were dominating at that point in the first half but the Vikings made adjustments and went on to win easily. Carson Wentz is your new Vikings starter and the Packers made him look pretty, pretty good.</p>
+        </div>
+
+        <hr class="preview-divider">
+
+        <div class="game-preview">
+          <div class="game-preview-header">
+            <span class="matchup"><span class="team-name bears" style="color:var(--bear-orange)">Bears 59</span> — <span class="team-name panthers">Panthers 37</span></span>
+          </div>
+          <p class="news-text">These Bears definitely looked ferocious (offensively). Must be grizzlies or whatever the aggressive kind of Bears are. This was a showcase for a Bears team and offense that might not be due to the regression we thought. People are saying this is the most points ever scored in a NFL Week 1 game — 96 points! The Bears had 552 total yards of offense including 291 rushing yards. Respectable numbers.</p>
+        </div>
+
+        <hr class="preview-divider">
+
+        <div class="game-preview">
+          <div class="game-preview-header">
+            <span class="matchup"><span class="team-name lions" style="color:var(--lion-blue)">Lions 31</span> — <span class="team-name saints">Saints 30</span></span>
+          </div>
+          <p class="news-text">After a quiet first half that saw the Lions leading 7-0, the teams got to work offensively in the 2nd half. The Lions went up 21-0 with two touchdowns off turnovers to the start the second half, but the Saints caught up and kept pace. The game concluded with the teams trading touchdowns in the overtime period, with the Lions coming up one play better when the Saints failed on their 2 point conversion after their touchdown to nearly even the game.</p>
+        </div>
+      </div>
+
+      <!-- Dynamic news content loads here -->
+      <div id="news-list"></div>
+    </div>
+
+    <!-- Hidden: Week 1 Preview (will be inserted by JS after daily update) -->
+    <template id="week1-preview-template">
+      <div class="card news-card" id="week1-preview">
         <div class="news-date">September 9, 2026</div>
         <h2 class="news-headline">Week 1 Preview</h2>
 
@@ -537,10 +573,7 @@
           <p class="news-text">Two of the more surprising (and lucky) teams of 2025 face off in the season's first game. For Chicago, it's how much better can their QB be in season three and if the defense can find a new identity after losing a few pieces from last year.</p>
         </div>
       </div>
-
-      <!-- Dynamic news content loads here -->
-      <div id="news-list"></div>
-    </div>
+    </template>
 
     <!-- Schedule Column (1/3) -->
     <div class="schedule-column">
@@ -554,14 +587,16 @@
         </div>
         <div class="week-body">
           <div class="game-row">
-            <div class="game-matchup"><span class="away-team">Packers</span> <span class="vs-sep">@</span> <span class="home-team">Vikings</span></div>
-            <div class="game-meta"><span class="game-slot">★ Division</span></div>
+            <div class="game-matchup"><span class="loser">Packers 22</span> <span class="vs-sep">@</span> <span class="winner">Vikings 39</span></div>
+            <div class="game-meta"><span class="game-final">Final</span></div>
           </div>
           <div class="game-row">
-            <div class="game-matchup"><span class="home-team">Lions</span> <span class="vs-sep">vs</span> <span>Saints</span></div>
+            <div class="game-matchup"><span class="winner">Lions 31</span> <span class="vs-sep">vs</span> <span class="loser">Saints 30</span></div>
+            <div class="game-meta"><span class="game-final">Final/OT</span></div>
           </div>
           <div class="game-row">
-            <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Panthers</span></div>
+            <div class="game-matchup"><span class="winner">Bears 59</span> <span class="vs-sep">@</span> <span class="loser">Panthers 37</span></div>
+            <div class="game-meta"><span class="game-final">Final</span></div>
           </div>
         </div>
       </div>
@@ -650,7 +685,7 @@
   ]).then(([updates, newsItems]) => {
     let html = '';
 
-    // Add daily updates as first entry if available
+    // 1. Add daily updates as first entry if available
     if (updates && updates.teams && Object.keys(updates.teams).length > 0) {
       const d = new Date(updates.last_updated);
       const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -675,7 +710,13 @@
       html += '</p></div>';
     }
 
-    // Add regular news items
+    // 2. Add Week 1 Preview (from template) - appears after daily update
+    const week1PreviewTemplate = document.getElementById('week1-preview-template');
+    if (week1PreviewTemplate) {
+      html += week1PreviewTemplate.innerHTML;
+    }
+
+    // 3. Add regular news items (in chronological order - newest first)
     html += newsItems.map(item => {
       let content = `
         <div class="card news-card" id="${item.id}">
