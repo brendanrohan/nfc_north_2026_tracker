@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-09-14T17:17:30.249292+00:00",
+  "last_updated": "2026-09-15T15:56:33.892553+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The Chicago Bears opened their 2026 season with a historic 59-37 rout of the Carolina Panthers, marking the highest-scoring Week 1 game in NFL history and producing the first-ever \"scorigami\" of the season. The Bears pulled off a wild 59-37 win over the Carolina Panthers, marking the first time in league history that a game has ended with that exact final score, officially becoming the 1,096th unique final score in NFL history."
+      "summary": "The Chicago Bears opened the 2026 season with a franchise-record performance, setting a franchise record for points in a season opener in a 59-37 win over the Panthers . Quarterback Caleb Williams shined with a strong all-around effort while D'Andre Swift and Kyle Monangai both ran for 100-plus yards, marking the first time since 1980 and only the eighth time in NFL history that a team had two players rush for at least 100 yards in their season opener ."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions kicked off their 2026 season with a dramatic 31-30 OT victory over the New Orleans Saints , though the win came with some costs as Christian Mahogany was ruled out for the rest of the game after suffering a knee injury in the first half, with further tests needed to determine if he'll miss time beyond Week 1 . Beyond the game, Detroit also made notable roster moves by restructuring contracts for Penei Sewell and Amon-Ra St."
+      "summary": "The Detroit Lions are dealing with injury updates following their Week 1 overtime win over the New Orleans Saints, as running back Isiah Pacheco underwent back surgery Monday and is expected to be sidelined roughly 12 weeks, giving him a chance to return in December. Meanwhile, offensive lineman Christian Mahogany's knee imaging came back negative after he was ruled out with a lower-body injury in the first half of Sunday's victory, though the results appear to have ruled out significant damage , even as Dan Campbell cautioned the team isn't \"out of the woods\" yet, suggesting Mahogany may be dealing with a hip injury ahead of Thursday night's game against the Buffalo Bills ."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Green Bay Packers opened the 2026 season with a stunning collapse in Minnesota, blowing a late lead in the third quarter as the Vikings rallied to hand them the loss despite strong performances from Jordan Love, who threw for two touchdowns, and wide receiver Christian Watson, who had 147 yards and two scores. The loss extended Green Bay's losing streak to six games in a row, dating back to last season and including the playoffs, marking the franchise's longest such streak since 1990-91, with the Packers having led by nine points or more in the second half in four of those six games."
+      "summary": "The Green Bay Packers suffered a stunning collapse in their Week 1 opener, blowing a 22-10 lead in the third quarter to lose 39-22 to the Minnesota Vikings, with critics pointing to head coach Matt LaFleur's play-calling, game and clock management as factors that cost the team down the stretch . The loss has intensified scrutiny on the franchise, as the Packers find themselves right where they left off last season, in yet another collapse , raising questions about the team's ability to close out games in 2026."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "Kyler Murray left his Vikings debut early in the first quarter after suffering a concussion on a hard, penalized hit from Packers safety Javon Bullard, and Carson Wentz replaced an injured Kyler Murray, and the Vikings outscored the Green Bay Packers 29-3 in the second half to rally for a 39-22 victory at U.S. Bank Stadium."
+      "summary": "The Minnesota Vikings kicked off their 2026 season with a dominant 39-22 win over the Green Bay Packers, but the victory was overshadowed by starting quarterback Kyler Murray exiting the game with a concussion after a hit from safety Javon Bullard. Despite the scary injury, backup Carson Wentz stepped in and threw three touchdowns to help secure the road win."
     }
   }
 }
