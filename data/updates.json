@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-09-15T15:56:33.892553+00:00",
+  "last_updated": "2026-09-16T15:48:51.070447+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The Chicago Bears opened the 2026 season with a franchise-record performance, setting a franchise record for points in a season opener in a 59-37 win over the Panthers . Quarterback Caleb Williams shined with a strong all-around effort while D'Andre Swift and Kyle Monangai both ran for 100-plus yards, marking the first time since 1980 and only the eighth time in NFL history that a team had two players rush for at least 100 yards in their season opener ."
+      "summary": "The Chicago Bears kicked off the 2026 season in dominant fashion, setting a franchise record for points in a season opener in a 59-37 win over the Panthers , with quarterback Caleb Williams throwing a pair of touchdowns and adding two more on the ground . The offense was well-rounded as running backs D'Andre Swift and Kyle Monangai each ran for 100-plus yards, combining for 291 rushing yards and six touchdowns on the ground."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions are dealing with injury updates following their Week 1 overtime win over the New Orleans Saints, as running back Isiah Pacheco underwent back surgery Monday and is expected to be sidelined roughly 12 weeks, giving him a chance to return in December. Meanwhile, offensive lineman Christian Mahogany's knee imaging came back negative after he was ruled out with a lower-body injury in the first half of Sunday's victory, though the results appear to have ruled out significant damage , even as Dan Campbell cautioned the team isn't \"out of the woods\" yet, suggesting Mahogany may be dealing with a hip injury ahead of Thursday night's game against the Buffalo Bills ."
+      "summary": "The Detroit Lions are preparing to face the Buffalo Bills on Thursday Night Football in Buffalo's new stadium, coming off a dramatic 31-30 overtime win over the New Orleans Saints in Week 1 where the Saints clawed their way back from a 21-0 deficit in the second half . Ahead of the Bills matchup, cornerback Avonte Izien appears set to return after missing Week 1 with a groin issue, as he was considered a full participant at the Lions' walkthrough practice Monday after being unavailable for the team's overtime win against New Orleans due to a groin issue , while backup running back Isiah Pacheco faces a lengthy recovery since he underwent surgery Monday and is expected to be sidelined 12 weeks, giving him a chance to return sometime in December ."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Green Bay Packers suffered a stunning collapse in their Week 1 opener, blowing a 22-10 lead in the third quarter to lose 39-22 to the Minnesota Vikings, with critics pointing to head coach Matt LaFleur's play-calling, game and clock management as factors that cost the team down the stretch . The loss has intensified scrutiny on the franchise, as the Packers find themselves right where they left off last season, in yet another collapse , raising questions about the team's ability to close out games in 2026."
+      "summary": "The Green Bay Packers suffered a stunning Week 1 collapse, blowing a lead late in the third quarter as the Packers were in control late in the third quarter, but a late gamble backfired, and the Vikings piled on late to stun their NFC North rivals . Despite Jordan Love throwing for two touchdowns and Christian Watson posting a 147-yard, two-touchdown performance, coach Matt LaFleur faced scrutiny over his aggressive fourth-down decision-making that contributed to the second-half meltdown."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The Minnesota Vikings kicked off their 2026 season with a dominant 39-22 win over the Green Bay Packers, but the victory was overshadowed by starting quarterback Kyler Murray exiting the game with a concussion after a hit from safety Javon Bullard. Despite the scary injury, backup Carson Wentz stepped in and threw three touchdowns to help secure the road win."
+      "summary": "The Minnesota Vikings pulled off a dramatic Week 1 comeback against the Green Bay Packers after starting quarterback Kyler Murray suffered a first-quarter concussion on a hit from safety Javon Bullard. Carson Wentz rescued Minnesota after Kyler Murray's injury, fueling a frantic rally behind Justin Jefferson's historic performance to stun the Packers and shift focus toward Chicago's high-powered offense."
     }
   }
 }
