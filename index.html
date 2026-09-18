@@ -273,6 +273,92 @@
   .stat-val.negative { color: var(--red); }
   .stat-rank { color: var(--muted); font-size: .6rem; }
 
+  /* ── POWER RANKINGS ── */
+  .rankings-card {
+    padding: 1rem 1.25rem;
+  }
+  .rankings-header {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: .04em;
+    color: #fff;
+    margin-bottom: .75rem;
+    padding-bottom: .5rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .rankings-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 500px) {
+    .rankings-columns { grid-template-columns: 1fr; }
+  }
+  .rankings-section {
+    margin-bottom: 0;
+  }
+  .rankings-label {
+    font-family: 'DM Mono', monospace;
+    font-size: .6rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .5rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid var(--navy-border);
+  }
+  .rankings-date {
+    font-size: .55rem;
+    color: var(--muted);
+    font-weight: 400;
+    letter-spacing: .05em;
+  }
+  .rankings-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .35rem 0;
+    font-size: .8rem;
+    border-bottom: 1px solid rgba(30,45,69,.3);
+  }
+  .rankings-row:last-child { border-bottom: none; }
+  .rankings-team {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 500;
+    min-width: 50px;
+  }
+  .rankings-rank {
+    font-family: 'DM Mono', monospace;
+    font-size: .85rem;
+    font-weight: 600;
+    color: var(--text);
+    min-width: 28px;
+    text-align: right;
+  }
+  .rankings-change {
+    font-family: 'DM Mono', monospace;
+    font-size: .65rem;
+    padding: .15rem .4rem;
+    border-radius: 3px;
+    min-width: 45px;
+    text-align: center;
+  }
+  .rankings-change.up {
+    color: var(--green);
+    background: rgba(46,168,79,.12);
+  }
+  .rankings-change.down {
+    color: var(--red);
+    background: rgba(224,48,48,.12);
+  }
+  .right-column-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   /* ── NEWS GRID ── */
   .news-grid {
     display: grid;
@@ -727,9 +813,9 @@
               </div>
             </td>
             <td class="record-w">1</td>
+            <td class="record-l">1</td>
             <td>0</td>
-            <td>0</td>
-            <td>1.000</td>
+            <td>.500</td>
             <td style="text-align:center;color:var(--muted);font-family:'DM Mono',monospace;font-size:.82rem;">0-0</td>
           </tr>
           <tr>
@@ -748,70 +834,54 @@
         </tbody>
       </table>
     </div>
-    <!-- Advanced Stats Placeholder -->
-    <div class="card stats-card">
-      <div class="stats-header">Advanced Stats</div>
-      <div style="color:var(--muted);font-size:.8rem;text-align:center;margin-bottom:.75rem;">Stats available after Week 1</div>
-      <div class="stats-columns">
-        <div class="stats-section">
-          <div class="stats-label">EPA (Expected Points Added)</div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
+    <!-- Power Rankings -->
+    <div class="card rankings-card">
+        <div class="rankings-header">Power Rankings</div>
+        <div class="rankings-columns">
+          <div class="rankings-section">
+            <div class="rankings-label">FPI <span class="rankings-date">(Sep 18)</span></div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+              <div class="rankings-rank">6th</div>
+              <div class="rankings-change up">+10</div>
+            </div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+              <div class="rankings-rank">9th</div>
+              <div class="rankings-change down">-1</div>
+            </div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+              <div class="rankings-rank">14th</div>
+              <div class="rankings-change down">-7</div>
+            </div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+              <div class="rankings-rank">18th</div>
+              <div class="rankings-change up">+2</div>
             </div>
           </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
+          <div class="rankings-section">
+            <div class="rankings-label">Sharp Football <span class="rankings-date">(Sep 14)</span></div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+              <div class="rankings-rank">12th</div>
+              <div class="rankings-change up">+3</div>
             </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+              <div class="rankings-rank">13th</div>
+              <div class="rankings-change up">+4</div>
             </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+              <div class="rankings-rank">15th</div>
+              <div class="rankings-change up">+4</div>
             </div>
-          </div>
-        </div>
-        <div class="stats-section">
-          <div class="stats-label">DVOA (Def-adj Value Over Avg)</div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Off</span></div>
-              <div class="stat-item"><span class="stat-val" style="color:var(--muted)">—</span><br><span class="stat-rank">Def</span></div>
+            <div class="rankings-row">
+              <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+              <div class="rankings-rank">17th</div>
+              <div class="rankings-change down">-13</div>
             </div>
           </div>
         </div>
@@ -869,8 +939,8 @@
         </div>
         <div class="game-row">
           <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Bills</span></div>
-          <div class="game-meta"><span class="game-slot">TNF</span></div>
+          <div class="game-matchup"><span class="away-team">Lions 31</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Bills 41</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
         </div>
         <div class="game-row">
           <span class="div-star"></span>
