@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-09-18T15:29:36.808439+00:00",
+  "last_updated": "2026-09-19T15:04:24.032454+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The Bears released their first injury report of the week ahead of Sunday's home opener against Minnesota, with right tackle Darnell Wright, running back D'Andre Swift, and Kyle Monangai all appearing on the list after the Chicago Bears have released their first injury report of the week and it includes Darnell Wright, D'Andre Swift and Kyle Monangai, with Wright missing practice on Wednesday . Meanwhile, head coach Ben Johnson is bracing for a mental chess match with Minnesota's defense, as he admits he's currently in the process of trying not to overthink things when preparing for a matchup with Vikings defensive coordinator Brian Flores ."
+      "summary": "The Bears released their Week 2 injury report ahead of Sunday's matchup against the Vikings, with everyone available to play including tackle Darnell Wright, who had missed practice time earlier in the week. The Chicago Bears have released their final injury report for Week 2, and it is good news with everyone being available to play, including Darnell Wright."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions suffered a 41-31 road loss to the Buffalo Bills in their Week 2 Thursday Night Football matchup, dropping the high-scoring contest at Buffalo's new Highmark Stadium. Postgame analysis pointed to struggles up front for Detroit, though there was some positive news as an injury to a key player, believed to be Miller, is not expected to be long-term."
+      "summary": "The Detroit Lions suffered a rough Week 2 loss on Thursday night, falling 41-31 to the Buffalo Bills at the new Highmark Stadium, with the Lions' defense in rough shape, allowing 31 points and never having a chance against the Bills . Despite the defensive struggles, quarterback Jared Goff and the offense showed flashes, as Jahmyr Gibbs posted a 113-yard game and Amon-Ra St."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Packers are preparing for their Week 2 matchup against the New York Jets after a tough loss to the Vikings, with head coach Matt LaFleur discussing the team's approach against Jets quarterback Geno Smith during Thursday's practice. Packers coach Matt LaFleur talks about facing Geno Smith, New York Jets, while an injury report was also released as Green Bay continues preparations for the divisional road ahead."
+      "summary": "The Green Bay Packers are dealing with injury concerns ahead of their Week 2 matchup against the New York Jets, as the team may have to prepare for their Week 2 matchup with the New York Jets without two members of their defense, with both players currently dealing with concussion symptoms that could keep them out of the game . Additionally, the team released its list of injury updates ahead of the Jets game, with several players missing practice on Friday , as Green Bay looks to bounce back from an 0-1 start to the season."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The Vikings placed running back Jordan Mason on injured reserve this week following their Week 1 win over Green Bay, signing DeeJay Dallas from the practice squad to fill the roster spot ahead of Sunday's matchup against Chicago. Meanwhile, starting quarterback Kyler Murray remains in the concussion protocol after being injured against the Packers, with backup Carson Wentz set to lead the offense against the Bears while Murray's Week 2 status stays uncertain."
+      "summary": "Kyler Murray was officially ruled out for Sunday's Week 2 matchup against the Chicago Bears after failing to clear the concussion protocol, meaning Carson Wentz will make his first start of the season while J.J. McCarthy moves up to serve as backup quarterback."
     }
   }
 }
