@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-09-20T15:07:59.222963+00:00",
+  "last_updated": "2026-09-21T17:29:06.070646+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The Chicago Bears (1-0) are set to host the Minnesota Vikings at Soldier Field for their home opener, riding high after a impressive 59-37 season-opening road win over the Panthers . Ahead of the Week 2 clash, the team released a clean injury report with everyone being available to play, including Darnell Wright , while the Vikings face uncertainty over whether Kyler Murray or Carson Wentz will start at quarterback."
+      "summary": "The Chicago Bears fell 9-3 to the Minnesota Vikings at Soldier Field in a Week 2 defensive struggle, dropping their record to 1-1. Quarterback Caleb Williams suffered a hamstring injury while scrambling on first-and-goal with Chicago trailing 6-3, appearing to be in pain and having to be helped off the field, though head coach Ben Johnson said after the game he did not have a sense of the injury's severity."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions are dealing with fallout from their 41-31 Week 2 loss to the Buffalo Bills, a game in which they scored 31 points and never had a chance against the Bills , exposing serious defensive issues. The setback has prompted the Lions to be expected to make changes, with star edge rusher Aidan Hutchinson saying the team has to do something and head coach Dan Campbell agreeing that things need to change."
+      "summary": "The Detroit Lions suffered their first loss of the 2026 season, falling 41-31 to the Buffalo Bills on Thursday Night Football after falling behind by a 21-0 score before eventually falling by a 41-31 final score . Jared Goff had a strong statistical outing, completing 26 of 38 passes for 327 yards with four touchdowns and no interceptions , but the Lions' defense struggled badly against Buffalo, and the team is now looking to bolster its secondary before hosting the Jets in Week 3."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Packers head into their Week 2 matchup against the New York Jets in New Jersey with a shorthanded defense, as DT Javon Hargrave has been downgraded to OUT while EDGE Lukas Van Ness was removed from the injury report . Meanwhile, the Packers' cornerback room got a boost ahead of their Week 2 matchup as rookie Brandon Cisse is set to be available after exiting Week 1 with cramps."
+      "summary": "The Green Bay Packers snapped a six-game skid with a 20-17 overtime victory over the New York Jets on Sunday, as Trey Smack kicked a 26-yard field goal in overtime to overcome a 10-point fourth-quarter deficit. The win came despite several notable injuries, including wide receiver Jayden Reed leaving the field on a cart with his head stabilized after a frightening scene during the game."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The Minnesota Vikings are dealing with injury concerns heading into their Week 2 matchup against the Chicago Bears, as the team faces key questions with Kyler Murray out and Jordan Mason injured . Meanwhile, the Vikings made a roster move to help their cap situation, revising cornerback Isaiah Rodgers' contract to convert playtime incentives worth up to $1.5 million into a signing bonus, creating additional cap room ."
+      "summary": "The Minnesota Vikings defeated the Chicago Bears 9-3 at Soldier Field in Week 2, improving to a 2-0 record on the season. The win came despite the Vikings dealing with injuries to key players including Kyler Murray, Jauan Jennings, and Jordan Mason, with backup quarterback options like Carson Wentz stepping up under center to secure the victory."
     }
   }
 }
