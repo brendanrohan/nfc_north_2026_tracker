@@ -509,6 +509,9 @@
         </div>
       </div>
 
+      <!-- Daily Update (inserted by JS right after pinned post) -->
+      <div id="daily-update-container"></div>
+
       <!-- Week 1 Review -->
       <div class="card news-card" id="week1-review">
         <div class="news-date">September 14, 2026</div>
@@ -708,21 +711,20 @@
 <script>
 /* Load daily updates and news */
 (function() {
-  const container = document.getElementById('news-list');
+  const dailyContainer = document.getElementById('daily-update-container');
+  const newsContainer = document.getElementById('news-list');
 
   // Load both feeds
   Promise.all([
     fetch('data/updates.json?v=' + Date.now()).then(r => r.json()).catch(() => null),
     fetch('news.json?v=' + Date.now()).then(r => r.json())
   ]).then(([updates, newsItems]) => {
-    let html = '';
-
-    // 1. Add daily updates as first entry if available
+    // 1. Add daily updates right after pinned post
     if (updates && updates.teams && Object.keys(updates.teams).length > 0) {
       const d = new Date(updates.last_updated);
       const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
-      html += `
+      let dailyHtml = `
         <div class="card news-card" id="daily-update">
           <div class="news-date">${dateStr}</div>
           <h2 class="news-headline">Daily Update</h2>
@@ -735,20 +737,24 @@
       order.forEach(key => {
         const team = updates.teams[key];
         if (team) {
-          html += `<strong style="color:${colors[key]}">${team.name}</strong><br>${team.summary}<br><br>`;
+          dailyHtml += `<strong style="color:${colors[key]}">${team.name}</strong><br>${team.summary}<br><br>`;
         }
       });
 
-      html += '</p></div>';
+      dailyHtml += '</p></div>';
+      dailyContainer.innerHTML = dailyHtml;
     }
 
-    // 2. Add Week 1 Preview (from template) - appears after daily update
+    // 2. Build news-list content
+    let html = '';
+
+    // Add Week 1 Preview (from template)
     const week1PreviewTemplate = document.getElementById('week1-preview-template');
     if (week1PreviewTemplate) {
       html += week1PreviewTemplate.innerHTML;
     }
 
-    // 3. Add regular news items (in chronological order - newest first)
+    // Add regular news items (in chronological order - newest first)
     html += newsItems.map(item => {
       let content = `
         <div class="card news-card" id="${item.id}">
@@ -787,7 +793,7 @@
       return content;
     }).join('');
 
-    container.innerHTML = html;
+    newsContainer.innerHTML = html;
   }).catch(err => console.error('Error loading news:', err));
 })();
 </script>
