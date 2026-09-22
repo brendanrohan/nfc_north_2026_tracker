@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-09-21T17:29:06.070646+00:00",
+  "last_updated": "2026-09-22T15:58:53.928349+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The Chicago Bears fell 9-3 to the Minnesota Vikings at Soldier Field in a Week 2 defensive struggle, dropping their record to 1-1. Quarterback Caleb Williams suffered a hamstring injury while scrambling on first-and-goal with Chicago trailing 6-3, appearing to be in pain and having to be helped off the field, though head coach Ben Johnson said after the game he did not have a sense of the injury's severity."
+      "summary": "Chicago Bears quarterback Caleb Williams is week-to-week with a right hamstring injury he sustained midway through the fourth quarter of Sunday's 9-3 loss to the Vikings at Soldier Field. However, Williams has avoided a significant injury, and even if he sits out in Week 3, that's likely all the time he will miss , with Tyson Bagent ready to step in if needed."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions suffered their first loss of the 2026 season, falling 41-31 to the Buffalo Bills on Thursday Night Football after falling behind by a 21-0 score before eventually falling by a 41-31 final score . Jared Goff had a strong statistical outing, completing 26 of 38 passes for 327 yards with four touchdowns and no interceptions , but the Lions' defense struggled badly against Buffalo, and the team is now looking to bolster its secondary before hosting the Jets in Week 3."
+      "summary": "The Detroit Lions are dealing with a struggling defense after a 41-31 Week 2 loss to the Buffalo Bills, with safety Avonte Maddox now out for the year, prompting the team to promise shake-ups in the secondary . In response, head coach Dan Campbell and the front office may have to consider looking at the trade market to address the injury woes , while the team has also re-signed veteran safety Jalen Mills to their practice squad to add depth."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Green Bay Packers snapped a six-game skid with a 20-17 overtime victory over the New York Jets on Sunday, as Trey Smack kicked a 26-yard field goal in overtime to overcome a 10-point fourth-quarter deficit. The win came despite several notable injuries, including wide receiver Jayden Reed leaving the field on a cart with his head stabilized after a frightening scene during the game."
+      "summary": "The Green Bay Packers are dealing with the fallout from their overtime win over the New York Jets, most notably wide receiver Jayden Reed suffering a neck injury that will keep him overnight in New York . Meanwhile, the team has already turned its focus to Week 3, releasing its Packers-Falcons injury report on Sept."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The Minnesota Vikings defeated the Chicago Bears 9-3 at Soldier Field in Week 2, improving to a 2-0 record on the season. The win came despite the Vikings dealing with injuries to key players including Kyler Murray, Jauan Jennings, and Jordan Mason, with backup quarterback options like Carson Wentz stepping up under center to secure the victory."
+      "summary": "Quarterback Kyler Murray has cleared concussion protocol and is back in the starting lineup for the Minnesota Vikings , with head coach Kevin O'Connell confirming Murray will start Sunday when the undefeated Vikings (2-0) visit Tampa Bay to face Baker Mayfield and the Buccaneers (0-2) . This is a major boost for Minnesota after Murray was knocked out of the Week 1 win over Green Bay, and it comes on the heels of the Vikings' gritty 9-3 road victory over the Chicago Bears in Week 2."
     }
   }
 }
