@@ -477,9 +477,61 @@
   <div class="news-layout">
     <!-- News Column (2/3) -->
     <div class="news-column">
-      <!-- Pinned: Week 3 Preview -->
-      <div class="card news-card pinned-post" id="week3-preview">
-        <div class="pinned-badge">📌 Pinned</div>
+      <!-- Pinned: Daily Update (inserted by JS) -->
+      <div id="daily-update-container"></div>
+
+      <!-- Week 4 Preview -->
+      <div class="card news-card" id="week4-preview">
+        <div class="news-date">October 1, 2026</div>
+        <h2 class="news-headline">Week 4 Preview</h2>
+
+        <p class="news-text">Missed the Week 3 review so onto Week 4 preview…</p>
+
+        <p class="news-text">It's a couple of North South battles as the states of Minnesota and Wisconsin battle the Florida, specifically Tampa Bay and Miami (both teams so far winless). Meanwhile the Jets continue their midwest tour with their third straight game against NFC North teams. And the Lions have a prime time matchup against the perking up Panthers.</p>
+
+        <hr class="preview-divider">
+
+        <div class="game-preview">
+          <div class="game-preview-header">
+            <span class="matchup"><span class="team-name jets">Jets</span> @ <span class="team-name bears" style="color:var(--bear-orange)">Bears</span></span>
+            <span class="game-line">Line -3.5, O/U 45.5</span>
+          </div>
+          <p class="news-text">The Jets have looked decent but are staring down their third straight loss to the North. The Bears dismantled the Eagles on Monday night and will look to build on that momentum with their temporary QB Case Keenum. Should be a fun, early afternoon fall matchup at Soldier Field.</p>
+        </div>
+
+        <hr class="preview-divider">
+
+        <div class="game-preview">
+          <div class="game-preview-header">
+            <span class="matchup"><span class="team-name packers" style="color:var(--packer-gold)">Packers</span> vs <span class="team-name buccaneers">Buccaneers</span></span>
+            <span class="game-line">Line -3.5, O/U 38.5</span>
+          </div>
+          <p class="news-text">Packers get a do over at home vs the Bucs. They looked awful on their stand alone Thursday game. Will need to solve the intractable problems of an offensive line down a few starters and non-existent run game without their bell cow Josh Jacobs. The Buc have their own issues as starter Baker Mayfield is out and already reeling with a 0-3 record. Could be desperate.</p>
+        </div>
+
+        <hr class="preview-divider">
+
+        <div class="game-preview">
+          <div class="game-preview-header">
+            <span class="matchup"><span class="team-name vikings" style="color:var(--viking-gold)">Vikings</span> vs <span class="team-name dolphins">Dolphins</span></span>
+            <span class="game-line">Line -7.5, O/U 43.5</span>
+          </div>
+          <p class="news-text">The Dolphins are awful having just lost to the Chiefs at home where they didn't cover the sizable point spread. Now they have to go up to Minneapolis to play the 3-0 Vikings who have been cruising despite upheaval at QB. Once again, a touchdown dog on the road and appears the trends of both these teams will continue.</p>
+        </div>
+
+        <hr class="preview-divider">
+
+        <div class="game-preview">
+          <div class="game-preview-header">
+            <span class="matchup"><span class="team-name lions" style="color:var(--lion-blue)">Lions</span> @ <span class="team-name panthers">Panthers</span></span>
+            <span class="game-line">Line -3.5, O/U 45.5</span>
+          </div>
+          <p class="news-text">Prime time baby! This will be a big deal for the Panthers who have been bad for a while and can't remember the last time they played in a stand alone regular season game. Lions fans with long memories will remember the 2002 season where they went into Carolina late in the season with playoff hopes and surrendered an ungodly amount of rushing yards — like Oklahoma in the 80s number of yards. Let's hope we get a good one here. The books are begging you to take the Panthers getting 3.5 points at home.</p>
+        </div>
+      </div>
+
+      <!-- Week 3 Preview -->
+      <div class="card news-card" id="week3-preview">
         <div class="news-date">September 24, 2026</div>
         <h2 class="news-headline">Week 3 Preview</h2>
 
@@ -525,9 +577,6 @@
           <p class="news-text">The Bears score 59 points in game one, then three points the next game. They lose their starting quarterback as well, and maybe their backup too. This game is like Chinatown. Who knows, really? The Eagles almost/shoulda lost to the Titans so these teams could be good or bad. Maybe we'll know more by midnight ET on Tuesday.</p>
         </div>
       </div>
-
-      <!-- Daily Update (inserted by JS right after pinned post) -->
-      <div id="daily-update-container"></div>
 
       <!-- Week 2 Review -->
       <div class="card news-card" id="week2-review">
@@ -661,50 +710,6 @@
     <div class="schedule-column">
       <div class="subsection-header">2026 Schedule</div>
 
-      <!-- Week 1 -->
-      <div class="week-card">
-        <div class="week-header">
-          <span class="week-num">Week 1</span>
-          <span class="week-date">Sep 13</span>
-        </div>
-        <div class="week-body">
-          <div class="game-row">
-            <div class="game-matchup"><span class="loser">Packers 22</span> <span class="vs-sep">@</span> <span class="winner">Vikings 39</span></div>
-            <div class="game-meta"><span class="game-final">Final</span></div>
-          </div>
-          <div class="game-row">
-            <div class="game-matchup"><span class="winner">Lions 31</span> <span class="vs-sep">vs</span> <span class="loser">Saints 30</span></div>
-            <div class="game-meta"><span class="game-final">Final/OT</span></div>
-          </div>
-          <div class="game-row">
-            <div class="game-matchup"><span class="winner">Bears 59</span> <span class="vs-sep">@</span> <span class="loser">Panthers 37</span></div>
-            <div class="game-meta"><span class="game-final">Final</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Week 2 -->
-      <div class="week-card">
-        <div class="week-header">
-          <span class="week-num">Week 2</span>
-          <span class="week-date">Sep 20</span>
-        </div>
-        <div class="week-body">
-          <div class="game-row">
-            <div class="game-matchup"><span class="winner">Vikings 9</span> <span class="vs-sep">@</span> <span class="loser">Bears 3</span></div>
-            <div class="game-meta"><span class="game-final">Final ★</span></div>
-          </div>
-          <div class="game-row">
-            <div class="game-matchup"><span class="loser">Lions 31</span> <span class="vs-sep">@</span> <span class="winner">Bills 41</span></div>
-            <div class="game-meta"><span class="game-final">Final</span></div>
-          </div>
-          <div class="game-row">
-            <div class="game-matchup"><span class="winner">Packers 20</span> <span class="vs-sep">@</span> <span class="loser">Jets 17</span></div>
-            <div class="game-meta"><span class="game-final">Final/OT</span></div>
-          </div>
-        </div>
-      </div>
-
       <!-- Week 3 -->
       <div class="week-card">
         <div class="week-header">
@@ -754,6 +759,49 @@
         </div>
       </div>
 
+      <!-- Week 5 -->
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 5</span>
+          <span class="week-date">Oct 11</span>
+        </div>
+        <div class="week-body">
+          <div class="game-row">
+            <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Packers</span></div>
+            <div class="game-meta"><span class="game-slot">★</span></div>
+          </div>
+          <div class="game-row">
+            <div class="game-matchup"><span class="away-team">Vikings</span> <span class="vs-sep">@</span> <span class="home-team">Saints</span></div>
+          </div>
+          <div class="game-row">
+            <div class="game-matchup"><span class="away-team">Lions</span> <span class="vs-sep">@</span> <span class="home-team">Cardinals</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Week 6 -->
+      <div class="week-card">
+        <div class="week-header">
+          <span class="week-num">Week 6</span>
+          <span class="week-date">Oct 18</span>
+        </div>
+        <div class="week-body">
+          <div class="game-row">
+            <div class="game-matchup"><span style="color:var(--muted)">Lions: Bye Week</span></div>
+          </div>
+          <div class="game-row">
+            <div class="game-matchup"><span style="color:var(--muted)">Vikings: Bye Week</span></div>
+          </div>
+          <div class="game-row">
+            <div class="game-matchup"><span class="away-team">Bears</span> <span class="vs-sep">@</span> <span class="home-team">Falcons</span></div>
+          </div>
+          <div class="game-row">
+            <div class="game-matchup"><span class="home-team">Packers</span> <span class="vs-sep">vs</span> <span>Cowboys</span></div>
+            <div class="game-meta"><span class="game-slot">SNF</span></div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </main>
@@ -775,7 +823,8 @@
       const dateStr = d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
 
       let dailyHtml = `
-        <div class="card news-card" id="daily-update">
+        <div class="card news-card pinned-post" id="daily-update">
+          <div class="pinned-badge">📌 Pinned</div>
           <div class="news-date">${dateStr}</div>
           <h2 class="news-headline">Daily Update</h2>
           <p class="news-text">
