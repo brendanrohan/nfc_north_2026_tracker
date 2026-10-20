@@ -118,7 +118,28 @@
   /* ── LAYOUT ── */
   main { max-width: 1100px; margin: 0 auto; padding: 2rem 1rem 4rem; }
 
-  section { margin-bottom: 3rem; scroll-margin-top: 60px; }
+  section { margin-bottom: 2rem; scroll-margin-top: 60px; }
+
+  /* ── PAGE LAYOUT (2-column) ── */
+  .page-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .page-layout { grid-template-columns: 1fr; }
+  }
+  .main-column section:last-child { margin-bottom: 0; }
+  .schedule-sidebar .week-card { margin-bottom: .75rem; }
+  .schedule-sidebar .week-card:last-child { margin-bottom: 0; }
+  .schedule-sidebar .subsection-header {
+    position: sticky;
+    top: 48px;
+    background: var(--navy);
+    padding: .5rem 0;
+    z-index: 10;
+  }
 
   .section-header {
     display: flex;
@@ -758,6 +779,9 @@
 </nav>
 
 <main>
+<div class="page-layout">
+  <!-- Main Column (2/3) -->
+  <div class="main-column">
 
 <!-- ══════════════════════════════════════════
      2026 STANDINGS
@@ -767,131 +791,141 @@
     <span class="section-label">2026 Standings</span>
     <div class="section-line"></div>
   </div>
-  <div class="standings-grid">
-    <!-- Standings Table -->
-    <div class="card">
-      <table class="standings-table">
-        <thead>
-          <tr>
-            <th>Team</th>
-            <th>W</th><th>L</th><th>T</th><th>Pct</th>
-            <th style="text-align:center;">Div</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <img src="images/vikings.png" alt="Vikings" style="width:24px;height:24px;object-fit:contain;">
-                <span>Minnesota Vikings</span>
-              </div>
-            </td>
-            <td class="record-w">5</td>
-            <td>0</td>
-            <td>0</td>
-            <td>1.000</td>
-            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-0</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <img src="images/packers.png" alt="Packers" style="width:24px;height:24px;object-fit:contain;">
-                <span>Green Bay Packers</span>
-              </div>
-            </td>
-            <td class="record-w">4</td>
-            <td class="record-l">2</td>
-            <td>0</td>
-            <td>.667</td>
-            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">1-1</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <img src="images/bears.png" alt="Bears" style="width:24px;height:24px;object-fit:contain;">
-                <span>Chicago Bears</span>
-              </div>
-            </td>
-            <td class="record-w">4</td>
-            <td class="record-l">2</td>
-            <td>0</td>
-            <td>.667</td>
-            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">0-2</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <img src="images/lions.png" alt="Lions" style="width:24px;height:24px;object-fit:contain;">
-                <span>Detroit Lions</span>
-              </div>
-            </td>
-            <td class="record-w">3</td>
-            <td class="record-l">2</td>
-            <td>0</td>
-            <td>.600</td>
-            <td style="text-align:center;color:var(--muted);font-family:'DM Mono',monospace;font-size:.82rem;">0-0</td>
-          </tr>
-        </tbody>
-      </table>
+  <div class="card">
+    <table class="standings-table">
+      <thead>
+        <tr>
+          <th>Team</th>
+          <th>W</th><th>L</th><th>T</th><th>Pct</th>
+          <th style="text-align:center;">Div</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="team-name-cell">
+              <img src="images/vikings.png" alt="Vikings" style="width:24px;height:24px;object-fit:contain;">
+              <span>Minnesota Vikings</span>
+            </div>
+          </td>
+          <td class="record-w">5</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1.000</td>
+          <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-0</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="team-name-cell">
+              <img src="images/packers.png" alt="Packers" style="width:24px;height:24px;object-fit:contain;">
+              <span>Green Bay Packers</span>
+            </div>
+          </td>
+          <td class="record-w">4</td>
+          <td class="record-l">2</td>
+          <td>0</td>
+          <td>.667</td>
+          <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">1-1</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="team-name-cell">
+              <img src="images/bears.png" alt="Bears" style="width:24px;height:24px;object-fit:contain;">
+              <span>Chicago Bears</span>
+            </div>
+          </td>
+          <td class="record-w">4</td>
+          <td class="record-l">2</td>
+          <td>0</td>
+          <td>.667</td>
+          <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">0-2</td>
+        </tr>
+        <tr>
+          <td>
+            <div class="team-name-cell">
+              <img src="images/lions.png" alt="Lions" style="width:24px;height:24px;object-fit:contain;">
+              <span>Detroit Lions</span>
+            </div>
+          </td>
+          <td class="record-w">3</td>
+          <td class="record-l">2</td>
+          <td>0</td>
+          <td>.600</td>
+          <td style="text-align:center;color:var(--muted);font-family:'DM Mono',monospace;font-size:.82rem;">0-0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     COMMON OPPONENTS
+════════════════════════════════════════════ -->
+<section id="opponents">
+  <div class="section-header">
+    <span class="section-label">2026 Common Opponents</span>
+    <div class="section-line"></div>
+  </div>
+  <div class="card">
+    <div class="opp-section">
+      <div class="opp-label">NFC South</div>
+      <div class="opp-logos">
+        <div class="opp-logo" title="Buccaneers"><img src="images/buccaneers.png" alt="Buccaneers"></div>
+        <div class="opp-logo" title="Falcons"><img src="images/falcons.png" alt="Falcons"></div>
+        <div class="opp-logo" title="Panthers"><img src="images/panthers.png" alt="Panthers"></div>
+        <div class="opp-logo" title="Saints"><img src="images/saints.png" alt="Saints"></div>
+      </div>
     </div>
-    <!-- Power Rankings -->
-    <div class="card rankings-card">
-        <div class="rankings-header">Power Rankings</div>
-        <div class="rankings-columns">
-          <div class="rankings-section">
-            <div class="rankings-label"><a href="https://www.espn.com/nfl/fpi" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">FPI</a> <span class="rankings-date">(Oct 19)</span></div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-              <div class="rankings-rank">5th</div>
-              <div class="rankings-change up">+7</div>
-            </div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-              <div class="rankings-rank">11th</div>
-              <div class="rankings-change down">-1</div>
-            </div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-              <div class="rankings-rank">14th</div>
-              <div class="rankings-change down">-1</div>
-            </div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-              <div class="rankings-rank">16th</div>
-              <div class="rankings-change">—</div>
-            </div>
-          </div>
-          <div class="rankings-section">
-            <div class="rankings-label"><a href="https://www.sharpfootballanalysis.com/analysis/nfl-power-rankings/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Sharp Football</a> <span class="rankings-date">(Oct 12)</span></div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-              <div class="rankings-rank">11th</div>
-              <div class="rankings-change up">+1</div>
-            </div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-              <div class="rankings-rank">12th</div>
-              <div class="rankings-change up">+1</div>
-            </div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-              <div class="rankings-rank">13th</div>
-              <div class="rankings-change down">-2</div>
-            </div>
-            <div class="rankings-row">
-              <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-              <div class="rankings-rank">18th</div>
-              <div class="rankings-change up">+4</div>
-            </div>
-          </div>
-        </div>
+    <div class="opp-section" style="margin-top:.75rem;">
+      <div class="opp-label">AFC East</div>
+      <div class="opp-logos">
+        <div class="opp-logo" title="Bills"><img src="images/bills.png" alt="Bills"></div>
+        <div class="opp-logo" title="Dolphins"><img src="images/dolphins.png" alt="Dolphins"></div>
+        <div class="opp-logo" title="Jets"><img src="images/jets.png" alt="Jets"></div>
+        <div class="opp-logo" title="Patriots"><img src="images/patriots.png" alt="Patriots"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="subsection-header" style="margin-top:1.25rem;">By 2025 Finish</div>
+  <div class="grid-4" style="margin-top:.75rem;">
+    <div class="card team-opp-card">
+      <div class="team-opp-header" style="color:#e64100;">Bears (1st)</div>
+      <div class="opp-logos">
+        <div class="opp-logo" title="Eagles"><img src="images/eagles.png" alt="Eagles"></div>
+        <div class="opp-logo" title="Seahawks"><img src="images/seahawks.png" alt="Seahawks"></div>
+        <div class="opp-logo" title="Jaguars"><img src="images/jaguars.png" alt="Jaguars"></div>
+      </div>
+    </div>
+    <div class="card team-opp-card">
+      <div class="team-opp-header" style="color:#ffb612;">Packers (2nd)</div>
+      <div class="opp-logos">
+        <div class="opp-logo" title="Cowboys"><img src="images/cowboys.png" alt="Cowboys"></div>
+        <div class="opp-logo" title="Rams"><img src="images/rams.png" alt="Rams"></div>
+        <div class="opp-logo" title="Texans"><img src="images/texans.png" alt="Texans"></div>
+      </div>
+    </div>
+    <div class="card team-opp-card">
+      <div class="team-opp-header" style="color:#ffc62f;">Vikings (3rd)</div>
+      <div class="opp-logos">
+        <div class="opp-logo" title="Commanders"><img src="images/commanders.png" alt="Commanders"></div>
+        <div class="opp-logo" title="49ers"><img src="images/49ers.png" alt="49ers"></div>
+        <div class="opp-logo" title="Colts"><img src="images/colts.png" alt="Colts"></div>
+      </div>
+    </div>
+    <div class="card team-opp-card">
+      <div class="team-opp-header" style="color:#0076b6;">Lions (4th)</div>
+      <div class="opp-logos">
+        <div class="opp-logo" title="Giants"><img src="images/giants.png" alt="Giants"></div>
+        <div class="opp-logo" title="Cardinals"><img src="images/cardinals.png" alt="Cardinals"></div>
+        <div class="opp-logo" title="Titans"><img src="images/titans.png" alt="Titans"></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════════════════
-     SCHEDULE
+     2026 SCHEDULE
 ════════════════════════════════════════════ -->
 <section id="schedule">
   <div class="section-header">
@@ -901,162 +935,7 @@
   </div>
   <div class="weeks-grid">
 
-    <!-- Week 1 -->
-    <div class="week-card">
-      <div class="week-header">
-        <span class="week-num">Week 1</span>
-        <span class="week-date">Sep 13</span>
-      </div>
-      <div class="week-body">
-        <div class="game-row divisional">
-          <span class="div-star">★</span>
-          <div class="game-matchup"><span class="away-team">Packers 22</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Vikings 39</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Lions 31</span> <span class="vs-sep">vs</span> <span>Saints 30</span></div>
-          <div class="game-meta"><span class="game-slot">Final/OT</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Bears 59</span> <span class="vs-sep">@</span> <span class="home-team">Panthers 37</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Week 2 -->
-    <div class="week-card">
-      <div class="week-header">
-        <span class="week-num">Week 2</span>
-        <span class="week-date">Sep 20</span>
-      </div>
-      <div class="week-body">
-        <div class="game-row divisional">
-          <span class="div-star">★</span>
-          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Vikings 9</span> <span class="vs-sep">@</span> <span class="home-team">Bears 3</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team">Lions 31</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Bills 41</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Packers 20</span> <span class="vs-sep">@</span> <span class="home-team">Jets 17</span></div>
-          <div class="game-meta"><span class="game-slot">Final/OT</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Week 3 -->
-    <div class="week-card">
-      <div class="week-header">
-        <span class="week-num">Week 3</span>
-        <span class="week-date">Sep 27</span>
-      </div>
-      <div class="week-body">
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team">Packers 14</span> <span class="vs-sep">vs</span> <span style="color:var(--green);font-weight:500;">Falcons 35</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Vikings 23</span> <span class="vs-sep">@</span> <span class="home-team">Buccaneers 16</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Lions 31</span> <span class="vs-sep">vs</span> <span>Jets 24</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Bears 27</span> <span class="vs-sep">vs</span> <span>Eagles 7</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Week 4 -->
-    <div class="week-card">
-      <div class="week-header">
-        <span class="week-num">Week 4</span>
-        <span class="week-date">Oct 4</span>
-      </div>
-      <div class="week-body">
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Bears 23</span> <span class="vs-sep">vs</span> <span>Jets 12</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Vikings 15</span> <span class="vs-sep">vs</span> <span>Dolphins 10</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team">Lions 26</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Panthers 32</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Packers 17</span> <span class="vs-sep">vs</span> <span>Buccaneers 14</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Week 5 -->
-    <div class="week-card">
-      <div class="week-header">
-        <span class="week-num">Week 5</span>
-        <span class="week-date">Oct 11</span>
-      </div>
-      <div class="week-body">
-        <div class="game-row divisional">
-          <span class="div-star">★</span>
-          <div class="game-matchup"><span class="away-team">Bears 7</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Packers 31</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Vikings 23</span> <span class="vs-sep">@</span> <span class="home-team">Saints 15</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Lions 45</span> <span class="vs-sep">@</span> <span class="home-team">Cardinals 21</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Week 6 -->
-    <div class="week-card">
-      <div class="week-header">
-        <span class="week-num">Week 6</span>
-        <span class="week-date">Oct 18</span>
-      </div>
-      <div class="week-body">
-        <div class="bye-row"><span class="bye-dot"></span>Lions: Bye Week</div>
-        <div class="bye-row"><span class="bye-dot"></span>Vikings: Bye Week</div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Bears 31</span> <span class="vs-sep">@</span> <span class="home-team">Falcons 23</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-        <div class="game-row">
-          <span class="div-star"></span>
-          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Packers 23</span> <span class="vs-sep">vs</span> <span>Cowboys 13</span></div>
-          <div class="game-meta"><span class="game-slot">Final</span></div>
-        </div>
-      </div>
-    </div>
+    <!-- UPCOMING GAMES -->
 
     <!-- Week 7 -->
     <div class="week-card">
@@ -1343,320 +1222,378 @@
       </div>
     </div>
 
-  </div>
+    <!-- COMPLETED GAMES -->
+    <div class="subsection-header" style="margin-top:1.5rem;grid-column:1/-1;">Completed</div>
+
+    <!-- Week 6 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 6</span>
+        <span class="week-date">Oct 18</span>
+      </div>
+      <div class="week-body">
+        <div class="bye-row"><span class="bye-dot"></span>Lions: Bye Week</div>
+        <div class="bye-row"><span class="bye-dot"></span>Vikings: Bye Week</div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Bears 31</span> <span class="vs-sep">@</span> <span class="home-team">Falcons 23</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Packers 23</span> <span class="vs-sep">vs</span> <span>Cowboys 13</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 5 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 5</span>
+        <span class="week-date">Oct 11</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Bears 7</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Packers 31</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Vikings 23</span> <span class="vs-sep">@</span> <span class="home-team">Saints 15</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Lions 45</span> <span class="vs-sep">@</span> <span class="home-team">Cardinals 21</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 4 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 4</span>
+        <span class="week-date">Oct 4</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Bears 23</span> <span class="vs-sep">vs</span> <span>Jets 12</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Vikings 15</span> <span class="vs-sep">vs</span> <span>Dolphins 10</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Lions 26</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Panthers 32</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Packers 17</span> <span class="vs-sep">vs</span> <span>Buccaneers 14</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 3 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 3</span>
+        <span class="week-date">Sep 27</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team">Packers 14</span> <span class="vs-sep">vs</span> <span style="color:var(--green);font-weight:500;">Falcons 35</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Vikings 23</span> <span class="vs-sep">@</span> <span class="home-team">Buccaneers 16</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Lions 31</span> <span class="vs-sep">vs</span> <span>Jets 24</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Bears 27</span> <span class="vs-sep">vs</span> <span>Eagles 7</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 2 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 2</span>
+        <span class="week-date">Sep 20</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Vikings 9</span> <span class="vs-sep">@</span> <span class="home-team">Bears 3</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team">Lions 31</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Bills 41</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Packers 20</span> <span class="vs-sep">@</span> <span class="home-team">Jets 17</span></div>
+          <div class="game-meta"><span class="game-slot">Final/OT</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Week 1 -->
+    <div class="week-card">
+      <div class="week-header">
+        <span class="week-num">Week 1</span>
+        <span class="week-date">Sep 13</span>
+      </div>
+      <div class="week-body">
+        <div class="game-row divisional">
+          <span class="div-star">★</span>
+          <div class="game-matchup"><span class="away-team">Packers 22</span> <span class="vs-sep">@</span> <span class="home-team" style="color:var(--green);font-weight:500;">Vikings 39</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="home-team" style="color:var(--green);font-weight:500;">Lions 31</span> <span class="vs-sep">vs</span> <span>Saints 30</span></div>
+          <div class="game-meta"><span class="game-slot">Final/OT</span></div>
+        </div>
+        <div class="game-row">
+          <span class="div-star"></span>
+          <div class="game-matchup"><span class="away-team" style="color:var(--green);font-weight:500;">Bears 59</span> <span class="vs-sep">@</span> <span class="home-team">Panthers 37</span></div>
+          <div class="game-meta"><span class="game-slot">Final</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end weeks-grid -->
 </section>
 
-<!-- ══════════════════════════════════════════
-     OPPONENTS
-════════════════════════════════════════════ -->
-<section id="opponents">
-  <div class="section-header">
-    <span class="section-label">2026 Opponents</span>
-    <div class="section-line"></div>
-  </div>
+  </div><!-- end main-column -->
 
-  <div class="opponents-grid">
-    <!-- Common Opponents -->
-    <div>
-      <div class="subsection-header">Common Opponents</div>
-      <div class="card">
-        <div class="opp-section">
-          <div class="opp-label">NFC South</div>
-          <div class="opp-logos">
-            <div class="opp-logo" title="Buccaneers"><img src="images/buccaneers.png" alt="Buccaneers"></div>
-            <div class="opp-logo" title="Falcons"><img src="images/falcons.png" alt="Falcons"></div>
-            <div class="opp-logo" title="Panthers"><img src="images/panthers.png" alt="Panthers"></div>
-            <div class="opp-logo" title="Saints"><img src="images/saints.png" alt="Saints"></div>
+  <!-- Right Sidebar (1/3) -->
+  <div class="schedule-sidebar">
+
+    <!-- Power Rankings -->
+    <div class="subsection-header">Power Rankings</div>
+    <div class="card rankings-card">
+      <div class="rankings-columns">
+        <div class="rankings-section">
+          <div class="rankings-label"><a href="https://www.espn.com/nfl/fpi" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">FPI</a> <span class="rankings-date">(Oct 20)</span></div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="rankings-rank">5th</div>
+            <div class="rankings-change">—</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="rankings-rank">11th</div>
+            <div class="rankings-change">—</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="rankings-rank">13th</div>
+            <div class="rankings-change up">+1</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="rankings-rank">15th</div>
+            <div class="rankings-change up">+1</div>
           </div>
         </div>
-        <div class="opp-section" style="margin-top:.75rem;">
-          <div class="opp-label">AFC East</div>
-          <div class="opp-logos">
-            <div class="opp-logo" title="Bills"><img src="images/bills.png" alt="Bills"></div>
-            <div class="opp-logo" title="Dolphins"><img src="images/dolphins.png" alt="Dolphins"></div>
-            <div class="opp-logo" title="Jets"><img src="images/jets.png" alt="Jets"></div>
-            <div class="opp-logo" title="Patriots"><img src="images/patriots.png" alt="Patriots"></div>
+        <div class="rankings-section">
+          <div class="rankings-label"><a href="https://www.sharpfootballanalysis.com/analysis/nfl-power-rankings/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Sharp Football</a> <span class="rankings-date">(Oct 20)</span></div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="rankings-rank">10th</div>
+            <div class="rankings-change up">+1</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="rankings-rank">11th</div>
+            <div class="rankings-change up">+2</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="rankings-rank">12th</div>
+            <div class="rankings-change">—</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="rankings-rank">15th</div>
+            <div class="rankings-change up">+3</div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- By 2025 Finish -->
-    <div>
-      <div class="subsection-header">By 2025 Finish</div>
-      <div class="grid-2-stacked">
-        <div class="card team-opp-card">
-          <div class="team-opp-header" style="color:#e64100">Bears (1st)</div>
-          <div class="opp-logos">
-            <div class="opp-logo" title="Eagles"><img src="images/eagles.png" alt="Eagles"></div>
-            <div class="opp-logo" title="Seahawks"><img src="images/seahawks.png" alt="Seahawks"></div>
-            <div class="opp-logo" title="Jaguars"><img src="images/jaguars.png" alt="Jaguars"></div>
-          </div>
+    <!-- Advanced Stats: DVOA -->
+    <div class="subsection-header" style="margin-top:1.5rem;">Defense-adjusted Value Over Average (DVOA)</div>
+    <div class="card rankings-card">
+      <div class="rankings-section">
+        <div class="rankings-label"><a href="https://ftnfantasy.com/stats/nfl/team-total-dvoa" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Total DVOA</a> <span class="rankings-date">(FTN Fantasy)</span></div>
+        <div class="rankings-row">
+          <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+          <div class="rankings-rank">19.5%</div>
+          <div class="rankings-change" style="background:none;color:var(--muted);">7th</div>
         </div>
-        <div class="card team-opp-card">
-          <div class="team-opp-header" style="color:#ffb612">Packers (2nd)</div>
-          <div class="opp-logos">
-            <div class="opp-logo" title="Cowboys"><img src="images/cowboys.png" alt="Cowboys"></div>
-            <div class="opp-logo" title="Rams"><img src="images/rams.png" alt="Rams"></div>
-            <div class="opp-logo" title="Texans"><img src="images/texans.png" alt="Texans"></div>
-          </div>
+        <div class="rankings-row">
+          <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+          <div class="rankings-rank">6.1%</div>
+          <div class="rankings-change" style="background:none;color:var(--muted);">15th</div>
         </div>
-        <div class="card team-opp-card">
-          <div class="team-opp-header" style="color:#ffc62f">Vikings (3rd)</div>
-          <div class="opp-logos">
-            <div class="opp-logo" title="Commanders"><img src="images/commanders.png" alt="Commanders"></div>
-            <div class="opp-logo" title="49ers"><img src="images/49ers.png" alt="49ers"></div>
-            <div class="opp-logo" title="Colts"><img src="images/colts.png" alt="Colts"></div>
-          </div>
+        <div class="rankings-row">
+          <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+          <div class="rankings-rank">4.0%</div>
+          <div class="rankings-change" style="background:none;color:var(--muted);">17th</div>
         </div>
-        <div class="card team-opp-card">
-          <div class="team-opp-header" style="color:#0076b6">Lions (4th)</div>
-          <div class="opp-logos">
-            <div class="opp-logo" title="NY Giants"><img src="images/giants.png" alt="NY Giants"></div>
-            <div class="opp-logo" title="Cardinals"><img src="images/cardinals.png" alt="Cardinals"></div>
-            <div class="opp-logo" title="Titans"><img src="images/titans.png" alt="Titans"></div>
-          </div>
+        <div class="rankings-row">
+          <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+          <div class="rankings-rank">0.9%</div>
+          <div class="rankings-change" style="background:none;color:var(--muted);">18th</div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════════
-     2026 PREDICTIONS
-════════════════════════════════════════════ -->
-<section id="predictions">
-  <div class="section-header">
-    <span class="section-label">2026 Predictions</span>
-    <div class="section-line"></div>
-  </div>
-
-  <div class="predictions-grid">
-    <!-- Win Totals -->
-    <div id="overunders">
-      <div class="subsection-header">Win Totals</div>
-      <div class="odds-source"><a href="https://www.rotowire.com/betting/nfl/nfc-north-odds.php" target="_blank" rel="noopener">Draft Kings</a> as of Sep 8</div>
-      <div class="grid-2-stacked">
-        <div class="ou-card" style="background:linear-gradient(135deg,#0d2a3f 0%,var(--navy-card) 100%);">
-          <div class="ou-team" style="color:#0076b6">Detroit Lions</div>
-          <div class="ou-number">10.5</div>
-          <div class="ou-label">Win Total O/U</div>
+    <!-- Advanced Stats: EPA -->
+    <div class="subsection-header" style="margin-top:1.5rem;">Expected Points Added (EPA)</div>
+    <div class="card rankings-card">
+      <div class="rankings-columns">
+        <div class="rankings-section">
+          <div class="rankings-label"><a href="https://sumersports.com/teams/offensive/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Offensive</a> <span class="rankings-date">(Sumer)</span></div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="rankings-rank">+0.16</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">3rd</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="rankings-rank">+0.05</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">12th</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="rankings-rank">+0.02</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">14th</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="rankings-rank">+0.01</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">17th</div>
+          </div>
         </div>
-        <div class="ou-card" style="background:linear-gradient(135deg,#203731 0%,var(--navy-card) 100%);">
-          <div class="ou-team" style="color:#ffb612">Green Bay Packers</div>
-          <div class="ou-number">9.5</div>
-          <div class="ou-label">Win Total O/U</div>
-        </div>
-        <div class="ou-card" style="background:linear-gradient(135deg,#0b1f59 0%,var(--navy-card) 100%);">
-          <div class="ou-team" style="color:#e64100">Chicago Bears</div>
-          <div class="ou-number">9.5</div>
-          <div class="ou-label">Win Total O/U</div>
-        </div>
-        <div class="ou-card" style="background:linear-gradient(135deg,#2d1550 0%,var(--navy-card) 100%);">
-          <div class="ou-team" style="color:#ffc62f">Minnesota Vikings</div>
-          <div class="ou-number">8.5</div>
-          <div class="ou-label">Win Total O/U</div>
+        <div class="rankings-section">
+          <div class="rankings-label"><a href="https://sumersports.com/teams/defensive/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">Defensive</a> <span class="rankings-date">(Sumer)</span></div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
+            <div class="rankings-rank">-0.23</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">1st</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
+            <div class="rankings-rank">-0.11</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">5th</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
+            <div class="rankings-rank">-0.09</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">7th</div>
+          </div>
+          <div class="rankings-row">
+            <div class="rankings-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
+            <div class="rankings-rank">+0.12</div>
+            <div class="rankings-change" style="background:none;color:var(--muted);">32nd</div>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- Division Winner -->
-    <div id="divisionodds">
-      <div class="subsection-header">Division Winner</div>
-      <div class="odds-source"><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=futures&subcategory=divisions&nav_1=division-winner" target="_blank" rel="noopener">Draft Kings</a></div>
-      <div class="div-odds-card">
-        <div class="div-odds-row" style="border-bottom:1px solid var(--navy-border);padding-bottom:.5rem;margin-bottom:.25rem;">
-          <div class="div-odds-team" style="flex:1;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Team</div>
-          <div class="div-odds-value" style="background:none;border:none;color:var(--muted);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;min-width:80px;">Preseason</div>
-          <div class="div-odds-value" style="background:none;border:none;color:var(--gold);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;min-width:80px;">Current</div>
+    <div class="subsection-header" style="margin-top:1.5rem;">Division Winner</div>
+    <div class="odds-source"><a href="https://sportsbook.draftkings.com/leagues/football/nfl?category=futures&subcategory=divisions&nav_1=division-winner" target="_blank" rel="noopener">Draft Kings</a></div>
+    <div class="div-odds-card">
+      <div class="div-odds-row" style="border-bottom:1px solid var(--navy-border);padding-bottom:.5rem;margin-bottom:.25rem;">
+        <div class="div-odds-team" style="flex:1;font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);">Team</div>
+        <div class="div-odds-value" style="background:none;border:none;color:var(--muted);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;min-width:80px;">Preseason</div>
+        <div class="div-odds-value" style="background:none;border:none;color:var(--gold);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;min-width:80px;">Current</div>
+      </div>
+      <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
+        <div class="div-odds-team" style="flex:1;">
+          <div class="div-odds-logo"><img src="images/vikings.png" alt="Vikings"></div>
+          <span>Minnesota Vikings</span>
         </div>
-        <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
-          <div class="div-odds-team" style="flex:1;">
-            <div class="div-odds-logo"><img src="images/vikings.png" alt="Vikings"></div>
-            <span>Minnesota Vikings</span>
-          </div>
-          <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+450</div>
-          <div class="div-odds-value" style="min-width:80px;">+105</div>
+        <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+450</div>
+        <div class="div-odds-value" style="min-width:80px;">+105</div>
+      </div>
+      <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
+        <div class="div-odds-team" style="flex:1;">
+          <div class="div-odds-logo"><img src="images/lions.png" alt="Lions"></div>
+          <span>Detroit Lions</span>
         </div>
-        <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
-          <div class="div-odds-team" style="flex:1;">
-            <div class="div-odds-logo"><img src="images/lions.png" alt="Lions"></div>
-            <span>Detroit Lions</span>
-          </div>
-          <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+175</div>
-          <div class="div-odds-value" style="min-width:80px;">+350</div>
+        <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+175</div>
+        <div class="div-odds-value" style="min-width:80px;">+350</div>
+      </div>
+      <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
+        <div class="div-odds-team" style="flex:1;">
+          <div class="div-odds-logo"><img src="images/bears.png" alt="Bears"></div>
+          <span>Chicago Bears</span>
         </div>
-        <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
-          <div class="div-odds-team" style="flex:1;">
-            <div class="div-odds-logo"><img src="images/bears.png" alt="Bears"></div>
-            <span>Chicago Bears</span>
-          </div>
-          <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+245</div>
-          <div class="div-odds-value" style="min-width:80px;">+350</div>
+        <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+245</div>
+        <div class="div-odds-value" style="min-width:80px;">+350</div>
+      </div>
+      <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
+        <div class="div-odds-team" style="flex:1;">
+          <div class="div-odds-logo"><img src="images/packers.png" alt="Packers"></div>
+          <span>Green Bay Packers</span>
         </div>
-        <div class="div-odds-row" style="justify-content:flex-start;gap:1rem;">
-          <div class="div-odds-team" style="flex:1;">
-            <div class="div-odds-logo"><img src="images/packers.png" alt="Packers"></div>
-            <span>Green Bay Packers</span>
-          </div>
-          <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+225</div>
-          <div class="div-odds-value" style="min-width:80px;">+530</div>
-        </div>
+        <div class="div-odds-value" style="color:var(--muted);border-color:var(--navy-border);min-width:80px;">+225</div>
+        <div class="div-odds-value" style="min-width:80px;">+530</div>
       </div>
     </div>
-  </div>
-</section>
 
-<!-- ══════════════════════════════════════════
-     2025 FINAL STANDINGS
-════════════════════════════════════════════ -->
-<section id="standings-2025">
-  <div class="section-header">
-    <span class="section-label">2025 Final Standings</span>
-    <div class="section-line"></div>
-  </div>
-  <div class="standings-grid">
-    <!-- Standings Table -->
-    <div class="card">
-      <table class="standings-table">
-        <thead>
-          <tr>
-            <th>Team</th>
-            <th>W</th><th>L</th><th>T</th><th>Pct</th>
-            <th style="text-align:center;">Div</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <span class="rank-badge">1</span>
-                <span class="team-dot" style="background:#e64100"></span>
-                <span>Chicago Bears</span>
-              </div>
-            </td>
-            <td class="record-w">11</td>
-            <td class="record-l">6</td>
-            <td>0</td>
-            <td style="color:var(--muted)">.647</td>
-            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <span class="rank-badge">2</span>
-                <span class="team-dot" style="background:#ffb612"></span>
-                <span>Green Bay Packers</span>
-              </div>
-            </td>
-            <td class="record-w">9</td>
-            <td class="record-l">7</td>
-            <td>1</td>
-            <td style="color:var(--muted)">.559</td>
-            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <span class="rank-badge">3</span>
-                <span class="team-dot" style="background:#ffc62f"></span>
-                <span>Minnesota Vikings</span>
-              </div>
-            </td>
-            <td class="record-w">9</td>
-            <td class="record-l">8</td>
-            <td>0</td>
-            <td style="color:var(--muted)">.529</td>
-            <td style="text-align:center;color:var(--green);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">4-2</td>
-          </tr>
-          <tr>
-            <td>
-              <div class="team-name-cell">
-                <span class="rank-badge">4</span>
-                <span class="team-dot" style="background:#0076b6"></span>
-                <span>Detroit Lions</span>
-              </div>
-            </td>
-            <td class="record-w">9</td>
-            <td class="record-l">8</td>
-            <td>0</td>
-            <td style="color:var(--muted)">.529</td>
-            <td style="text-align:center;color:var(--red);font-family:'DM Mono',monospace;font-size:.82rem;font-weight:500;">2-4</td>
-          </tr>
-        </tbody>
-      </table>
+    <!-- Win Totals -->
+    <div class="subsection-header" style="margin-top:1.5rem;">Win Totals</div>
+    <div class="odds-source"><a href="https://www.rotowire.com/betting/nfl/nfc-north-odds.php" target="_blank" rel="noopener">Draft Kings</a> as of Sep 8</div>
+    <div class="ou-card" style="background:linear-gradient(135deg,#0d2a3f 0%,var(--navy-card) 100%);margin-bottom:.75rem;">
+      <div class="ou-team" style="color:#0076b6">Detroit Lions</div>
+      <div class="ou-number">10.5</div>
+      <div class="ou-label">Win Total O/U</div>
     </div>
-    <!-- Advanced Stats -->
-    <div class="card stats-card">
-      <div class="stats-header">Advanced Stats</div>
-      <div class="stats-columns">
-        <div class="stats-section">
-          <div class="stats-label">EPA (Expected Points Added)</div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+44.20</span><br><span class="stat-rank">Off 14th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+29.07</span><br><span class="stat-rank">Def 18th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+58.10</span><br><span class="stat-rank">Off 8th</span></div>
-              <div class="stat-item"><span class="stat-val positive">+12.40</span><br><span class="stat-rank">Def 12th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+101.44</span><br><span class="stat-rank">Off 4th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+46.20</span><br><span class="stat-rank">Def 26th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val negative">-14.80</span><br><span class="stat-rank">Off 22nd</span></div>
-              <div class="stat-item"><span class="stat-val positive">-111.09</span><br><span class="stat-rank">Def 4th</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="stats-section">
-          <div class="stats-label">DVOA (Def-adj Value Over Avg)</div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#e64100"></span>CHI</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+12.5%</span><br><span class="stat-rank">Off 7th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+6.1%</span><br><span class="stat-rank">Def 25th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#0076b6"></span>DET</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+16.3%</span><br><span class="stat-rank">Off 3rd</span></div>
-              <div class="stat-item"><span class="stat-val positive">-1.5%</span><br><span class="stat-rank">Def 11th</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffb612"></span>GB</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val positive">+10.1%</span><br><span class="stat-rank">Off 9th</span></div>
-              <div class="stat-item"><span class="stat-val negative">+3.4%</span><br><span class="stat-rank">Def 21st</span></div>
-            </div>
-          </div>
-          <div class="stats-row">
-            <div class="stats-team"><span class="team-dot" style="background:#ffc62f"></span>MIN</div>
-            <div class="stats-values">
-              <div class="stat-item"><span class="stat-val negative">-17.2%</span><br><span class="stat-rank">Off 28th</span></div>
-              <div class="stat-item"><span class="stat-val positive">-17.0%</span><br><span class="stat-rank">Def 3rd</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="ou-card" style="background:linear-gradient(135deg,#203731 0%,var(--navy-card) 100%);margin-bottom:.75rem;">
+      <div class="ou-team" style="color:#ffb612">Green Bay Packers</div>
+      <div class="ou-number">9.5</div>
+      <div class="ou-label">Win Total O/U</div>
     </div>
-  </div>
-</section>
+    <div class="ou-card" style="background:linear-gradient(135deg,#0b1f59 0%,var(--navy-card) 100%);margin-bottom:.75rem;">
+      <div class="ou-team" style="color:#e64100">Chicago Bears</div>
+      <div class="ou-number">9.5</div>
+      <div class="ou-label">Win Total O/U</div>
+    </div>
+    <div class="ou-card" style="background:linear-gradient(135deg,#2d1550 0%,var(--navy-card) 100%);">
+      <div class="ou-team" style="color:#ffc62f">Minnesota Vikings</div>
+      <div class="ou-number">8.5</div>
+      <div class="ou-label">Win Total O/U</div>
+    </div>
 
+  </div><!-- end sidebar -->
+
+</div><!-- end page-layout -->
 </main>
 
 <script>
