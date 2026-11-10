@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-11-09T21:46:23.383292+00:00",
+  "last_updated": "2026-11-10T19:05:20.287442+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The biggest recent story out of Chicago is the Bears' gritty 27-24 overtime-scare win over the Buccaneers, as the defense bailed out quarterback Caleb Williams after he threw four interceptions, with Cairo Santos' late field goal sealing the victory. The win was overshadowed by injury concerns, as wide receiver Luther Burden was helped off the field and later confirmed by head coach Ben Johnson to have suffered a concussion, while cornerback Kyler Gordon also exited the game with an injury."
+      "summary": "The Chicago Bears took sole possession of first place in the NFC North after beating the Tampa Bay Buccaneers in a turnover-filled Week 9 game, with the Minnesota Vikings' loss to the Buffalo Bills helping Chicago's standing, though the win was overshadowed by Caleb Williams throwing four interceptions and wide receiver Luther Burden exiting with a concussion, as confirmed by head coach Ben Johnson . Despite the sloppy performance, the Bears survived a chaotic game against the Tampa Bay Buccaneers to take the top spot in the NFC North , while also dealing with ongoing trade deadline buzz involving names like Khalil Mack and newly acquired defensive tackle Jeffery Simmons."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions made a move ahead of the NFL trade deadline, acquiring veteran safety Andre Cisco from the Jets in exchange for a 2028 sixth-round pick, per ESPN's Adam Schefter, with Cisco set to become an unrestricted free agent in 2027 . The trade comes as Detroit sits at 6-2 entering Week 10 after their big win over Miami on Sunday , bolstering a secondary that has dealt with injuries this season."
+      "summary": "The Detroit Lions made a move ahead of the NFL trade deadline by trading a sixth-round pick to the New York Jets for safety Andre Cisco , addressing a need in the secondary as the team awaits the return of an injured Kerby Joseph. Meanwhile, with the trade deadline hitting Tuesday at 4 p.m."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Green Bay Packers delivered a dominant 45-27 win over the New England Patriots on Sunday, with wide receivers Matthew Golden and Christian Watson delivering historic performances in what was described as the team's best performance of the 2026 season . The victory came with a significant cost, however, as running back Josh Jacobs broke the ring finger on his right hand during the win over New England , leaving his availability for the next game uncertain."
+      "summary": "The Green Bay Packers are facing a major setback at running back after star running back Josh Jacobs could miss the next three weeks as he undergoes surgery to repair a fractured finger suffered in the Packers' Week 9 win over the New England Patriots . With Jacobs sidelined, the team is now exploring roster moves at the position while looking ahead to a Week 10 matchup against the Minnesota Vikings at Lambeau Field on Sunday, November 15."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The Minnesota Vikings are preparing to host the Buffalo Bills on Monday Night Football with their quarterback situation in flux, as Carson Wentz is starting after Minnesota made a QB change due to Kyler Murray's hamstring injury , which has left Murray week-to-week. Adding to the storylines, the Vikings are signing Odell Beckham Jr."
+      "summary": "The Minnesota Vikings fell to the Buffalo Bills 23-6 on Monday Night Football, dropping their record to 6-2, with Carson Wentz struggling badly in place of the injured Kyler Murray (hamstring). With Tuesday's trade deadline looming, insider Jordan Schultz reported the Vikings are expected to try to make a quarterback trade, with Kirk Cousins and Daniel Jones among the most likely available names."
     }
   }
 }
