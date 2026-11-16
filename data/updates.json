@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-11-15T18:15:27.670782+00:00",
+  "last_updated": "2026-11-16T21:26:42.678353+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The biggest storyline continues to be the Jeffery Simmons trade, as the All-Pro defensive tackle has been settling in after Chicago traded two first-round picks for Simmons , with reports noting he wasn't happy with the Tennessee Titans about the trade after it happened, but he's still thrilled to be in Chicago . Meanwhile, the Bears enter their bye week riding high after a strong start, as the team is 7-2 at the bye, their best start through nine games since 2012 , with an NFL executive explaining why Chicago is now favored to win the NFC North."
+      "summary": "The Bears, fresh off their bye week and sitting at 7-2 but now tied for third in a crowded NFC North, saw running back Kyle Monangai and receiver Luther Burden III return to practice as they prepare for Week 11 against the New Orleans Saints. Detroit's win over New England and Minnesota's win over Green Bay knocked Chicago down to the sixth seed in the conference, with three NFC North teams now tied at 7-2 but Minnesota and Detroit holding tiebreaker advantages over the Bears."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions beat the New England Patriots in Munich, Germany in Week 10, with standout performances including Jahmyr Gibbs' 28-yard TD run aided by Penei Sewell's pull block and Gibbs' 12th touchdown of the 2026 season breaking a tie with Kenneth Walker III atop the current leaderboard . The biggest concern from the game was that Aidan Hutchinson suffered a knee injury on a post-sack celebration against the Patriots , casting a shadow over an otherwise strong defensive effort that included Brian Branch's big hit preventing a potential third-down conversion and Roger McCreary's first interception as a Lion ."
+      "summary": "The Detroit Lions dominated the New England Patriots 35-10 in Munich, Germany, with Amon-Ra St. Brown catching two touchdowns and Jahmyr Gibbs rushing for 252 yards and two scores in the victory."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Green Bay Packers activated running back Chris Brooks and wide receiver/kick returner Skyy Moore from injured reserve ahead of their pivotal Week 10 showdown against the Minnesota Vikings at Lambeau Field. The team also released wide receiver Coleman Owen in a corresponding roster move, while several other players, including safety Xavier McKinney, remain questionable for Sunday's divisional matchup."
+      "summary": "The Green Bay Packers suffered a lopsided 30-10 loss to the Vikings, dropping to 6-4 and remaining in last place in the NFC North . Amid the fallout, head coach Matt LaFleur addressed the team's struggles, including a reshuffled offensive line after benching guard Aaron Banks, while also updating fans that star edge rusher Micah Parsons is expected to return in Week 12 after the team's bye week."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The biggest story surrounding the Vikings is their Week 10 matchup against the Packers, with Kirk Cousins, newly reacquired via trade from the Raiders, starting at quarterback for Minnesota . The team faces additional challenges heading into Green Bay, as linebacker Blake Cashman is in concussion protocol, a potential problem for the defense , and Jordan Addison may be unavailable for the game after a new injury ."
+      "summary": "Kirk Cousins made his first start for the Vikings since 2023 and led Minnesota to a dominant 30-10 victory over the Green Bay Packers, ending Minnesota's two-game losing streak and improving the team's record to 7-2 . The Vikings' defense was a key factor in the win, as the Vikings finished the game with eight sacks, and limited the Packers to only 56 yards rushing , while also gaining ground on Green Bay in the NFC North standings."
     }
   }
 }
