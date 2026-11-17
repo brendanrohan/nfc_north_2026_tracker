@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-11-16T21:26:42.678353+00:00",
+  "last_updated": "2026-11-17T20:15:18.358317+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The Bears, fresh off their bye week and sitting at 7-2 but now tied for third in a crowded NFC North, saw running back Kyle Monangai and receiver Luther Burden III return to practice as they prepare for Week 11 against the New Orleans Saints. Detroit's win over New England and Minnesota's win over Green Bay knocked Chicago down to the sixth seed in the conference, with three NFC North teams now tied at 7-2 but Minnesota and Detroit holding tiebreaker advantages over the Bears."
+      "summary": "The Bears, currently sitting at 7-2 and in the NFC playoff picture, dropped to the fifth seed after the Detroit Lions' blowout win over the New England Patriots moved Detroit into first place in the NFC North during Chicago's bye week. Meanwhile, the team is preparing for Sunday's home game against the New Orleans Saints, with both RB Kyle Monangai and WR Luther Burden III spotted back at practice as the Bears returned from their bye, with multiple reporters posting videos of the pair in action."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions dominated the New England Patriots 35-10 in Munich, Germany, with Amon-Ra St. Brown catching two touchdowns and Jahmyr Gibbs rushing for 252 yards and two scores in the victory."
+      "summary": "The biggest Lions story from the past day centers on Aidan Hutchinson, as Detroit Lions star Aidan Hutchinson is out for the season with what tests showed to be a torn ACL in his right knee, sources told NFL Network's Ian Rapoport. The two-time Pro Bowl defensive end likely suffered additional damage in the knee, with concern about his meniscus, after getting hurt while celebrating a first-quarter sack in the Lions' 35-10 victory over the New England Patriots in Munich on Sunday."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Green Bay Packers suffered a lopsided 30-10 loss to the Vikings, dropping to 6-4 and remaining in last place in the NFC North . Amid the fallout, head coach Matt LaFleur addressed the team's struggles, including a reshuffled offensive line after benching guard Aaron Banks, while also updating fans that star edge rusher Micah Parsons is expected to return in Week 12 after the team's bye week."
+      "summary": "The Packers head into their Week 11 bye at 6-4 following a lopsided 30-10 loss to the Minnesota Vikings, a defeat that has head coach Matt LaFleur frustrated and has put their NFC North title hopes in jeopardy. Amid the fallout, Green Bay got some positive injury news as Josh Jacobs has a \"realistic chance\" of returning for Week 12 against the Rams after undergoing surgery on a fractured finger , while Micah Parsons could also be nearing his 2026 season debut following the bye, though he still has a few more hurdles to clear ."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "Kirk Cousins made his first start for the Vikings since 2023 and led Minnesota to a dominant 30-10 victory over the Green Bay Packers, ending Minnesota's two-game losing streak and improving the team's record to 7-2 . The Vikings' defense was a key factor in the win, as the Vikings finished the game with eight sacks, and limited the Packers to only 56 yards rushing , while also gaining ground on Green Bay in the NFC North standings."
+      "summary": "Kirk Cousins made his triumphant return as the Vikings' starting quarterback, leading Minnesota to a 30-10 victory over the Green Bay Packers on Sunday, ending Minnesota's two-game losing streak and improving the team's record to 7-2. However, the win was tempered by news that Jordan Addison was questionable heading into Sunday's game with a thumb injury and was ultimately sidelined, with head coach Kevin O'Connell confirming Monday that Addison will miss time after having the thumb surgically repaired, leading to his placement on short-term injured reserve."
     }
   }
 }
