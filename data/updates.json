@@ -1,21 +1,21 @@
 {
-  "last_updated": "2026-11-27T20:29:10.617887+00:00",
+  "last_updated": "2026-11-28T19:21:38.350746+00:00",
   "teams": {
     "bears": {
       "name": "Chicago Bears",
-      "summary": "The biggest Bears story in the last 24 hours is the status of tight end Colston Loveland, who was ruled out for the remainder of Thursday's Thanksgiving game against the Lions after suffering a knee injury, with later reports indicating he is week-to-week and hopes to return by season's end. Sources reported Bears TE Colston Loveland is week-to-week with the knee issue, awaiting more tests , a notable blow for Chicago given the Bears were already thin at tight end after Cole Kmet sustained a season-ending knee injury earlier in the year ."
+      "summary": "The biggest Bears story is tight end Colston Loveland's injury status after Thanksgiving, as Loveland hurt his knee against the Detroit Lions on Thanksgiving Day, though the injury may not be as serious as initially thought, with the team later announcing he is \"week to week\" rather than heading to IR . The news comes as the Bears continue to ride high after their win, with Chicago securing a victory over Detroit on Thanksgiving to push into first place in the NFC North and the No."
     },
     "lions": {
       "name": "Detroit Lions",
-      "summary": "The Detroit Lions suffered a heartbreaking 39-35 Thanksgiving Day loss to the division-rival Chicago Bears at Ford Field, despite Jahmyr Gibbs officially setting a major NFL history mark, passing Barry Sanders , and a standout 313-yard performance from Jared Goff. The dramatic defeat snapped Detroit's momentum as the team now looks to \"move forward\" after the latest Thanksgiving heartbreak , while the Bears improved to 9-2 in a game that saw both teams dealing with key injuries on defense."
+      "summary": "The Detroit Lions' Thanksgiving Day defense fell apart in a 39-35 loss to the Chicago Bears , with analysts noting the team's defense had handled injuries well so far this season, but it finally caught up to them on Thanksgiving . Despite the defeat, running back Jahmyr Gibbs had a historic performance, highlighted by a standout outing that included a long touchdown dash, while the Lions now look to regroup and clean up \"self-inflicted wounds\" after the loss to the Bears ."
     },
     "packers": {
       "name": "Green Bay Packers",
-      "summary": "The Green Bay Packers fell to 6-5 after a 26-13 loss to the Los Angeles Rams on Thanksgiving Eve, their second straight defeat, with the offense badly missing injured receiver Christian Watson, who left the game with a concussion. Micah Parsons, who returned to action for the game, called the team's second-half performance \"inexcusable\" as frustration mounts over the Packers' fading playoff hopes."
+      "summary": "The Green Bay Packers fell to the Los Angeles Rams 26-13 in a Thanksgiving Eve matchup, dropping to 6-5 and intensifying concerns about their playoff chances as while Micah Parsons did return and played well, the offensive woes, particularly on the offensive line and in the running game, proved too much to overcome, leaving the Packers on the outside looking in on the playoff picture . Adding to the bad news, wide receiver Matthew Golden left the game with an ankle injury , joining Christian Watson in question marks for Week 13 as Green Bay deals with mounting injuries on offense."
     },
     "vikings": {
       "name": "Minnesota Vikings",
-      "summary": "The Minnesota Vikings received discouraging injury news ahead of their Week 12 matchup with the Falcons, as head coach Kevin O'Connell confirmed wide receiver Jordan Addison, dealing with a thumb injury, is \"progressing well\" but is unlikely to play Sunday against the Falcons . This comes as the Vikings look to bounce back from a tough Week 11 loss to the 49ers, with the team now facing questions about O'Connell's job security and the direction of the roster heading into the stretch run."
+      "summary": "The Vikings enter Sunday's Week 12 home game against the Atlanta Falcons banged up, having ruled out left tackle Christian Darrisaw, receiver Jordan Addison, and cornerback Isaiah Rodgers, while safety Harrison Smith is listed as questionable due to a quadriceps injury he suffered last week vs. the 49ers ."
     }
   }
 }
